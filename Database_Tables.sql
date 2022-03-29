@@ -28,7 +28,7 @@ CREATE TABLE medicine
      med_id   INT UNSIGNED PRIMARY KEY comment '藥品編號',
      med_name VARCHAR(20) comment '藥品名稱'
   )
-comment '藥物' 
+comment '藥物' ;
 
 CREATE TABLE book
   (
@@ -50,7 +50,25 @@ CREATE TABLE patient_records
      date         DATE comment '看診日期',
      disease_name VARCHAR(20) comment '疾病名稱',
      med_days     INT UNSIGNED comment '用藥天數',
-     med_id       INT UNSIGNED comment '藥物編號',
-     CONSTRAINT med_id FOREIGN KEY(med_id) REFERENCES medicine (med_id)
+     med_id_01    INT UNSIGNED comment '藥物編號',
+     med_id_02    INT UNSIGNED comment '藥物編號',
+     med_id_03    INT UNSIGNED comment '藥物編號',
+     med_id_04    INT UNSIGNED comment '藥物編號',
+     med_id_05    INT UNSIGNED comment '藥物編號',
+     med_id_06    INT UNSIGNED comment '藥物編號',
+     med_id_07    INT UNSIGNED comment '藥物編號',
+     med_id_08    INT UNSIGNED comment '藥物編號',
+     med_id_09    INT UNSIGNED comment '藥物編號',
+     med_id_10    INT UNSIGNED comment '藥物編號',
+     CONSTRAINT med_id_01 FOREIGN KEY(med_id_01) REFERENCES medicine (med_id),
+     CONSTRAINT med_id_02 FOREIGN KEY(med_id_02) REFERENCES medicine (med_id),
+     CONSTRAINT med_id_03 FOREIGN KEY(med_id_03) REFERENCES medicine (med_id),
+     CONSTRAINT med_id_04 FOREIGN KEY(med_id_04) REFERENCES medicine (med_id),
+     CONSTRAINT med_id_05 FOREIGN KEY(med_id_05) REFERENCES medicine (med_id),
+     CONSTRAINT med_id_06 FOREIGN KEY(med_id_06) REFERENCES medicine (med_id),
+     CONSTRAINT med_id_07 FOREIGN KEY(med_id_07) REFERENCES medicine (med_id),
+     CONSTRAINT med_id_08 FOREIGN KEY(med_id_08) REFERENCES medicine (med_id),
+     CONSTRAINT med_id_09 FOREIGN KEY(med_id_09) REFERENCES medicine (med_id),
+     CONSTRAINT med_id_10 FOREIGN KEY(med_id_10) REFERENCES medicine (med_id)
   )
 comment '病歷';  
