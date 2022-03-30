@@ -72,7 +72,7 @@ CREATE TABLE patient_records (
 ) comment '病歷';
 
 CREATE TABLE schedule (
-  weeday ENUM (
+  week_day ENUM (
     'Mon',
     'Tues',
     'Wed',
