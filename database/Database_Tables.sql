@@ -58,5 +58,6 @@ CREATE TABLE patient_records (
   CONSTRAINT med_id_07 FOREIGN KEY(med_id_07) REFERENCES medicine (med_id),
   CONSTRAINT med_id_08 FOREIGN KEY(med_id_08) REFERENCES medicine (med_id),
   CONSTRAINT med_id_09 FOREIGN KEY(med_id_09) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_10 FOREIGN KEY(med_id_10) REFERENCES medicine (med_id)
+  CONSTRAINT med_id_10 FOREIGN KEY(med_id_10) REFERENCES medicine (med_id),
+  comment VARCHAR(100) NULL comment '備註'
 ) comment '病歷';
