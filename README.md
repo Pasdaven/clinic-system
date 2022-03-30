@@ -1,1 +1,1 @@
-# clinic-system
+# Database system project - Clinic System
