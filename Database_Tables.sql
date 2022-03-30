@@ -33,7 +33,7 @@ comment '藥物' ;
 CREATE TABLE book
   (
      book_id          INT UNSIGNED PRIMARY KEY comment '掛號編號',
-     book_state       INT UNSIGNED  comment '等候狀態'
+     book_state       INT UNSIGNED  comment '等候狀態',
      consulation_time DATETIME comment '看診時間',
      doc_id           INT UNSIGNED NOT NULL comment '醫生編號',
      patient_id       INT UNSIGNED NOT NULL comment '病人身分證',
