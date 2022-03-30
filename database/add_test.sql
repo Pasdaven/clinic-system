@@ -1,10 +1,10 @@
 -- Doctor SQL insert example model
 INSERT INTO `doctor`
-VALUES  ('1000', 'D123123123', 'david', 'Male', '2012-03-01', '0312124324'), 
-        ('1004', 'E122423473', 'steven', 'Female', '2021-09-08', '0979821382'),
-        ('1008', 'F123697123', 'ride', 'Male', '1423-08-23', '0384120809'),
-        ('1012', 'D134590244', 'mountain', 'Female', '1969-06-09', '0218379323'),
-        ('1016', 'G324987942', 'pig', 'Female', '1987-08-07', '0973782132');
+VALUES  ('1000', 'D123123123', 'david', 'Male', '2012-03-01', '0312124324', 'working'), 
+        ('1004', 'E122423473', 'steven', 'Female', '2021-09-08', '0979821382', 'working'),
+        ('1008', 'F123697123', 'ride', 'Male', '1423-08-23', '0384120809', 'working'),
+        ('1012', 'D134590244', 'mountain', 'Female', '1969-06-09', '0218379323', 'working'),
+        ('1016', 'G324987942', 'pig', 'Female', '1987-08-07', '0973782132', 'working');
        
 -- Medical SQL insert example model
 INSERT INTO `medicine`
@@ -38,11 +38,13 @@ VALUES  (NULL, '1', '1000', '2022-03-20', 'AIDS', '30', '3', '12', NULL, NULL, N
 
 -- Schedule SQL insert example model
 INSERT INTO `schedule` 
-VALUES  ('Mon', '1000', NULL, '1004', '1008', '1008', '1012'),
-        ('Tues', '1000', '1004', '1004', '1016', '1000', NULL),
-        ('Wed', '1004', '1000', '1004', NULL, '1008', '1016'),
-        ('Thur', '1008', NULL, '1004', '1012', '1000', '1004'),
-        ('Fri', '1000', '1004', '1004', '1012', '1012', NULL),
-        ('Sat', NULL, NULL, '1004', '1008', NULL, NULL),
-        ('Sun', NULL, NULL, '1004', '1016', '1008', NULL);
-
+VALUES  (NULL, '1000', 'Mon', 'morning', 'first'),
+        (NULL, '1000', 'Tues', 'morning', 'first'),
+        (NULL, '1000', 'Thur', 'evening', 'second'),
+        (NULL, '1000', 'Sat', 'noon', 'first'),
+        (NULL, '1004', 'Wed', 'morning', 'first'),
+        (NULL, '1004', 'Fri', 'evening', 'first'),
+        (NULL, '1004', 'Sun', 'morning', 'first'),
+        (NULL, '1008', 'Mon', 'morning', 'second'),
+        (NULL, '1008', 'Tues', 'noon', 'first'),
+        (NULL, '1008', 'Sat', 'morning', 'first');

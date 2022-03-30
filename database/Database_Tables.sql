@@ -4,7 +4,8 @@ CREATE TABLE doctor (
   doc_name VARCHAR(40) comment '姓名',
   sex ENUM('Male', 'Female') comment '性別',
   birth DATE comment '生日',
-  phone_num INT UNSIGNED comment '手機號碼'
+  phone_num INT UNSIGNED comment '手機號碼',
+  doc_state ENUM ('working', 'quit', 'fire') NOT NULL DEFAULT 'working' comment '工作情況'
 ) comment '醫生';
 
 CREATE TABLE medicine (
@@ -36,7 +37,7 @@ CREATE TABLE book (
   doc_id INT UNSIGNED NOT NULL comment '醫生編號',
   id_num VARCHAR(10) NOT NULL comment '病人身分證',
   email_address VARCHAR(30) NOT NULL comment '病人信箱',
-  CONSTRAINT book_doc_id FOREIGN KEY(doc_id) REFERENCES doctor (doc_id)
+  CONSTRAINT book_doc_id FOREIGN KEY(doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE
 ) comment '掛號';
 
 CREATE TABLE patient_records (
@@ -72,6 +73,8 @@ CREATE TABLE patient_records (
 ) comment '病歷';
 
 CREATE TABLE schedule (
+  schedule_id INT UNSIGNED PRIMARY KEY auto_increment comment '班表編號',
+  doc_id INT UNSIGNED comment '醫生編號',
   week_day ENUM (
     'Mon',
     'Tues',
@@ -80,17 +83,8 @@ CREATE TABLE schedule (
     'Fri',
     'Sat',
     'Sun'
-  ) PRIMARY KEY comment '星期',
-  morning_first INT UNSIGNED comment '早一診',
-  morning_second INT UNSIGNED comment '早二診',
-  noon_first INT UNSIGNED comment '中一診',
-  noon_second INT UNSIGNED comment '中二診',
-  evening_first INT UNSIGNED comment '晚一診',
-  evening_second INT UNSIGNED comment '晚二診',
-  CONSTRAINT morning_first FOREIGN KEY(morning_first) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT morning_second FOREIGN KEY(morning_second) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT noon_first FOREIGN KEY(noon_first) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT noon_second FOREIGN KEY(noon_second) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT evening_first FOREIGN KEY(evening_first) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT evening_second FOREIGN KEY(evening_second) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE
+  ) comment '星期',
+  time_period ENUM ('morning', 'noon', 'evening') comment '時段',
+  room ENUM ('first', 'second') comment '診間',
+  CONSTRAINT schedule_doc_id FOREIGN KEY (doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE
 ) comment '班表';
