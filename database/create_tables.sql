@@ -73,7 +73,6 @@ CREATE TABLE patient_records (
 ) comment '病歷';
 
 CREATE TABLE schedule (
-  schedule_id INT UNSIGNED PRIMARY KEY auto_increment comment '班表編號',
   doc_id INT UNSIGNED comment '醫生編號',
   week_day ENUM (
     'Mon',
@@ -86,5 +85,6 @@ CREATE TABLE schedule (
   ) comment '星期',
   time_period ENUM ('morning', 'noon', 'evening') comment '時段',
   room ENUM ('first', 'second') comment '診間',
-  CONSTRAINT schedule_doc_id FOREIGN KEY (doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE
+  CONSTRAINT schedule_doc_id FOREIGN KEY (doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  PRIMARY KEY(week_day,time_period,room)
 ) comment '班表';
