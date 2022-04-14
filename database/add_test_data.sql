@@ -34,8 +34,8 @@ VALUES  ('S6DHE4DHF7', 'waiting', '2022-03-23 15:00:00', '1000', 'B123456789', '
 -- Patient records SQL insert example model
 INSERT INTO `patient_records`
 VALUES  (NULL, '1', '1000', '2022-03-20', 'AIDS', '30', NULL),
-        (NULL, '3', '1012', '2022-03-10', 'COVID-19', '12', NULL);
-        (NULL, '2', '1016', '2022-04-10', 'COVID-20', '3', NULL);
+        (NULL, '3', '1012', '2022-03-10', 'COVID-19', '12', NULL),
+        (NULL, '2', '1016', '2022-04-10', 'COVID-20', '3', NULL),
         (NULL, '3', '1012', '2022-03-15', 'COVID-16', '5', NULL);
 
 -- Schedule SQL insert example model
@@ -60,4 +60,4 @@ VALUES ('1', '10'),
 
 INSERT INTO `med_list`
 VALUES ('1', '4'),
-       ('1', '10')
+       ('1', '10');
