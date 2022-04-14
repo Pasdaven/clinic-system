@@ -12,7 +12,11 @@ require_once 'database.php';
     <title>Doctor</title>
 </head>
 <body>
-    <h1>病患資料查詢</h1>
-    <form>
+    <h3>病患資料查詢</h3>
+    <form name="search_patient_records">
+        病患身分證號碼：
+        <input type="text" value="請輸入病患身分證字號" name="patient_id"><br>
+        <input type="submit" value="查詢" name="search"><br>
+    </form>
 </body>
 </html>
