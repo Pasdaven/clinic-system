@@ -21,14 +21,16 @@ CREATE TABLE patient (
   sex ENUM('Male', 'Female') comment '性別',
   birth DATE comment '生日',
   blood_type ENUM('A', 'B', 'O', 'AB') comment '血型',
-  phone_num INT UNSIGNED comment '手機號碼',
-  allergy_1 INT UNSIGNED comment '藥物過敏_1',
-  allergy_2 INT UNSIGNED comment '藥物過敏_2',
-  allergy_3 INT UNSIGNED comment '藥物過敏_3',
-  CONSTRAINT allergy_1 FOREIGN KEY(allergy_1) REFERENCES medicine (med_id),
-  CONSTRAINT allergy_2 FOREIGN KEY(allergy_2) REFERENCES medicine (med_id),
-  CONSTRAINT allergy_3 FOREIGN KEY(allergy_3) REFERENCES medicine (med_id)
+  phone_num INT UNSIGNED comment '手機號碼'
 ) comment '病人';
+
+CREATE TABLE allergy_list (
+  case_id INT UNSIGNED NOT NULL COMMENT '病例號碼',
+  allergy_med_id INT UNSIGNED COMMENT '過敏藥物',
+  CONSTRAINT allergy_med_id FOREIGN KEY(allergy_med_id) REFERENCES medicine (med_id),
+  CONSTRAINT allergy_list_case_id FOREIGN KEY(case_id) REFERENCES patient (case_id),
+  PRIMARY KEY(case_id,allergy_med_id)
+) COMMENT '病人過敏藥物';
 
 CREATE TABLE book (
   book_id VARCHAR(40) PRIMARY KEY comment '掛號編號',
@@ -47,30 +49,18 @@ CREATE TABLE patient_records (
   consulation_date DATE comment '看診日期',
   disease_name VARCHAR(20) comment '疾病名稱',
   med_days INT UNSIGNED comment '用藥天數',
-  med_id_01 INT UNSIGNED comment '藥物編號_01',
-  med_id_02 INT UNSIGNED comment '藥物編號_02',
-  med_id_03 INT UNSIGNED comment '藥物編號_03',
-  med_id_04 INT UNSIGNED comment '藥物編號_04',
-  med_id_05 INT UNSIGNED comment '藥物編號_05',
-  med_id_06 INT UNSIGNED comment '藥物編號_06',
-  med_id_07 INT UNSIGNED comment '藥物編號_07',
-  med_id_08 INT UNSIGNED comment '藥物編號_08',
-  med_id_09 INT UNSIGNED comment '藥物編號_09',
-  med_id_10 INT UNSIGNED comment '藥物編號_10',
+  comment VARCHAR(100) NULL comment '備註',
   CONSTRAINT case_id FOREIGN KEY(case_id) REFERENCES patient (case_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT patient_records_doc_id FOREIGN KEY(doc_id) REFERENCES doctor (doc_id),
-  CONSTRAINT med_id_01 FOREIGN KEY(med_id_01) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_02 FOREIGN KEY(med_id_02) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_03 FOREIGN KEY(med_id_03) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_04 FOREIGN KEY(med_id_04) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_05 FOREIGN KEY(med_id_05) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_06 FOREIGN KEY(med_id_06) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_07 FOREIGN KEY(med_id_07) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_08 FOREIGN KEY(med_id_08) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_09 FOREIGN KEY(med_id_09) REFERENCES medicine (med_id),
-  CONSTRAINT med_id_10 FOREIGN KEY(med_id_10) REFERENCES medicine (med_id),
-  comment VARCHAR(100) NULL comment '備註'
+  CONSTRAINT patient_records_doc_id FOREIGN KEY(doc_id) REFERENCES doctor (doc_id)
 ) comment '病歷';
+
+CREATE TABLE med_list (
+  record_id INT UNSIGNED NOT NULL COMMENT '看診紀錄編號',
+  med_id INT UNSIGNED COMMENT '藥物編號',
+  CONSTRAINT record_id FOREIGN KEY(record_id) REFERENCES patient_records (record_id),
+  CONSTRAINT med_id FOREIGN KEY(med_id) REFERENCES medicine (med_id),
+  PRIMARY KEY(record_id,med_id)
+) COMMENT '用藥清單';
 
 CREATE TABLE schedule (
   doc_id INT UNSIGNED comment '醫生編號',
