@@ -16,11 +16,11 @@ VALUES  ('3', '安立復錠', 'Abilify 15mg Tablet'),
 
 -- Patient SQL insert example model
 INSERT INTO `patient`
-VALUES  ('B213249432', NULL, '阿南懷', 'Male', '2002-04-03', 'AB', '0912345345', '3', NULL, NULL),
-        ('B242399432', NULL, '阿東雅', 'Female', '2002-04-03', 'B', '0912977745', NULL, NULL, NULL),
-        ('B219089432', NULL, '阿南敏', 'Male', '2002-04-03', 'A', '0912385545', NULL, NULL, NULL),
-        ('L293849432', NULL, '阿南播', 'Female', '2002-04-03', 'O', '0912452145', NULL, NULL, NULL),
-        ('P013249432', NULL, '阿南郭', 'Male', '2002-04-03', 'A', '0915099045', '12', NULL, NULL);
+VALUES  ('B213249432', NULL, '阿南懷', 'Male', '2002-04-03', 'AB', '0912345345'),
+        ('B242399432', NULL, '阿東雅', 'Female', '2002-04-03', 'B', '0912977745'),
+        ('B219089432', NULL, '阿南敏', 'Male', '2002-04-03', 'A', '0912385545'),
+        ('L293849432', NULL, '阿南播', 'Female', '2002-04-03', 'O', '0912452145'),
+        ('P013249432', NULL, '阿南郭', 'Male', '2002-04-03', 'A', '0915099045');
 
 -- Book SQL insert example model
 INSERT INTO `book`
@@ -33,18 +33,31 @@ VALUES  ('S6DHE4DHF7', 'waiting', '2022-03-23 15:00:00', '1000', 'B123456789', '
 
 -- Patient records SQL insert example model
 INSERT INTO `patient_records`
-VALUES  (NULL, '1', '1000', '2022-03-20', 'AIDS', '30', '3', '12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-        (NULL, '3', '1012', '2022-03-10', 'COVID-19', '12', '4', '12', '10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+VALUES  (NULL, '1', '1000', '2022-03-20', 'AIDS', '30', NULL),
+        (NULL, '3', '1012', '2022-03-10', 'COVID-19', '12', NULL);
+        (NULL, '2', '1016', '2022-04-10', 'COVID-20', '3', NULL);
+        (NULL, '3', '1012', '2022-03-15', 'COVID-16', '5', NULL);
 
 -- Schedule SQL insert example model
 INSERT INTO `schedule` 
-VALUES  (NULL, '1000', 'Mon', 'morning', 'first'),
-        (NULL, '1000', 'Tues', 'morning', 'first'),
-        (NULL, '1000', 'Thur', 'evening', 'second'),
-        (NULL, '1000', 'Sat', 'noon', 'first'),
-        (NULL, '1004', 'Wed', 'morning', 'first'),
-        (NULL, '1004', 'Fri', 'evening', 'first'),
-        (NULL, '1004', 'Sun', 'morning', 'first'),
-        (NULL, '1008', 'Mon', 'morning', 'second'),
-        (NULL, '1008', 'Tues', 'noon', 'first'),
-        (NULL, '1008', 'Sat', 'morning', 'first');
+VALUES  ('1000', 'Mon', 'morning', 'first'),
+        ('1000', 'Tues', 'morning', 'first'),
+        ('1000', 'Thur', 'evening', 'second'),
+        ('1000', 'Sat', 'noon', 'first'),
+        ('1004', 'Wed', 'morning', 'first'),
+        ('1004', 'Fri', 'evening', 'first'),
+        ('1004', 'Sun', 'morning', 'first'),
+        ('1008', 'Mon', 'morning', 'second'),
+        ('1008', 'Tues', 'noon', 'first'),
+        ('1008', 'Sat', 'morning', 'first');
+
+--  allergr_med SQL insert example model
+INSERT INTO `allergy_list`
+VALUES ('1', '10'), 
+       ('1', '3');
+
+--  med_list SQL insert example model
+
+INSERT INTO `med_list`
+VALUES ('1', '4'),
+       ('1', '10')
