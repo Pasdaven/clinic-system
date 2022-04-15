@@ -1,5 +1,5 @@
 <?php
-require_once("../db_con.php");
+require_once("../../database/db_con.php");
 ?>
 
 <!DOCTYPE html>
@@ -130,7 +130,7 @@ require_once("../db_con.php");
         <input type="submit" value="新增" id="sub_new_rec">
     </form>
     <?php
-    require_once("../db_con.php");
+    require_once("../../database/db_con.php");
     if (isset($_POST["patient_rec"])) {
         $patient_rec = $_POST["patient_rec"];
         // print_r($patient_rec);
