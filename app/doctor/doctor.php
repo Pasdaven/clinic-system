@@ -84,7 +84,7 @@ require_once("../db_con.php");
     ?>
 
 <h3>新增病歷資料</h3>
-    <form method="GET" action="./doctor.php">
+    <form method="POST" action="./doctor.php">
         病歷號碼:
         <input list="patient_case_id" name="patient_rec[]">
         <datalist id="patient_case_id">
@@ -131,8 +131,8 @@ require_once("../db_con.php");
     </form>
     <?php
     require_once("../db_con.php");
-    if (isset($_GET["patient_rec"])) {
-        $patient_rec = $_GET["patient_rec"];
+    if (isset($_POST["patient_rec"])) {
+        $patient_rec = $_POST["patient_rec"];
         // print_r($patient_rec);
 
         $sql = "INSERT INTO `patient_records` VALUES (NULL, '$patient_rec[0]', '$patient_rec[1]', '$patient_rec[2]', '$patient_rec[3]', '$patient_rec[4]', '$patient_rec[5]')";
