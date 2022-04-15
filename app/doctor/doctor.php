@@ -43,6 +43,7 @@
                         t: table
                     },
                     success: function(res) {
+                        $('.info').html('抓到資料囉!');
                         $("#toast-body").html(res);
                         var toastLive = document.getElementById("liveToast");
                         var toast = new bootstrap.Toast(toastLive);
