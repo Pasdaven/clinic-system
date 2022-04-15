@@ -8,9 +8,9 @@
 </head>
 <body>
   醫生：
-  <input type="button" value="前往" onclick="location.href='app/doctor/doctor.php'">
+  <input type="button" value="前往" onclick="location.href='app/doctor'">
   <br><br>
   掛號：
-  <input type="button" value="前往" onclick="location.href='app/book/book.php'">
+  <input type="button" value="前往" onclick="location.href='app/book'">
 </body>
 </html>
