@@ -13,6 +13,8 @@ require_once("../../database/db_con.php");
 </head>
 
 <body>
+    首頁：
+    <input type="button" value="前往" onclick="location.href='../../'">
     <h3>病患病歷查詢</h3>
     <form method="POST" action="./doctor.php">
         請選擇病例號碼：
