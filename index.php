@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body>
+  <h3>Clinic System</h3>
   醫生：
   <input type="button" value="前往" onclick="location.href='app/doctor'">
   <br><br>
