@@ -13,7 +13,7 @@ require_once("../db_con.php");
 </head>
 
 <body>
-    <h3>病患資料查詢</h3>
+    <h3>病患病歷查詢</h3>
     <form method="POST" action="./doctor_noAjax.php">
         請選擇病例號碼：
         <!-- <input type="text" value="請輸入病歷號碼" name="case_id" id="case_id"><br> -->
@@ -53,7 +53,7 @@ require_once("../db_con.php");
                 $sql = "SELECT * FROM `patient` WHERE `case_id` = '$case_id'";
                 $result = mysqli_query($link, $sql);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '病歷編號：' . $row['case_id'] . ' 病患名稱：' . $row['patient_name'] . '<br><br>';
+                    echo '病歷號碼：' . $row['case_id'] . ' 病患名稱：' . $row['patient_name'] . '<br><br>';
                 }
 
                 for ($i = 0; $i < count($patient_datas); $i++) {
@@ -71,7 +71,7 @@ require_once("../db_con.php");
             }
             mysqli_free_result($result);
         }
-        mysqli_close($link);
+        // mysqli_close($link);
     }
     // if (!empty($result)) {
     //     // 如果結果不為空，就利用print_r方法印出資料
@@ -81,6 +81,50 @@ require_once("../db_con.php");
     //     // 為空表示沒資料
     //     echo "查無資料";
     // }
+    ?>
+
+    <h3>新增病歷資料</h3>
+    <form method="POST" action="./doctor_noAjax.php">
+        病歷號碼:
+        <input list="patient_case_id" name="rec_case_id">
+        醫生編號：
+        <input list="doc_id" name="doc_id">
+        <datalist id="doc_id">
+            <?php
+            $sql =  "SELECT * FROM `doctor`";
+            $result = mysqli_query($link, $sql);
+            $datas = array();
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                $datas[] = $row;
+            }
+
+            for ($i = 0; $i < count($datas); $i++) {
+                echo '<option value=' . $datas[$i]["doc_id"] . '>';
+            }
+            ?>
+            mysqli_free_result($result);
+        </datalist>
+        看診日期：
+        <input type="date" id="date"><br><br>
+        疾病名稱：
+        <input type="text" id="disease_name">
+        用藥天數：
+        <input type="text" id="med_days">
+        備註：
+        <input type="text" id="comment"><br><br>
+        <input type="submit" value="新增" id="sub_new_rec">
+    </form>
+    <?php
+    if (isset($_POST['case_id']) && isset($_POST['doc_id']) && isset($_POST['date']) && isset($_POST['disease_name']) && isset($_POST['med_days'])) {
+        // $sql = "INSERT INTO `patient_records` VALUES (NULL, '$_POST[rec_case_id]', '$_POST[doc_id]', '$_POST[date]', '$_POST[disease_name]', '$_POST[med_days]', '$_POST[comment]')";
+        $sql = sprintf("INSERT INTO `patient_records` (`case_id`, `doc_id`, `consulation_date`, `disease_name`, `med_days`, `comment`) VALUES (%d, %d, %s, %s, %d, %s), '1', '1000', '2022-04-03', 'cancer', '9', NULL");
+        if (mysqli_query($link, $sql)) {
+            echo '病患病歷新增成功';
+        } else {
+            echo '病患病歷新增失敗';
+        }
+    }
     ?>
 </body>
 
