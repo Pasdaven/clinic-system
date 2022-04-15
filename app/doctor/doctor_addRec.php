@@ -16,7 +16,7 @@ require_once("../db_con.php");
     <h3>新增病歷資料</h3>
     <form method="GET" action="./doctor_addRec.php">
         病歷號碼:
-        <input list="patient_case_id" name="rec_case_id">
+        <input list="patient_case_id" name="patient_rec[]">
         <datalist id="patient_case_id">
             <?php
             $sql =  "SELECT * FROM `patient`";
@@ -33,7 +33,7 @@ require_once("../db_con.php");
             ?>
         </datalist>
         醫生編號：
-        <input list="doc_id" name="doc_id">
+        <input list="doc_id" name="patient_rec[]">
         <datalist id="doc_id">
             <?php
             $sql =  "SELECT * FROM `doctor`";
@@ -50,26 +50,22 @@ require_once("../db_con.php");
             ?>
         </datalist>
         看診日期：
-        <input type="date" id="date"><br><br>
+        <input type="date" id="date" name="patient_rec[]"><br><br>
         疾病名稱：
-        <input type="text" id="disease_name">
+        <input type="text" id="disease_name" name="patient_rec[]">
         用藥天數：
-        <input type="text" id="med_days">
+        <input type="text" id="med_days" name="patient_rec[]">
         備註：
-        <input type="text" id="comment"><br><br>
+        <input type="text" id="comment" name="patient_rec[] value="NONE"><br><br>
         <input type="submit" value="新增" id="sub_new_rec">
     </form>
     <?php
     require_once("../db_con.php");
-    // if (isset($_POST['case_id']) && isset($_POST['doc_id']) && isset($_POST['date']) && isset($_POST['disease_name']) && isset($_POST['med_days'])) {
-        $rec_case_id = $_GET["rec_case_id"];
-        $doc_id = $_GET["doc_id"];
-        $date = $_GET["date"];
-        $disease_name = $_GET["disease_name"];
-        $med_days = $_GET["med_days"];
-        $comment = $_GET["comment"];
+    if (isset($_GET["patient_rec"])) {
+        $patient_rec = $_GET["patient_rec"];
+        // print_r($patient_rec);
 
-        $sql = "INSERT INTO `patient_records` VALUES (NULL, '$rec_case_id', '$doc_id', '$date', '$disease_name', '$med_days', '$comment')";
+        $sql = "INSERT INTO `patient_records` VALUES (NULL, '$patient_rec[0]', '$patient_rec[1]', '$patient_rec[2]', '$patient_rec[3]', '$patient_rec[4]', '$patient_rec[5]')";
         if (mysqli_query($link, $sql)) {
             echo '病患病歷新增成功';
         } else {
@@ -79,7 +75,7 @@ require_once("../db_con.php");
         // $stmt = $link->prepare($sql_query);
         // $stmt->bind_param($_POST["rec_case_id"], $_POST["doc_id"], $_POST["date"], $_POST["disease_name"], $_POST["med_days"], $_POST["comment"]);
         // $stmt->execute();
-    // }
+    }
     ?>
 </body>
 
