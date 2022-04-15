@@ -84,7 +84,7 @@ require_once("../db_con.php");
     ?>
 
     <h3>新增病歷資料</h3>
-    <form method="POST" action="./doctor_noAjax.php">
+    <form method="GET" action="./doctor_noAjax.php">
         病歷號碼:
         <input list="patient_case_id" name="rec_case_id">
         醫生編號：
@@ -103,7 +103,6 @@ require_once("../db_con.php");
                 echo '<option value=' . $datas[$i]["doc_id"] . '>';
             }
             ?>
-            mysqli_free_result($result);
         </datalist>
         看診日期：
         <input type="date" id="date"><br><br>
@@ -116,15 +115,26 @@ require_once("../db_con.php");
         <input type="submit" value="新增" id="sub_new_rec">
     </form>
     <?php
-    if (isset($_POST['case_id']) && isset($_POST['doc_id']) && isset($_POST['date']) && isset($_POST['disease_name']) && isset($_POST['med_days'])) {
-        // $sql = "INSERT INTO `patient_records` VALUES (NULL, '$_POST[rec_case_id]', '$_POST[doc_id]', '$_POST[date]', '$_POST[disease_name]', '$_POST[med_days]', '$_POST[comment]')";
-        $sql = sprintf("INSERT INTO `patient_records` (`case_id`, `doc_id`, `consulation_date`, `disease_name`, `med_days`, `comment`) VALUES (%d, %d, %s, %s, %d, %s), '1', '1000', '2022-04-03', 'cancer', '9', NULL");
+    require_once("../db_con.php");
+    // if (isset($_POST['case_id']) && isset($_POST['doc_id']) && isset($_POST['date']) && isset($_POST['disease_name']) && isset($_POST['med_days'])) {
+        $rec_case_id = $_GET["rec_case_id"];
+        $doc_id = $_GET["doc_id"];
+        $date = $_GET["date"];
+        $disease_name = $_GET["disease_name"];
+        $med_days = $_GET["med_days"];
+        $comment = $_GET["comment"];
+
+        $sql = "INSERT INTO `patient_records` VALUES (NULL, '$rec_case_id', '$doc_id', '$date', '$disease_name', '$med_days', '$comment')";
         if (mysqli_query($link, $sql)) {
             echo '病患病歷新增成功';
         } else {
             echo '病患病歷新增失敗';
         }
-    }
+        // $sql_query = "INSERT INTO `patient_records` (`case_id`, `doc_id`, `consulation_date`, `disease_name`, `med_days`, `comment`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        // $stmt = $link->prepare($sql_query);
+        // $stmt->bind_param($_POST["rec_case_id"], $_POST["doc_id"], $_POST["date"], $_POST["disease_name"], $_POST["med_days"], $_POST["comment"]);
+        // $stmt->execute();
+    // }
     ?>
 </body>
 
