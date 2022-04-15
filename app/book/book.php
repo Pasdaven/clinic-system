@@ -46,6 +46,7 @@ if (isset($_POST["register"])) {
 
   $sql = "INSERT INTO `book` VALUES ('$book_id', 'waiting', NULL, '1004', '$id_num', '$email_address', '$patient_name')";
   if (mysqli_query($link, $sql)) {
+    echo 'Your ID is: ' . $book_id . '<br>';
     echo '掛號成功';
   } else {
     echo '掛號失敗';
