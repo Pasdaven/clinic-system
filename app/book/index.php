@@ -10,7 +10,7 @@
   首頁：
   <input type="button" value="前往" onclick="location.href='../../'">
   <h3>掛號</h3>
-  <form method="post" action="book.php">
+  <form method="post" action="index.php">
     請輸入姓名：
     <input type="text" name="register[]">
     請輸入身分證號碼：
@@ -46,7 +46,8 @@ if (isset($_POST["register"])) {
 
   $sql = "INSERT INTO `book` VALUES ('$book_id', 'waiting', NULL, '1004', '$id_num', '$email_address', '$patient_name')";
   if (mysqli_query($link, $sql)) {
-    echo 'Your ID is: ' . $book_id . '<br>';
+    echo 'send link: ';
+    echo 'localhost/clinic-system/app/book/history.php?book_id=' . $book_id . '<br>';
     echo '掛號成功';
   } else {
     echo '掛號失敗';

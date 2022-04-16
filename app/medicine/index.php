@@ -11,6 +11,8 @@ require_once("../../database/db_con.php");
     <title>Medicine Search</title>
 </head>
 <body>
+    首頁：
+    <input type="button" value="前往" onclick="location.href='../../'">
     <h3>藥品資訊查詢</h3>
     <form method="POST" action="./index.php">
         藥品編號：
