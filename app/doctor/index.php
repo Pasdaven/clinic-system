@@ -16,7 +16,7 @@ require_once("../../database/db_con.php");
     首頁：
     <input type="button" value="前往" onclick="location.href='../../'">
     <h3>病患病歷查詢</h3>
-    <form method="POST" action="./doctor.php">
+    <form method="POST" action="./index.php">
         請選擇病例號碼：
         <!-- <input type="text" value="請輸入病歷號碼" name="case_id" id="case_id"><br> -->
         <input list="patient_case_id" name="case_id"><br>
@@ -37,6 +37,8 @@ require_once("../../database/db_con.php");
         </datalist>
         <input type="submit" value="查詢" name="searchBtn" id="searchBtn"><br>
     </form>
+
+    <input type="button" value="藥品資訊查詢" onclick="location.href='../medicine'"><br><br>
 
     <?php
     if (isset($_POST['case_id'])) {
@@ -79,9 +81,8 @@ require_once("../../database/db_con.php");
                         }
                     }
                     echo '<br><br>';
-                    echo '<input type="button" value="藥品資訊查詢" onclick="window.location.href="app/medicine"><br><br>';
                 }
-
+                
                 // print patient records
                 for ($i = 0; $i < count($patient_datas); $i++) {
                     echo '看診紀錄編號：' . $patient_datas[$i]['record_id'] . '<br>';
@@ -129,7 +130,7 @@ require_once("../../database/db_con.php");
     ?>
 
     <h3>新增病歷資料</h3>
-    <form method="_GET" action="./doctor.php">
+    <form method="_GET" action="./index.php">
         病歷號碼:
         <input list="patient_case_id" name="patient_rec[]">
         <datalist id="patient_case_id">
