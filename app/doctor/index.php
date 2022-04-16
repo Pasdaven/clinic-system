@@ -17,50 +17,39 @@ require_once("../../database/db_con.php");
     <input type="button" value="前往" onclick="location.href='../../'">
     <h3>病患病歷查詢</h3>
     <form method="POST" action="./index.php">
-        請選擇病例號碼：
-        <!-- <input type="text" value="請輸入病歷號碼" name="case_id" id="case_id"><br> -->
-        <input list="patient_case_id" name="case_id"><br>
-        <datalist id="patient_case_id">
-            <?php
-            $sql =  "SELECT * FROM `patient`";
-            $result = mysqli_query($link, $sql);
-            $datas = array();
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                $datas[] = $row;
-            }
-
-            for ($i = 0; $i < count($datas); $i++) {
-                echo '<option value=' . $datas[$i]["case_id"] . '>';
-            }
-            ?>
-        </datalist>
+        請輸入病患身分證號碼：
+        <input type="text" name="id_num">
         <input type="submit" value="查詢" name="searchBtn" id="searchBtn"><br>
     </form>
 
     <input type="button" value="藥品資訊查詢" onclick="location.href='../medicine'"><br><br>
 
     <?php
-    if (isset($_POST['case_id'])) {
-        $case_id = trim($_POST["case_id"]);
-        $patient_datas = array();
-        $sql = "SELECT * FROM `patient_records` WHERE `case_id`='$case_id'";
-
+    if (isset($_POST['id_num'])) {
+        $id_num = trim($_POST["id_num"]);
+        // patient data
+        $sql = "SELECT * FROM `patient` WHERE `id_num` = '$id_num'";
         $result = mysqli_query($link, $sql);
+        $patient = array();
 
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
-                // patient records
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $patient_datas[] = $row;
-                }
 
-                // patient data
-                $sql = "SELECT * FROM `patient` WHERE `case_id` = '$case_id'";
+                while ($row = mysqli_fetch_array($result)) {
+                    $patient[] = $row;
+                }
+                echo '病歷號碼：' . $patient[0]['case_id'] . '<br>病患身分證號碼：' . $patient[0]['id_num'] . '<br>病患名稱：' . $patient[0]['patient_name'] . '<br><br>';
+                // print_r($patient);
+
+                // patient records
+                $patient_datas = array();
+                $case_id = $patient[0]['case_id'];
+                $sql = "SELECT * FROM `patient_records` WHERE `case_id`= '$case_id'";
                 $result = mysqli_query($link, $sql);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '病歷號碼：' . $row['case_id'] . ' 病患名稱：' . $row['patient_name'] . '<br><br>';
+                    $patient_datas[] = $row;
                 }
+                // print_r($patient_datas);
 
                 // patient allergy medicine
                 $sql = "SELECT * FROM `allergy_list` WHERE `case_id` = '$case_id'";
