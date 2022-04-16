@@ -1,5 +1,5 @@
 <?php
-require_once("../db_con.php");
+require_once("../../database/db_con.php");
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,8 @@ require_once("../db_con.php");
 </head>
 
 <body>
+    首頁：
+    <input type="button" value="前往" onclick="location.href='../../'">
     <h3>病患病歷查詢</h3>
     <form method="POST" action="./doctor.php">
         請選擇病例號碼：
@@ -193,9 +195,15 @@ require_once("../db_con.php");
         <input type="submit" value="新增" id="sub_new_rec">
     </form>
     <?php
+<<<<<<< HEAD:app/doctor/doctor.php
     require_once("../db_con.php");
     if (isset($_GET["patient_rec"])) {
         $patient_rec = $_GET["patient_rec"];
+=======
+    require_once("../../database/db_con.php");
+    if (isset($_POST["patient_rec"])) {
+        $patient_rec = $_POST["patient_rec"];
+>>>>>>> 854ff501f75d790320b991428f9e8f0939523daf:app/doctor/index.php
         // print_r($patient_rec);
 
         // insert patient records
