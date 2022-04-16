@@ -15,6 +15,6 @@
   <input type="button" value="前往" onclick="location.href='app/book'">
   <br><br>
   藥物：
-  <input type="button" value="前往" onclick="location.href='app/medicine/medicine_search.php'">
+  <input type="button" value="前往" onclick="location.href='app/medicine'">
 </body>
 </html>
