@@ -31,23 +31,20 @@ if (isset($_POST["register"])) {
   $patient_name = $register[0];
   $id_num = $register[1];
   $email_address = $register[2];
-  
-  // random id test
-  function generateRandomString($length = 10) {
-    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-      $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
-  }
-  $book_id = generateRandomString();
+  $time = date("Y-m-d H:i:s");
 
-  $sql = "INSERT INTO `book` VALUES ('$book_id', 'waiting', NULL, '1004', '$id_num', '$email_address', '$patient_name')";
+  $sql = "INSERT INTO book (patient_name, id_num, email_address, doc_id) VALUES ('$patient_name', '$id_num', '$email_address', '1004')";
   if (mysqli_query($link, $sql)) {
-    echo 'send link: ';
-    echo 'localhost/clinic-system/app/book/history.php?book_id=' . $book_id . '<br>';
+    $sql = "SELECT * FROM book WHERE book_url IS NULL";
+    $result = mysqli_query($link, $sql);
+    while ($row = mysqli_fetch_array($result)) {
+      $book_id = $row['book_id'];
+      $book_url = md5($book_id);
+      $sql = "UPDATE book SET book_url = '$book_url' WHERE book_id = $book_id";
+      mysqli_query($link, $sql);
+    }
+    echo 'link: ';
+    echo 'localhost/clinic-system/app/book/history.php?book_url=' . $book_url . '<br>';
     echo '掛號成功';
   } else {
     echo '掛號失敗';
