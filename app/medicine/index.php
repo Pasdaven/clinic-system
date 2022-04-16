@@ -12,7 +12,7 @@ require_once("../../database/db_con.php");
 </head>
 <body>
     <h3>藥品資訊查詢</h3>
-    <form method="POST" action="./medicine_search.php">
+    <form method="POST" action="./index.php">
         藥品編號：
         <input type="text" name="med_id">
         <input type="submit" value="查詢">
