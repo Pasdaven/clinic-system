@@ -8,11 +8,11 @@ VALUES  ('1000', 'D123123123', 'david', 'Male', '2012-03-01', '0312124324', 'wor
        
 -- Medical SQL insert example model
 INSERT INTO `medicine`
-VALUES  ('3', '安立復錠', 'Abilify 15mg Tablet'),
-        ('4', '膿化清膠囊', 'Acetin 200Mg Cap'),
-        ('6', '骨力強注射液', 'Aclasta 5mg/100ml Solution for Infusion'),
-        ('10', '吸附破傷風類毒素', 'Adsorbed Tetanus Vaccine 0.5ml Injection'),
-        ('12', '阿雷彼阿慶注射液', 'Aleviatin 250mg Injection');
+VALUES  ('3', '安立復錠', 'Abilify 15mg Tablet', '安立復錠'),
+        ('4', '膿化清膠囊', 'Acetin 200Mg Cap', '膿化清膠囊'),
+        ('6', '骨力強注射液', 'Aclasta 5mg/100ml Solution for Infusion', '骨力強注射液'),
+        ('10', '吸附破傷風類毒素', 'Adsorbed Tetanus Vaccine 0.5ml Injection', '吸附破傷風類毒素'),
+        ('12', '阿雷彼阿慶注射液', 'Aleviatin 250mg Injection', '阿雷彼阿慶注射液');
 
 -- Patient SQL insert example model
 INSERT INTO `patient`

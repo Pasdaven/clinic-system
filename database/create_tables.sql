@@ -11,7 +11,8 @@ CREATE TABLE doctor (
 CREATE TABLE medicine (
   med_id INT UNSIGNED PRIMARY KEY comment '藥品編號',
   med_name VARCHAR(40) comment '藥品名稱',
-  med_academic_name VARCHAR(40) comment '藥品學術名稱'
+  med_academic_name VARCHAR(40) comment '藥品學術名稱',
+  med_effect VARCHAR(40) comment '藥品作用'
 ) comment '藥物';
 
 CREATE TABLE patient (
