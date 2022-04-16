@@ -22,15 +22,6 @@ VALUES  ('B213249432', NULL, '阿南懷', 'Male', '2002-04-03', 'AB', '091234534
         ('L293849432', NULL, '阿南播', 'Female', '2002-04-03', 'O', '0912452145'),
         ('P013249432', NULL, '阿南郭', 'Male', '2002-04-03', 'A', '0915099045');
 
--- Book SQL insert example model
-INSERT INTO `book`
-VALUES  ('S6DHE4DHF7', 'waiting', '2022-03-23 15:00:00', '1000', 'B123456789', 'good@@gmail.com'),
-        ('ASDAS6DHFD', 'waiting', '2022-03-20 15:00:00', '1004', 'D295738116', 'eat@gmail.com'),
-        ('JDG6SDGYDS', 'finish', '2022-03-12 15:00:00', '1012', 'F204736523', 'write@gmail.com'),
-        ('JKDJSSS998', 'waiting', '2022-02-28 15:00:00', '1008', 'A223445667', 'fcu@gmail.com'),
-        ('JSDS674SDJ', 'waiting', '2022-03-25 15:00:00', '1016', 'G228721335', 'gogogo@gmail.com'),
-        ('JHSG554SDS', 'cancel', '2022-03-10 15:00:00', '1004', 'S763112556', 'apple@gmail.com');
-
 -- Patient records SQL insert example model
 INSERT INTO `patient_records`
 VALUES  (NULL, '1', '1000', '2022-03-20', 'AIDS', '30', NULL),

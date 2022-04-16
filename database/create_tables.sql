@@ -34,10 +34,12 @@ CREATE TABLE allergy_list (
 ) COMMENT '病人過敏藥物';
 
 CREATE TABLE book (
-  book_id VARCHAR(40) PRIMARY KEY comment '掛號編號',
+  book_id INT UNSIGNED PRIMARY KEY auto_increment comment '掛號編號',
+  book_url VARCHAR(40) comment '掛號網址',
   book_state ENUM('waiting', 'finish', 'cancel') NOT NULL DEFAULT 'waiting' comment '等候狀態',
   consulation_time DATETIME comment '看診時間',
   doc_id INT UNSIGNED NOT NULL comment '醫生編號',
+  patient_name VARCHAR(10) NOT NULL comment '病人姓名',
   id_num VARCHAR(10) NOT NULL comment '病人身分證',
   email_address VARCHAR(30) NOT NULL comment '病人信箱',
   CONSTRAINT book_doc_id FOREIGN KEY(doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE
