@@ -82,7 +82,7 @@ require_once("../../database/db_con.php");
                     }
                     echo '<br><br>';
                 }
-                
+
                 // print patient records
                 for ($i = 0; $i < count($patient_datas); $i++) {
                     echo '看診紀錄編號：' . $patient_datas[$i]['record_id'] . '<br>';
@@ -193,12 +193,13 @@ require_once("../../database/db_con.php");
         }
         ?>
         <br><br>
+        <input type="button" value="藥品資訊查詢" onclick="location.href='../medicine'"><br><br>
         <input type="submit" value="新增" id="sub_new_rec">
     </form>
     <?php
     require_once("../../database/db_con.php");
-    if (isset($_POST["patient_rec"])) {
-        $patient_rec = $_POST["patient_rec"];
+    if (isset($_GET["patient_rec"])) {
+        $patient_rec = $_GET["patient_rec"];
         // print_r($patient_rec);
 
         // insert patient records
