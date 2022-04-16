@@ -17,6 +17,13 @@
     <input type="text" name="register[]">
     請輸入電子信箱：
     <input type="email" name="register[]">
+    請選擇醫生：<br>
+    <?php
+    require_once("available_doctor.php");
+    for ($i = 0; $i < count($doctor_list); $i++) {
+      echo '<input type="radio" name="register[]" value="' . $doctor_list[$i]['doc_id'] . '">' . $doctor_name[$i];
+    }
+    ?>
     <input type="submit" value="預約" name="submitBtn">
   </form>
 </body>
@@ -31,6 +38,7 @@ if (isset($_POST["register"])) {
   $patient_name = $register[0];
   $id_num = $register[1];
   $email_address = $register[2];
+  $doc_name = 
   $time = date("Y-m-d H:i:s");
 
   $sql = "INSERT INTO book (patient_name, id_num, email_address, doc_id) VALUES ('$patient_name', '$id_num', '$email_address', '1004')";
