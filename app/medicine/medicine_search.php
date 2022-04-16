@@ -1,5 +1,5 @@
 <?php
-require_once("../db_con.php");
+require_once("../../database/db_con.php");
 ?>
 
 <!DOCTYPE html>
