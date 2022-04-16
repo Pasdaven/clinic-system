@@ -130,7 +130,7 @@ require_once("../../database/db_con.php");
     ?>
 
     <h3>新增病歷資料</h3>
-    <form method="_GET" action="./index.php">
+    <form method="POST" action="./index.php">
         病歷號碼:
         <input list="patient_case_id" name="patient_rec[]">
         <datalist id="patient_case_id">
@@ -198,8 +198,8 @@ require_once("../../database/db_con.php");
     </form>
     <?php
     require_once("../../database/db_con.php");
-    if (isset($_GET["patient_rec"])) {
-        $patient_rec = $_GET["patient_rec"];
+    if (isset($_POST["patient_rec"])) {
+        $patient_rec = $_POST["patient_rec"];
         // print_r($patient_rec);
 
         // insert patient records
@@ -214,8 +214,8 @@ require_once("../../database/db_con.php");
         }
 
         // insert patient medicine records
-        if (isset($_GET["med_list"])) {
-            $med_list = $_GET["med_list"];
+        if (isset($_POST["med_list"])) {
+            $med_list = $_POST["med_list"];
             for ($i = 0; $i < count($med_list); $i++) {
                 $sql = "INSERT INTO `med_list` VALUES ('$record_id', '$med_list[$i]')";
                 mysqli_query($link, $sql);
