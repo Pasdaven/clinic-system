@@ -1,7 +1,7 @@
 <?php
 
 require_once("../../database/db_con.php");
-require("../../Model/Doctor.php");
+require("../../model/doctor.php");
 
 $Doctor = new Doctor();
 
