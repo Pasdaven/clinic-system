@@ -14,6 +14,8 @@
     <?php
     //連接資料庫
     require_once("../../database/db_con.php");
+    //引入doctor class
+    require_once("../../model/Doctor.php");
     //病患病歷資料查詢
     require_once("../patient_record_inquire.php");
     //新增病患病例資料
@@ -25,7 +27,7 @@
     //test
     ?>
 
-    
+
 </body>
 
 </html>
