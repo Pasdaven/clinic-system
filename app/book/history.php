@@ -11,7 +11,6 @@
 <?php
 
 require_once("../../database/db_con.php");
-// test
 if (isset($_GET["book_url"])) {
   $book_url = $_GET["book_url"];
   $sql = "SELECT * FROM `book` WHERE `book_url` = '$book_url'";
