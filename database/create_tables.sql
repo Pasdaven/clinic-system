@@ -67,17 +67,9 @@ CREATE TABLE med_list (
 
 CREATE TABLE schedule (
   doc_id INT UNSIGNED comment '醫生編號',
-  week_day ENUM (
-    'Mon',
-    'Tues',
-    'Wed',
-    'Thur',
-    'Fri',
-    'Sat',
-    'Sun'
-  ) comment '星期',
+  week_day ENUM ('1', '2', '3', '4', '5', '6', '7') comment '星期',
   time_period ENUM ('morning', 'noon', 'evening') comment '時段',
-  room ENUM ('first', 'second') comment '診間',
+  room ENUM ('1', '2') comment '診間',
   CONSTRAINT schedule_doc_id FOREIGN KEY (doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE,
   PRIMARY KEY(week_day,time_period,room)
 ) comment '班表';
