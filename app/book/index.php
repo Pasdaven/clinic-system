@@ -12,17 +12,18 @@
   <h3>掛號</h3>
   <form method="post" action="index.php">
     請輸入姓名：
-    <input type="text" name="register[]">
+    <input type="text" name="register[]" required>
     請輸入身分證號碼：
-    <input type="text" name="register[]">
+    <input type="text" name="register[]" required>
     請輸入電子信箱：
-    <input type="email" name="register[]">
-    請選擇醫生：<br>
+    <input type="email" name="register[]" required>
+    請選擇醫生：
     <?php
     require_once("available_doctor.php");
     for ($i = 0; $i < count($doctor_list); $i++) {
-      echo '<input type="radio" name="register[]" value="' . $doctor_list[$i]['doc_id'] . '">' . $doctor_name[$i];
+      echo '<input type="radio" name="register[]" value="' . $doctor_list[$i]['doc_id'] . '" required>' . $doctor_name[$i];
     }
+    echo '<br>';
     ?>
     <input type="submit" value="預約" name="submitBtn">
   </form>
