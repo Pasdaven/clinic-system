@@ -22,6 +22,7 @@
     require_once("./medicine_inquire.php");
     //關閉連接
     mysqli_close($link);
+    //test
     ?>
 
     
