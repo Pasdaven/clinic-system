@@ -6,6 +6,8 @@
 </form>
 
 <?php
+require_once("../model/Doctor.php");
+
 if (isset($_POST['id_num'])) {
     $id_num = trim($_POST['id_num']);
     // patient data
