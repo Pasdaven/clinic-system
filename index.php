@@ -8,13 +8,17 @@
 </head>
 <body>
   <h3>Clinic System</h3>
+  診所：
+  <input type="button" value="前往" onclick="location.href='app/clinic'">
+  <br><br>
   醫生：
   <input type="button" value="前往" onclick="location.href='app/doctor'">
+  <br><br>
+  病患：
+  <input type="button" value="前往" onclick="location.href='app/patient'">
   <br><br>
   掛號：
   <input type="button" value="前往" onclick="location.href='app/book'">
   <br><br>
-  藥物：
-  <input type="button" value="前往" onclick="location.href='app/medicine'">
 </body>
 </html>
