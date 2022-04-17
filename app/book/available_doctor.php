@@ -1,6 +1,9 @@
 <?php
 
 require_once("../../database/db_con.php");
+require("../../Model/Doctor.php");
+
+$Doctor = new Doctor();
 
 // 系統時間（時區預設為歐洲）
 // $week_day = date("I");
@@ -41,10 +44,5 @@ while ($row = mysqli_fetch_array($result)) {
   $doctor_list[] = $row;
 }
 foreach ($doctor_list as $value) {
-  $doc_id = $value['doc_id'];
-  $sql = "SELECT * FROM doctor WHERE doc_id = '$doc_id'";
-  $result = mysqli_query($link, $sql);
-  while ($row = mysqli_fetch_array($result)) {
-    array_push($doctor_name, $row['doc_name']);
-  }
+  array_push($doctor_name, $Doctor->showDocName($value['doc_id']));
 }
