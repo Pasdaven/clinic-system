@@ -10,7 +10,7 @@ class Doctor extends Model
 
   public function showDocName($doc_id)
   {
-    $doc = $this->getSingle($doc_id);
+    $doc = $this->getSingle($this->table, $this->key_name, $doc_id);
     return $doc['doc_name'];
   }
 
@@ -25,6 +25,6 @@ class Doctor extends Model
   }
   public function showDocInfo($doc_id)
   {
-    return $this->getSingle($doc_id);
+    return $this->getSingle($this->table, $this->key_name, $doc_id);
   }
 }
