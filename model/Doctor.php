@@ -1,6 +1,6 @@
 <?php
 
-require("Model.php");
+require("model.php");
 
 class Doctor extends Model
 {
