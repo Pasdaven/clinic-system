@@ -49,4 +49,27 @@ class Patient extends Model {
         $result = $this->getMultiple('allergy_list', $this->key_name, $case_id[0]['case_id']);
         return $result;
     }
+
+    //新增病人資料
+    public function insertPatInfo($id_num, $patient_name, $sex, $birth, $blood_type, $phone_num) {
+        $sql = "INSERT INTO $this->table VALUES ('$id_num', NULL, '$patient_name', '$sex', '$birth', '$blood_type', '$phone_num')";
+        if (!$this->execute($sql)) {
+            return "SQL error";
+        }
+    }
+
+    //修改病人資料  
+    // change place : 修改屬性, change text : 修改內容
+    public function updatePatInfo($id_num, $change_place, $change_text) {
+        $sql = "UPDATE $this->table SET $change_place = '$change_text' WHERE id_num = '$id_num'";
+        if ($change_place == "case_id") { // case_id is PK 不能修改
+            return "PK error";
+        } else {
+            if ($this->execute($sql)) {
+                return "SQL error";
+            } else {
+                return true;
+            }
+        }
+    }
 }
