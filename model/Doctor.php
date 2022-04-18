@@ -2,20 +2,17 @@
 
 require("model.php");
 
-class Doctor extends Model
-{
+class Doctor extends Model {
 
   protected $table = 'doctor';
   protected $key_name = 'doc_id';
 
-  public function showDocName($doc_id)
-  {
+  public function showDocName($doc_id) {
     $doc = $this->getSingle($this->table, $this->key_name, $doc_id);
     return $doc['doc_name'];
   }
 
-  public function showAllDocName()
-  {
+  public function showAllDocName() {
     $result = $this->getSingleAttrAll('doc_name');
     $doc = array();
     foreach ($result as $value) {
@@ -23,8 +20,7 @@ class Doctor extends Model
     }
     return $doc;
   }
-  public function showDocInfo($doc_id)
-  {
+  public function showDocInfo($doc_id) {
     return $this->getSingle($this->table, $this->key_name, $doc_id);
   }
 }

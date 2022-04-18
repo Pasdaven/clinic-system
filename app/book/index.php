@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
 </head>
+
 <body>
   首頁：
   <input type="button" value="前往" onclick="location.href='../../'">
@@ -28,6 +30,7 @@
     <input type="submit" value="預約" name="submitBtn">
   </form>
 </body>
+
 </html>
 
 <?php
@@ -39,12 +42,12 @@ if (isset($_POST["register"])) {
   $patient_name = $register[0];
   $id_num = $register[1];
   $email_address = $register[2];
-  $doc_name = 
-  $time = date("Y-m-d H:i:s");
+  $doc_name =
+    $time = date("Y-m-d H:i:s");
 
   $sql = "INSERT INTO book (patient_name, id_num, email_address, doc_id) VALUES ('$patient_name', '$id_num', '$email_address', '1004')";
   if (mysqli_query($link, $sql)) {
-    
+
     // 將剛新增那筆資料的 book_url 使用該筆資料的 book_id md5()
     // 該筆資料即為 table 中 book_url 為 NULL 的那筆
     $sql = "SELECT * FROM book WHERE book_url IS NULL";

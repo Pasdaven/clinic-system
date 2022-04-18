@@ -1,11 +1,9 @@
 <?php
 
-class Model
-{
+class Model {
 
   //連接資料庫
-  private function getDB()
-  {
+  private function getDB() {
     $host = 'localhost';
     $dbuser = 'root';
     $dbpassword = '';
@@ -15,14 +13,12 @@ class Model
     return $link;
   }
   //執行sql，返回結果集
-  public function execute($sql)
-  {
+  public function execute($sql) {
     $result = mysqli_query($this->getDB(), $sql);
     return $result;
   }
   //取整個表
-  public function getAll()
-  {
+  public function getAll() {
     $sql = "SELECT * FROM $this->table";
     $list = $this->execute($sql);
     while ($row = mysqli_fetch_assoc($list)) {
@@ -31,8 +27,7 @@ class Model
     return $result;
   }
   //取某屬性的全部值
-  public function getSingleAttrAll($attr)
-  {
+  public function getSingleAttrAll($attr) {
     $sql = "SELECT $attr FROM $this->table";
     $list = $this->execute($sql);
     while ($row = mysqli_fetch_assoc($list)) {
@@ -41,16 +36,14 @@ class Model
     return $result;
   }
   //取某表中的一行
-  public function getSingle($table, $key_name, $key)
-  {
+  public function getSingle($table, $key_name, $key) {
     $sql = "SELECT * FROM $table WHERE $key_name = '$key'";
     $result = $this->execute($sql);
     $row = mysqli_fetch_assoc($result);
     return $row;
   }
   //取某表中的多行
-  public function getMultiple($table, $key_name, $key)
-  {
+  public function getMultiple($table, $key_name, $key) {
     $sql = "SELECT * FROM $table WHERE $key_name = '$key'";
     $list = $this->execute($sql);
     while ($row = mysqli_fetch_assoc($list)) {
@@ -59,8 +52,7 @@ class Model
     return $result;
   }
   //從某屬性$attr1找另一屬性$attr2
-  public function getOtherAttr($attr1, $key, $attr2)
-  {
+  public function getOtherAttr($attr1, $key, $attr2) {
     $sql = "SELECT $attr2 FROM $this->table WHERE $attr1 = '$key'";
     $list = $this->execute($sql);
     while ($row = mysqli_fetch_assoc($list)) {
@@ -69,8 +61,7 @@ class Model
     return $result;
   }
   //通過某屬性判斷資料是否存在,返回資料筆數
-  public function Exist($table, $key_name, $key)
-  {
+  public function Exist($table, $key_name, $key) {
     $sql = "SELECT * FROM $table WHERE $key_name = '$key'";
     $result = $this->execute($sql);
     return mysqli_num_rows($result);

@@ -10,4 +10,3 @@ if($link){
 else {
     echo "資料庫連接失敗</br>" . mysqli_connect_error();
 }
-?>
