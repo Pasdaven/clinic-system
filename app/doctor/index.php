@@ -1,3 +1,12 @@
+<?php
+// used model
+require_once("../../model/medicine.php");
+$Medicine = new Medicine();
+require_once("../../model/Doctor.php");
+$Doctor = new Doctor();
+require_once("../../model/patient.php");
+$Patient = new Patient();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
