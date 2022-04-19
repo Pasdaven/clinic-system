@@ -46,10 +46,14 @@ class Model {
     public function getMultiple($table, $key_name, $key) {
         $sql = "SELECT * FROM $table WHERE $key_name = '$key'";
         $list = $this->execute($sql);
-        while ($row = mysqli_fetch_assoc($list)) {
-            $result[] = $row;
+        if (mysqli_num_rows($list) > 0) {
+            while ($row = mysqli_fetch_assoc($list)) {
+                $result[] = $row;
+            }
+            return $result;
+        } else {
+            return NULL;
         }
-        return $result;
     }
     //從某屬性$attr1找另一屬性$attr2
     public function getOtherAttr($attr1, $key, $attr2) {
