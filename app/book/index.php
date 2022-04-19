@@ -35,37 +35,25 @@
 
 <?php
 
-require_once("../../database/db_con.php");
+require("../../model/book.php");
+
+$Book = new Book();
 
 if (isset($_POST["register"])) {
     $register = $_POST["register"];
     $patient_name = $register[0];
     $id_num = $register[1];
     $email_address = $register[2];
-    $doc_name =
-        $time = date("Y-m-d H:i:s");
+    $doc_name = $register[3];
+    $time = date("Y-m-d H:i:s");
 
-    $sql = "INSERT INTO book (patient_name, id_num, email_address, doc_id) VALUES ('$patient_name', '$id_num', '$email_address', '1004')";
-    if (mysqli_query($link, $sql)) {
+    $Book->createBook($patient_name, $id_num, $email_address, $doc_name, $time);
+    $book_url = $Book->generateUrl($id_num, $time);
 
-        // 將剛新增那筆資料的 book_url 使用該筆資料的 book_id md5()
-        // 該筆資料即為 table 中 book_url 為 NULL 的那筆
-        $sql = "SELECT * FROM book WHERE book_url IS NULL";
-        $result = mysqli_query($link, $sql);
-        while ($row = mysqli_fetch_array($result)) {
-            $book_id = $row['book_id'];
-            $book_url = md5($book_id);
-            $sql = "UPDATE book SET book_url = '$book_url' WHERE book_id = $book_id";
-            mysqli_query($link, $sql);
-        }
-
-        echo '掛號成功';
-        echo '<br>';
-        echo 'link: ';
-        echo '<a href="/clinic-system/app/book/history.php?book_url=' . $book_url . '" target="_blank">localhost/clinic-system/app/book/history.php?book_url=' . $book_url . '</a>';
-    } else {
-        echo '掛號失敗';
-    }
+    echo '掛號成功';
+    echo '<br>';
+    echo 'link: ';
+    echo '<a href="/clinic-system/app/book/history.php?book_url=' . $book_url . '" target="_blank">localhost/clinic-system/app/book/history.php?book_url=' . $book_url . '</a>';
 }
 
 ?>
