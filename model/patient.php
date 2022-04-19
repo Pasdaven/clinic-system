@@ -49,7 +49,20 @@ class Patient extends Model {
         $result = $this->getMultiple('allergy_list', $this->key_name, $case_id[0]['case_id']);
         return $result;
     }
-
+    //新增病人病歷資料
+    public function addPatRec($case_id, $doc_id, $consulation_date, $disease_name, $med_days, $comment) {
+        $sql = "INSERT INTO patient_records VALUES (NULL, '$case_id', '$doc_id', '$consulation_date', '$disease_name', '$med_days', '$comment')";
+        if (!$this->execute($sql)) {
+            return "SQL error";
+        }
+    }
+    //新增病人藥品資料
+    public function addPatMed($record_id, $patient_med) {
+        foreach ($patient_med as $i) {
+            $sql = "INSERT INTO med_list VALUES ($record_id, $i)";
+            $this->execute($sql);
+        }
+    }
     //新增病人資料
     public function insertPatInfo($id_num, $patient_name, $sex, $birth, $blood_type, $phone_num) {
         $sql = "INSERT INTO $this->table VALUES ('$id_num', NULL, '$patient_name', '$sex', '$birth', '$blood_type', '$phone_num')";
@@ -57,7 +70,6 @@ class Patient extends Model {
             return "SQL error";
         }
     }
-
     //修改病人資料  
     // change place : 修改屬性, change text : 修改內容
     public function updatePatInfo($id_num, $change_place, $change_text) {
