@@ -1,7 +1,7 @@
 <?php
 
 require_once("../../database/db_con.php");
-require_once("../../model/doctor.php");
+require("../../model/doctor.php");
 
 $Doctor = new Doctor();
 
@@ -36,13 +36,8 @@ switch ($time) {
         break;
 }
 
-$sql = "SELECT * FROM schedule WHERE week_day = '$week_day' && time_period = '$time_period'";
-$result = mysqli_query($link, $sql);
-$doctor_list = array();
-$doctor_name = array();
-while ($row = mysqli_fetch_array($result)) {
-    $doctor_list[] = $row;
-}
+$doctor_list = $Doctor->getAvailableDocList($week_day, $time_period);
+$doctor_name = Array();
 foreach ($doctor_list as $value) {
     array_push($doctor_name, $Doctor->showDocName($value['doc_id']));
 }

@@ -46,4 +46,16 @@ class Doctor extends Model {
             }
         }
     }
+
+    // 取得傳入時間參數對應班表的醫生列表
+    public function getAvailableDocList($week_day, $time_period) {
+        $sql = "SELECT * FROM schedule WHERE week_day = '$week_day' && time_period = '$time_period'";
+        $result = $this->execute($sql);
+        $doctor_list = array();
+        $doctor_name = array();
+        while ($row = mysqli_fetch_array($result)) {
+            $doctor_list[] = $row;
+        }
+        return $doctor_list;
+    }
 }
