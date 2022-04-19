@@ -4,11 +4,11 @@ require_once("model.php");
 
 class Book extends Model {
 
-    protected $table = 'doctor';
-    protected $key_name = 'doc_id';
+    protected $table = 'book';
+    protected $key_name = 'book_id';
 
     public function createBook($patient_name, $id_num, $email_address, $doc_id, $time) {
-        $sql = "INSERT INTO $this->table (patient_name, id_num, email_address, doc_id, consulation_time) VALUES ('$patient_name', '$id_num', '$email_address', '$doc_id', '$time)";
+        $sql = "INSERT INTO $this->table (patient_name, id_num, email_address, doc_id, consulation_time) VALUES ('$patient_name', '$id_num', '$email_address', '$doc_id', '$time')";
         $this->execute($sql);
     }
 
