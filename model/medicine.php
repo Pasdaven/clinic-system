@@ -33,4 +33,9 @@ class Medicine extends Model {
             }
         }
     }
+
+    //取得所有藥品
+    public function getAllMed() {
+        return $this->getAll();
+    }
 }
