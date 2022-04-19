@@ -22,7 +22,7 @@ class Model {
         $sql = "SELECT * FROM $this->table";
         $list = $this->execute($sql);
         while ($row = mysqli_fetch_assoc($list)) {
-            $result = $row;
+            $result[] = $row;
         }
         return $result;
     }
