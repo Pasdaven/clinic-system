@@ -35,7 +35,7 @@
 
 <?php
 
-require("../../model/book.php");
+require_once("../../model/book.php");
 
 $Book = new Book();
 

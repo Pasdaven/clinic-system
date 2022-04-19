@@ -1,6 +1,6 @@
 <?php
 
-require("model.php");
+require_once("model.php");
 
 class Medicine extends Model {
     protected $table = 'medicine';
