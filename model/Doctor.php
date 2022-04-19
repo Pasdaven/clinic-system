@@ -58,4 +58,9 @@ class Doctor extends Model {
         }
         return $doctor_list;
     }
+
+    //取得所有醫生資料
+    public function getAllDocInfo() {
+        return $this->getAll();
+    }
 }
