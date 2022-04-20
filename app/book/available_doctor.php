@@ -37,7 +37,9 @@ switch ($time) {
 }
 
 $doctor_list = $Doctor->getAvailableDocList($week_day, $time_period);
-$doctor_name = Array();
-foreach ($doctor_list as $value) {
-    array_push($doctor_name, $Doctor->showDocName($value['doc_id']));
+
+for ($i = 0; $i < count($doctor_list); $i++) {
+    $doctor_list[$i]['doc_name'] = $Doctor->showDocName($doctor_list[$i]['doc_id']);
 }
+
+echo json_encode($doctor_list);

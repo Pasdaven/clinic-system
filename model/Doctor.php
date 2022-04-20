@@ -55,8 +55,7 @@ class Doctor extends Model {
         $sql = "SELECT * FROM schedule WHERE week_day = '$week_day' && time_period = '$time_period'";
         $result = $this->execute($sql);
         $doctor_list = array();
-        $doctor_name = array();
-        while ($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $doctor_list[] = $row;
         }
         return $doctor_list;
