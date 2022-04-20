@@ -1,5 +1,5 @@
 <?php 
  
-$data = ['1004', 'Lin', 'waiting']; 
+$data = ['David', 'D0957382', 'waiting']; 
  
 echo json_encode($data);
