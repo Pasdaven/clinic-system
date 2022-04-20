@@ -16,7 +16,7 @@
     require_once("../../database/db_con.php");
     //病患個人資料查詢
     //病患病歷資料查詢
-    require_once("../patient_record_inquire.php");
+    require_once("../patient/patient_record_inquire.php");
     //醫生個人資料查詢
     //新增病人資料
     //刪除病人資料
