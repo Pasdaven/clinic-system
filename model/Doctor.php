@@ -20,8 +20,11 @@ class Doctor extends Model {
         }
         return $doc;
     }
-    public function showDocInfo($doc_id) {
-        return $this->getSingle($this->table, $this->key_name, $doc_id);
+    public function showDocInfo($id_num) {
+        return $this->getSingle($this->table, 'id_num', $id_num);
+    }
+    public function doctorExist($id_num) {
+        return $this->Exist($this->table, 'id_num', $id_num);
     }
 
     //新增醫生資料
