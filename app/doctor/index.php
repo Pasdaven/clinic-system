@@ -24,11 +24,11 @@ $Patient = new Patient();
     //連接資料庫
     require_once("../../database/db_con.php");
     //病患病歷資料查詢
-    require_once("../patient_record_inquire.php");
+    require_once("../patient/patient_record_inquire.php");
     //新增病患病例資料
-    require_once("./add_patient_record.php");
+    require_once("../patient/add_patient_record.php");
     //藥品資料查詢
-    require_once("./medicine_inquire.php");
+    require_once("../medicine/medicine_inquire.php");
     //關閉連接
     mysqli_close($link);
     //test
