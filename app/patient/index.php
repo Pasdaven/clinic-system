@@ -15,7 +15,7 @@
     //連接資料庫
     require_once("../../database/db_con.php");
     //病患病歷資料查詢
-    require_once("../patient_record_inquire.php");
+    require_once("./patient_record_inquire.php");
     //病患線上掛號
     require_once("../book/index.php");
     //關閉連接
