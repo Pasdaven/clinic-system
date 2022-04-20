@@ -1,6 +1,11 @@
 <?php
+//used model
 require_once("../../model/patient.php");
 $Patient = new Patient();
+require_once("../../model/doctor.php");
+$Doctor = new Doctor();
+require_once("../../model/medicine.php");
+$Medicine = new Medicine();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +14,7 @@ $Patient = new Patient();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient</title>
+    <title>Clinic</title>
 </head>
 
 <body>
@@ -23,6 +28,7 @@ $Patient = new Patient();
     //病患病歷資料查詢
     require_once("../patient/patient_record_inquire.php");
     //醫生個人資料查詢
+    require_once("../doctor/doctor_data_inquire.php");
     //新增病人資料
     //刪除病人資料
     //更改病人資料
