@@ -4,16 +4,16 @@ $decoded = json_decode(file_get_contents('php://input'), true);
 
 require_once($decoded['controller'] . '.php');
 $obj = new $decoded['controller']();
-if ($decoded['parameter']) {
+if (array_key_exists('parameter', $decoded)) {
     $string =  implode(',', $decoded['parameter']);
-    $data = $obj->$decoded['method']($string);
+    $func = $decoded['method'];
+    $data = $obj->$func($string);
 } else {
-    $data = $obj->$decoded['method']();
+    $func = $decoded['method'];
+    $data = $obj->$func();
 }
-
 
 $result = json_encode($data);
 
-
 header("Content-Type: application/json; charset=UTF-8");
-echo 'test';
+echo $result;
