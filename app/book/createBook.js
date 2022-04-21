@@ -5,8 +5,8 @@ $(document).ready(function() {
         let email = $('#email').val();
         let doc_id = $("input[type=radio]:checked").val();
         let data = {
-            controller: 'test controller',
-            method: 'test method',
+            controller: 'book.php',
+            method: 'createBook',
             parameter: {
                 name: name,
                 id_num: id_num,
@@ -16,7 +16,7 @@ $(document).ready(function() {
         };
         let json = JSON.stringify(data);
         $.ajax({
-            url: './create_book.php',
+            url: '../../controller/core.php',
             method: 'POST',
             data: json,
             success: function(res) {

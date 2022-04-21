@@ -1,11 +1,20 @@
-let xmlhttp = new XMLHttpRequest();
-
-xmlhttp.onreadystatechange = function () {
-	if (this.readyState == 4 && this.status == 200) {
-		let data = JSON.parse(this.responseText);
-        createDocList(data);
-	}
-}
+$(document).ready(function() {
+    let data = {
+        controller: 'Book',
+        method: 'getAvailableDoc',
+        parameter: 
+    };
+    let json = JSON.stringify(data);
+    $.ajax({
+        url: '../../controller/core.php',
+        method: 'POST',
+        data: json,
+        success: function(res) {
+            console.log(res);
+            // createDocList(res);
+        }
+    });
+});
 
 function createDocList(data) {
     for (i = 0; i < data.length; i++) {
@@ -14,6 +23,3 @@ function createDocList(data) {
         document.getElementById("doc_list").insertAdjacentHTML('afterbegin', radio);
     }
 }
-
-xmlhttp.open("GET", "./available_doctor.php", true);
-xmlhttp.send();

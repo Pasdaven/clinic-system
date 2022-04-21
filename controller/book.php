@@ -1,6 +1,7 @@
 <?php
 
 require_once("../model/book.php");
+require_once("../model/doctor.php");
 
 class Book extends Book_mod {
 
@@ -18,5 +19,48 @@ class Book extends Book_mod {
         $sql = $this->insert($patient_name, $id_num, $email_address, $doc_id, $time);
         $this->execute($sql);
         return $this->generateUrl($id_num, $time);
+    }
+
+    public function getAvailableDoc() {
+        $Doctor = new Doctor();
+
+        // 系統時間（時區預設為歐洲）
+        // $week_day = date("I");
+        // $time = date("H");
+
+        // 自訂時間，$week_day為星期，使用數字表示，$time為時間（小時），使用24小時制
+        $week_day = "1";
+        $time = "9";
+
+        switch ($time) {
+            case 9:
+            case 10:
+            case 11:
+                $time_period = "morning";
+                break;
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+                $time_period = "evening";
+                break;
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+                $time_period = "noon";
+                break;
+            default:
+                $time_period = "wrong";
+                break;
+        }
+
+        $doctor_list = $Doctor->getAvailableDocList($week_day, $time_period);
+
+        for ($i = 0; $i < count($doctor_list); $i++) {
+            $doctor_list[$i]['doc_name'] = $Doctor->showDocName($doctor_list[$i]['doc_id']);
+        }
+
+        return $doctor_list;
     }
 }
