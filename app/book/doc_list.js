@@ -10,7 +10,7 @@ xmlhttp.onreadystatechange = function () {
 function createDocList(data) {
     for (i = 0; i < data.length; i++) {
         let obj = data[i];
-        let radio = '<input type="radio" name="register[]" value="' + obj.doc_id + '" required>' + obj.doc_name
+        let radio = '<input type="radio" value="' + obj.doc_id + '" required>' + obj.doc_name
         document.getElementById("doc_list").insertAdjacentHTML('afterbegin', radio);
     }
 }
