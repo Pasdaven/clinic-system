@@ -1,23 +1,14 @@
 <?php
 
+$decoded = json_decode(file_get_contents('php://input'), true);
 
-class Core {
+require_once($decoded['controller'] . '.php');
+$obj = new $decoded['controller']();
+$string =  implode(',', $decoded['parameter']);
+$data = $obj->$decoded['method']($string);
 
-    public function jump() {
-        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+$result = json_encode($data);
 
-        if ($contentType === "application/json") {
-            $content = trim(file_get_contents("php://input"));
-            $decoded = json_decode($content, true);
 
-            require_once($decoded['controller']);
-            $string =  implode(',', $decoded['parameter']);
-            $data = $this->$decoded['method']($string);
-
-            $result = json_encode($data);
-        }
-
-        header("Content-Type: application/json; charset=UTF-8");
-        echo $result;
-    }
-}
+header("Content-Type: application/json; charset=UTF-8");
+echo 'test';
