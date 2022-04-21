@@ -1,7 +1,7 @@
 <?php
 
 require_once("../model/book.php");
-require_once("../model/doctor.php");
+require_once("./doctor.php");
 
 class Book extends Book_mod {
 

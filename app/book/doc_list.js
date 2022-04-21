@@ -1,8 +1,7 @@
 $(document).ready(function() {
     let data = {
         controller: 'Book',
-        method: 'getAvailableDoc',
-        parameter: 
+        method: 'getAvailableDoc'
     };
     let json = JSON.stringify(data);
     $.ajax({
@@ -10,8 +9,7 @@ $(document).ready(function() {
         method: 'POST',
         data: json,
         success: function(res) {
-            console.log(res);
-            // createDocList(res);
+            createDocList(res);
         }
     });
 });
@@ -19,7 +17,7 @@ $(document).ready(function() {
 function createDocList(data) {
     for (i = 0; i < data.length; i++) {
         let obj = data[i];
-        let radio = '<input type="radio" value="' + obj.doc_id + '" required>' + obj.doc_name
+        let radio = '<input type="radio" name="doc_list" value="' + obj.doc_id + '" required>' + obj.doc_name
         document.getElementById("doc_list").insertAdjacentHTML('afterbegin', radio);
     }
 }
