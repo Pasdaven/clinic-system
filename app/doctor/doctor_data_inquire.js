@@ -1,9 +1,9 @@
 function getDocData() {
     var id_num = document.getElementById("doc_id_num").value;
-    var url = 'doctor_data_inquire.php';
+    var url = '../../controller/core.php';
     let data = {
-        controller: 'test url',
-        method: 'test method',
+        controller: 'doctor',
+        method: 'showDocInfo',
         parameter: {
             doc_id_num : id_num
         }
