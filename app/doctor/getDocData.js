@@ -5,7 +5,7 @@ function getDocData() {
         controller: 'doctor',
         method: 'showDocInfo',
         parameter: {
-            doc_id_num : id_num
+            doc_id_num: id_num
         }
     }
     fetch(url, {
@@ -15,5 +15,8 @@ function getDocData() {
             'Content-Type': 'application/json'
         }
     }).then(res => res.json())
-        .then(res => console.log(res));
+        .then(res => {
+            const data = res;
+            console.log(data);
+        })
 }
