@@ -1,0 +1,110 @@
+.top_topic_span {
+    background-color: #EDEDF9;
+    color: #8c9eff;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #F7F7FC;
+}
+
+.container {
+    padding: 50px;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 20px;
+    width: 250px;
+    height: 300px;
+    padding: 10px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 15px 41px -11px rgba(0, 0, 0, 0.56);
+}
+
+.card:nth-child(1) {
+    background-color: #c5cae9;
+}
+
+.card:nth-child(2) {
+    background-color: #e8eaf6;
+}
+
+.card:nth-child(3) {
+    background-color: #9499b7;
+}
+
+
+.card .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+    z-index: 1;
+}
+
+.card .icon img {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+    z-index: 1
+}
+
+.card:nth-child(1) .icon {
+    background: #e3f2fd;
+}
+
+.card:nth-child(2) .icon {
+    background: #eeffff;
+}
+
+.card:nth-child(3) .icon {
+    background: #b1bfca;
+}
+
+.card:hover .icon {
+    top: 20px;
+    left: calc(50% - 40px);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.card .icon i {
+    color: white;
+    font-size: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+    z-index: 1
+}
+
+.card:hover .icon i {
+    font-size: 40px;
+}
+
+.card .details {
+    position: absolute;
+    height: calc(100% - 120px);
+    text-align: center;
+    padding: 20px;
+    top: 120px;
+    color: white;
+    font-size: 18px;
+    line-height: 1.8rem;
+}
