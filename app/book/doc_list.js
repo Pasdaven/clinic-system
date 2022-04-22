@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(() => {
     let data = {
         controller: 'Book',
         method: 'getAvailableDoc'
@@ -14,7 +14,7 @@ $(document).ready(function() {
     });
 });
 
-function createDocList(data) {
+let createDocList = data => {
     for (i = 0; i < data.length; i++) {
         let obj = data[i];
         let radio = '<input type="radio" name="doc_list" value="' + obj.doc_id + '" required>' + obj.doc_name
