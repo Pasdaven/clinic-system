@@ -5,9 +5,9 @@ $decoded = json_decode(file_get_contents('php://input'), true);
 require_once($decoded['controller'] . '.php');
 $obj = new $decoded['controller']();
 if (array_key_exists('parameter', $decoded)) {
-    $string =  implode(',', $decoded['parameter']);
     $func = $decoded['method'];
-    $data = $obj->$func($string);
+    $param = $decoded['parameter'];
+    $data = $obj->$func($param);
 } else {
     $func = $decoded['method'];
     $data = $obj->$func();

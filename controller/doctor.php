@@ -25,14 +25,24 @@ class Doctor extends Doctor_mod {
     }
 
     //新增醫生資料
-    public function insertDocInfo($doc_id, $id_num, $doc_name, $sex, $birth, $phone_num, $doc_state) {
+    public function insertDocInfo($param) {
+        $doc_id = $param['doc_id'];
+        $id_num = $param['id_num'];
+        $doc_name = $param['doc_name'];
+        $sex = $param['sex'];
+        $birth = $param['birth'];
+        $phone_num = $param['phone_num'];
+        $doc_state = $param['doc_state'];
         $sql = $this->insert($doc_id, $id_num, $doc_name, $sex, $birth, $phone_num, $doc_state);
         return $this->execute($sql);
     }
 
     //修改醫生資料
     // change place : 修改屬性, change text : 修改內容
-    public function updateDocInfo($doc_id, $change_place, $change_text) {
+    public function updateDocInfo($param) {
+        $doc_id = $param['doc_id'];
+        $change_place = $param['change_place'];
+        $change_text = $param['change_text'];
         if ($change_place == "doc_id") { // doc_id is PK 不能修改
             return "PK error";
         }
@@ -41,6 +51,7 @@ class Doctor extends Doctor_mod {
     }
 
     // 取得傳入時間參數對應班表的醫生列表
+    // 主要提供 book controller 使用
     public function getAvailableDocList($week_day, $time_period) {
         $sql = $this->get_schedule($week_day, $time_period);
         $list = $this->execute($sql);

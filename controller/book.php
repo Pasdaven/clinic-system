@@ -5,7 +5,7 @@ require_once("./doctor.php");
 
 class Book extends Book_mod {
 
-    public function generateUrl($id_num, $time) {
+    private function generateUrl($id_num, $time) {
         $sql = $this->select($id_num, $time);
         $result = $this->execute($sql);
         $row = mysqli_fetch_assoc($result);
@@ -15,7 +15,12 @@ class Book extends Book_mod {
         $this->execute($sql);
         return $book_url;
     }
-    public function createBook($patient_name, $id_num, $email_address, $doc_id, $time) {
+    public function createBook($param) {
+        $patient_name = $param['patient_name'];
+        $id_num = $param['id_num'];
+        $email_address = $param['email_address'];
+        $doc_id = $param['doc_id'];
+        $time = date("Y-m-d H:i:s");
         $sql = $this->insert($patient_name, $id_num, $email_address, $doc_id, $time);
         $this->execute($sql);
         return $this->generateUrl($id_num, $time);

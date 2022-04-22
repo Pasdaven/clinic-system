@@ -48,25 +48,42 @@ class Patient extends Patient_mod {
         return $result;
     }
     //新增病人病歷資料
-    public function addPatRec($case_id, $doc_id, $consulation_date, $disease_name, $med_days, $comment) {
+    public function addPatRec($param) {
+        $case_id = $param['case_id'];
+        $doc_id = $param['doc_id'];
+        $consulation_date = $param['consulation_date'];
+        $disease_name = $param['disease_name'];
+        $med_days = $param['med_days'];
+        $comment = $param['comment'];
         $sql = $this->add_records($case_id, $doc_id, $consulation_date, $disease_name, $med_days, $comment);
         return $this->execute($sql);
     }
     //新增病人藥品資料
-    public function addPatMed($record_id, $med_id) {
+    public function addPatMed($param) {
+        $record_id = $param['record_id'];
+        $med_id = $param['med_id'];
         foreach ($med_id as $i) {
             $sql = $this->add_med_list($record_id, $i);
             return $this->execute($sql);
         }
     }
     //新增病人資料
-    public function addPatInfo($id_num, $patient_name, $sex, $birth, $blood_type, $phone_num) {
+    public function addPatInfo($param) {
+        $id_num = $param['id_num'];
+        $patient_name = $param['patient_name'];
+        $sex = $param['sex'];
+        $birth = $param['birth'];
+        $blood_type = $param['blood_type'];
+        $phone_num = $param['phone_num'];
         $sql = $this->add_patient($id_num, $patient_name, $sex, $birth, $blood_type, $phone_num);
         return $this->execute($sql);
     }
     //修改病人資料  
     // change place : 修改屬性, change text : 修改內容
-    public function updatePatInfo($id_num, $change_place, $change_text) {
+    public function updatePatInfo($param) {
+        $id_num = $param['id_num'];
+        $change_place = $param['change_place'];
+        $change_text = $param['change_text'];
         if ($change_place == "case_id") { // case_id is PK 不能修改
             return "PK error";
         }
