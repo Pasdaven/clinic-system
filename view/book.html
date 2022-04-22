@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <h3>掛號</h3>
+    請輸入姓名：
+    <input type="text" id="name" name="name" required><br>
+    請輸入身分證號碼：
+    <input type="text" id="id_num" name="id_num" required><br>
+    請輸入電子信箱：
+    <input type="email" id="email" name="email" required><br>
+    請選擇醫生：
+    <div id="doc_list"></div>
+    <input type="submit" value="預約" id="submitBtn" name="submitBtn">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/clinic-system/view/src/scripts/book/doc_list.js"></script>
+    <script src="/clinic-system/view/src/scripts/book/create_book.js"></script>
+</body>
+
+</html>

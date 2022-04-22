@@ -5,7 +5,7 @@ $(document).ready(() => {
     };
     let json = JSON.stringify(data);
     $.ajax({
-        url: '../../controller/core.php',
+        url: '/clinic-system/controller/core.php',
         method: 'POST',
         data: json,
         success: function(res) {
