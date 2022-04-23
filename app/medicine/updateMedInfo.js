@@ -1,17 +1,16 @@
 function updateMed() {
-    var med_id = document.getElementById("med_id").value;
-    var med_name = document.getElementById("med_name").value;
-    var med_academic_name = document.getElementById("med_academic_name").value;
-    var med_effect = document.getElementById("med_effect").value;
+    id_num = document.getElementById('id_num').value;
+    change_place = document.getElementById('change_place').value;
+    change_text = document.getElementById('change_text').value;
+
     var url = '../../controller/core.php';
     let data = {
         controller: 'medicine_ctrl',
         method: 'updateMedInfo',
         parameter: {
-            med_id: med_id,
-            med_name : med_name,
-            med_academic_name : med_academic_name,
-            med_effect : med_effect
+            id_num: id_num,
+            change_place : change_place,
+            change_text : change_text
         }
     }
     fetch(url, {
