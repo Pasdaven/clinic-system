@@ -1,7 +1,7 @@
 <?php
 
 
-require_once("/clinic-system/model/medicine_mod.php");
+require_once("../model/medicine_mod.php");
 
 class Medicine_ctrl extends Medicine_mod {
 
