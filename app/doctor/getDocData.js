@@ -14,9 +14,10 @@ function getDocData() {
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(res => res.json())
-        .then(res => {
-            const data = res;
-            console.log(data);
-        })
+    })
+    .then(res => res.json())
+    .then(res => {
+        const data = res;
+        console.log(data);
+    })
 }

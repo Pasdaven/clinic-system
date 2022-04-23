@@ -7,42 +7,34 @@ function addPatRec() {
     var comment = document.getElementById('comment').value;
 
     var url = '../../controller/core.php';
-    let data1 = {
+    let data = {
         controller: 'patient_ctrl',
-        method: 'showpatInfo',
+        method: 'addPatRec',
         parameter: {
-            id_num: id_num
+            id_num: id_num,
+            doc_id: doc_id,
+            consulation_date: date,
+            disease_name: disease_name,
+            med_days: med_days,
+            comment: comment
         }
     }
     fetch(url, {
         method: 'POST',
-        body: JSON.stringify(data1),
+        body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(res => res.json())
-        .then(res => {
-            var case_id = res['case_id'];
-            console.log(case_id);
-            var url = '../../controller/core.php';
-            let data2 = {
-                controller: 'patient_ctrl',
-                method: 'addPatRec',
-                parameter: {
-                    case_id: case_id,
-                    doc_id: doc_id,
-                    consulation_date: date,
-                    disease_name: disease_name,
-                    med_days: med_days,
-                    comment: comment
-                }
-            }
-            fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(data2),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-        })
+    })
+
 }
+// function med_list() {
+//     let array = []
+//     let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+//     for (let i = 0; i < checkboxes.length; i++) {
+//         array.push(checkboxes[i].value)
+//     }
+
+//     console.log(array);
+// }

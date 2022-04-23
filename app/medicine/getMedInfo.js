@@ -1,11 +1,11 @@
-function getPatData() {
-    var id_num = document.getElementById("pat_id_num").value;
+function getMed() {
+    var med_id = document.getElementById("med_id").value;
     var url = '../../controller/core.php';
     let data = {
-        controller: 'patient_ctrl',
-        method: 'showpatInfo',
+        controller: 'medicine_ctrl',
+        method: 'showMedInfo',
         parameter: {
-            id_num: id_num
+            med_id: med_id
         }
     }
     fetch(url, {

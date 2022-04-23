@@ -51,12 +51,13 @@ class Patient_ctrl extends Patient_mod {
     }
     //新增病人病歷資料
     public function addPatRec($param) {
-        $case_id = $param['case_id'];
+        $id_num = $param['id_num'];
         $doc_id = $param['doc_id'];
         $consulation_date = $param['consulation_date'];
         $disease_name = $param['disease_name'];
         $med_days = $param['med_days'];
         $comment = $param['comment'];
+        $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
         $sql = $this->add_records($case_id, $doc_id, $consulation_date, $disease_name, $med_days, $comment);
         return $this->execute($sql);
     }

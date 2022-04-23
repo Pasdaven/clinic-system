@@ -1,7 +1,7 @@
 function getDocList() {
     var url = '../../controller/core.php';
     let data = {
-        controller: 'doctor',
+        controller: 'doctor_ctrl',
         method: 'getAllDocInfo',
     }
     fetch(url, {
