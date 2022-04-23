@@ -5,7 +5,7 @@ function getDocData() {
         controller: 'doctor',
         method: 'showDocInfo',
         parameter: {
-            doc_id_num: id_num
+            id_num: id_num
         }
     }
     fetch(url, {
