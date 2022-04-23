@@ -1,6 +1,6 @@
 $(document).ready(() => {
     let data = {
-        controller: 'Book_ctrl',
+        controller: 'book_ctrl',
         method: 'getAvailableDoc'
     };
     let json = JSON.stringify(data);
@@ -8,16 +8,14 @@ $(document).ready(() => {
         url: '/clinic-system/controller/core.php',
         method: 'POST',
         data: json,
-        success: function(res) {
-            createDocList(res);
-        }
+        success: res => console.log(res)
     });
 });
 
 let createDocList = data => {
     for (i = 0; i < data.length; i++) {
         let obj = data[i];
-        let radio = '<input type="radio" name="doc_list" value="' + obj.doc_id + '" required>' + obj.doc_name
+        let radio = '<input type="radio" name="doc_list" value="' + obj.doc_id + '" required>' + obj.doc_name;
         document.getElementById("doc_list").insertAdjacentHTML('afterbegin', radio);
     }
 }

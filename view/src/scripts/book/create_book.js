@@ -19,8 +19,8 @@ $(document).ready(() => {
             url: '/clinic-system/controller/core.php',
             method: 'POST',
             data: json,
-            success: function(res) {
-                console.log(res);
+            success: res => {
+                
             }
         });
     });
