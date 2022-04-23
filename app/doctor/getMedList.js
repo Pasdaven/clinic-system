@@ -3,9 +3,6 @@ function getMedList() {
     let data = {
         controller: 'medicine',
         method: 'getAllMedInfo',
-        parameter: {
-
-        }
     }
     fetch(url, {
         method: 'POST',

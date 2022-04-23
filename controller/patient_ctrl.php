@@ -19,7 +19,8 @@ class Patient extends Patient_mod {
         return $pat;
     }
     //顯示病人資料
-    public function showpatInfo($id_num) {
+    public function showpatInfo($param) {
+        $id_num = $param['id_num'];
         return $this->getSingle($this->table, 'id_num', $id_num);
     }
     //顯示病人病歷
