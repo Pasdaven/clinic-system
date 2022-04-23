@@ -1,9 +1,9 @@
 <?php
 
-require_once("../model/book.php");
-require_once("./doctor.php");
+require_once("/clinic-system/model/book_mod.php");
+require_once("doctor_ctrl.php");
 
-class Book extends Book_mod {
+class Book_ctrl extends Book_mod {
 
     private function generateUrl($id_num, $time) {
         $sql = $this->select($id_num, $time);
@@ -27,7 +27,7 @@ class Book extends Book_mod {
     }
 
     public function getAvailableDoc() {
-        $Doctor = new Doctor();
+        $Doctor = new Doctor_ctrl();
 
         // 系統時間（時區預設為歐洲）
         // $week_day = date("I");

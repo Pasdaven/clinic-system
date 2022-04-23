@@ -1,8 +1,8 @@
 <?php
 
-require_once("../model/doctor.php");
+require_once("/clinic-system/model/doctor_mod.php");
 
-class Doctor extends Doctor_mod {
+class Doctor_ctrl extends Doctor_mod {
 
     public function showDocName($doc_id) {
         $doc = $this->getSingle($this->table, $this->key_name, $doc_id);

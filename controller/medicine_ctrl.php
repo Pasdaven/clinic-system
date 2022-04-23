@@ -1,9 +1,9 @@
 <?php
 
 
-require_once("../model/medicine.php");
+require_once("/clinic-system/model/medicine.php");
 
-class Medicine extends Medicine_mod {
+class Medicine_ctrl extends Medicine_mod {
 
     //顯示藥品資料
     public function showMedInfo($med_id) {
