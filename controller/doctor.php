@@ -17,7 +17,8 @@ class Doctor extends Doctor_mod {
         }
         return $doc;
     }
-    public function showDocInfo($id_num) {
+    public function showDocInfo($param) {
+        $id_num = $param['id_num'];
         return $this->getSingle($this->table, 'id_num', $id_num);
     }
     public function doctorExist($id_num) {
