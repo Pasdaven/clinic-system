@@ -2,8 +2,9 @@
 
 $decoded = json_decode(file_get_contents('php://input'), true);
 
-require_once($decoded['controller'] . '.php');
-$obj = new $decoded['controller']();
+$ctrl = $decoded['controller'];
+require_once($ctrl . '.php');
+$obj = new $ctrl();
 if (array_key_exists('parameter', $decoded)) {
     $func = $decoded['method'];
     $param = $decoded['parameter'];

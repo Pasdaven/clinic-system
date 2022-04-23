@@ -1,8 +1,8 @@
 <?php
 
-require_once("../model/patient.php");
+require_once("/clinic-system/model/patient.php");
 
-class Patient extends Patient_mod {
+class Patient_ctrl extends Patient_mod {
 
     //顯示病人姓名
     public function showpatName($case_id) {
