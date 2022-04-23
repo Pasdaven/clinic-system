@@ -15,6 +15,9 @@ class Book_mod extends Model {
         $sql = "SELECT * FROM $this->table WHERE id_num = '$id_num' && consulation_time = '$time'";
         return $this->execute($sql);
     }
+    public function selectUrl($book_url) {
+        return "SELECT * FROM $this->table WHERE book_url = '$book_url'";
+    }
     public function update($book_url, $book_id) {
         $sql = "UPDATE $this->table SET book_url = '$book_url' WHERE book_id = $book_id";
         return $this->execute($sql);

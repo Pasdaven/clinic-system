@@ -5,6 +5,7 @@ require_once("doctor_ctrl.php");
 
 class Book_ctrl extends Book_mod {
 
+    // 將該筆記錄使用book id屬性md5生成的隨機獨立URL
     private function generateUrl($id_num, $time) {
         $sql = $this->select($id_num, $time);
         $result = $this->execute($sql);
@@ -14,6 +15,8 @@ class Book_ctrl extends Book_mod {
         $this->update($book_url, $book_id);
         return $book_url;
     }
+
+    // 建立一筆掛號記錄，並回傳創建掛號產生的URL
     public function createBook($param) {
         $patient_name = $param['patient_name'];
         $id_num = $param['id_num'];
@@ -24,6 +27,7 @@ class Book_ctrl extends Book_mod {
         return $this->generateUrl($id_num, $time);
     }
 
+    // 查找當前時間看診的醫生
     public function getAvailableDoc() {
         $Doctor = new Doctor_ctrl();
 
@@ -66,4 +70,17 @@ class Book_ctrl extends Book_mod {
 
         return $doctor_list;
     }
+<<<<<<< HEAD
 }
+=======
+
+    // 查詢傳入URL對應的掛號資訊
+    public function getBookInfo($param) {
+        $book_url = $param['book_url'];
+        $sql = $this->selectUrl($book_url);
+        $result = $this->execute($sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
+}
+>>>>>>> 1bedd4bcf97a2214607a85e1c2fd60a4c019cc50
