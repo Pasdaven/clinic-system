@@ -8,7 +8,7 @@ function addPatRec() {
 
     var url = '../../controller/core.php';
     let data1 = {
-        controller: 'patient',
+        controller: 'patient_ctrl',
         method: 'showpatInfo',
         parameter: {
             id_num: id_num

@@ -8,7 +8,7 @@ function addPatInfo() {
 
     var url = '../../controller/core.php';
     let data = {
-        controller: 'patient',
+        controller: 'patient_ctrl',
         method: 'addPatInfo',
         parameter: {
             id_num : id_num,
