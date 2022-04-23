@@ -24,7 +24,8 @@ class Patient_ctrl extends Patient_mod {
         return $this->getSingle($this->table, 'id_num', $id_num);
     }
     //顯示病人病歷
-    public function showRecords($id_num) {
+    public function showRecords($param) {
+        $id_num = $param['id_num'];
         $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
         $result = $this->getMultiple('patient_records', $this->key_name, $case_id[0]['case_id']);
         return $result;
