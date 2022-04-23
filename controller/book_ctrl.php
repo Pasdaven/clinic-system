@@ -1,6 +1,6 @@
 <?php
 
-require_once("/clinic-system/model/book_mod.php");
+require_once("../model/book_mod.php");
 require_once("doctor_ctrl.php");
 
 class Book_ctrl extends Book_mod {

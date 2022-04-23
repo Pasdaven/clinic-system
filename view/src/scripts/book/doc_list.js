@@ -8,7 +8,7 @@ $(document).ready(() => {
         url: '/clinic-system/controller/core.php',
         method: 'POST',
         data: json,
-        success: res => console.log(res)
+        success: res => createDocList(res)
     });
 });
 

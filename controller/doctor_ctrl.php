@@ -1,6 +1,6 @@
 <?php
 
-require_once("/clinic-system/model/doctor_mod.php");
+require_once("../model/doctor_mod.php");
 
 class Doctor_ctrl extends Doctor_mod {
 
