@@ -26,7 +26,7 @@ function addPatRec() {
             console.log(case_id);
             var url = '../../controller/core.php';
             let data2 = {
-                controller: 'patient',
+                controller: 'patient_ctrl',
                 method: 'addPatRec',
                 parameter: {
                     case_id: case_id,
