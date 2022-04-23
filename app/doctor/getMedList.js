@@ -1,7 +1,7 @@
 function getMedList() {
     var url = '../../controller/core.php';
     let data = {
-        controller: 'medicine',
+        controller: 'medicine_ctrl',
         method: 'getAllMedInfo',
     }
     fetch(url, {

@@ -6,7 +6,8 @@ require_once("../model/medicine_mod.php");
 class Medicine_ctrl extends Medicine_mod {
 
     //顯示藥品資料
-    public function showMedInfo($med_id) {
+    public function showMedInfo($param) {
+        $med_id = $param['med_id'];
         return $this->getSingle($this->table, $this->keyname, $med_id);
     }
 

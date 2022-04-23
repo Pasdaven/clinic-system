@@ -45,7 +45,35 @@
     <input type="text" id="pat_id_num">
     <input type="submit" value="查詢" name="searchBtn" id="searchBtn" onclick="getPatData()"><br>
     <script src="../patient/getPatData.js"></script>
-    
+    <h3>新增藥品</h3>
+    藥品編號：
+    <input type="text" id="med_id">
+    藥品名稱：
+    <input type="text" id="med_name">
+    藥品學術名稱：
+    <input type="text" id="med_academic_name">
+    藥品作用：
+    <input type="text" id="med_effect">
+    <input type="submit" value="新增" name="searchBtn" id="searchBtn" onclick="addMed()"><br>
+    <script src="../medicine/addMedInfo.js"></script>
+    <br><br>
+    <h3>修改藥品</h3>
+    藥品編號：
+    <input type="text" id="med_id">
+    藥品名稱：
+    <input type="text" id="med_name">
+    藥品學術名稱：
+    <input type="text" id="med_academic_name">
+    藥品作用：
+    <input type="text" id="med_effect">
+    <input type="submit" value="修改" name="searchBtn" id="searchBtn" onclick="updateMed()"><br>
+    <script src="../medicine/updateMedInfo.js"></script>
+    <br><br>
+    <h3>查詢藥品</h3>
+    請輸入藥品編號：
+    <input type="text" id="med_id">
+    <input type="submit" value="查詢" name="searchBtn" id="searchBtn" onclick="getMed()"><br>
+    <script src="../medicine/getMedInfo.js"></script>
     <script src="./getDocList.js"></script>
     <script src="./getMedList.js"></script>
     <script src="./addPatRec.js"></script>
