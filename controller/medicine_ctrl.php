@@ -17,8 +17,7 @@ class Medicine_ctrl extends Medicine_mod {
         $med_name = $param['med_name'];
         $med_academic_name = $param['med_academic_name'];
         $med_effect = $param['med_effect'];
-        $sql = $this->insert($med_id, $med_name, $med_academic_name, $med_effect);
-        return $this->execute($sql);
+        return $this->insert($med_id, $med_name, $med_academic_name, $med_effect);
     }
 
     //更改藥品資料
@@ -30,8 +29,7 @@ class Medicine_ctrl extends Medicine_mod {
         if ($change_place == "med_id") { // med_id is PK 不能修改
             return "PK error";
         }
-        $sql = $this->update($med_id, $change_place, $change_text);
-        return $this->execute($sql);
+        return $this->update($med_id, $change_place, $change_text);
     }
 
     //取得所有藥品

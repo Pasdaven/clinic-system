@@ -34,8 +34,7 @@ class Doctor_ctrl extends Doctor_mod {
         $birth = $param['birth'];
         $phone_num = $param['phone_num'];
         $doc_state = $param['doc_state'];
-        $sql = $this->insert($doc_id, $id_num, $doc_name, $sex, $birth, $phone_num, $doc_state);
-        return $this->execute($sql);
+        return $this->insert($doc_id, $id_num, $doc_name, $sex, $birth, $phone_num, $doc_state);
     }
 
     //修改醫生資料
@@ -47,8 +46,7 @@ class Doctor_ctrl extends Doctor_mod {
         if ($change_place == "doc_id") { // doc_id is PK 不能修改
             return "PK error";
         }
-        $sql = $this->update($doc_id, $change_place, $change_text);
-        return $this->execute($sql);
+        return $this->update($doc_id, $change_place, $change_text);
     }
 
     // 取得傳入時間參數對應班表的醫生列表

@@ -58,16 +58,14 @@ class Patient_ctrl extends Patient_mod {
         $med_days = $param['med_days'];
         $comment = $param['comment'];
         $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
-        $sql = $this->add_records($case_id, $doc_id, $consulation_date, $disease_name, $med_days, $comment);
-        return $this->execute($sql);
+        return $this->add_records($case_id[0]['case_id'], $doc_id, $consulation_date, $disease_name, $med_days, $comment);
     }
     //新增病人藥品資料
     public function addPatMed($param) {
         $record_id = $param['record_id'];
         $med_id = $param['med_id'];
         foreach ($med_id as $i) {
-            $sql = $this->add_med_list($record_id, $i);
-            return $this->execute($sql);
+            return $this->add_med_list($record_id, $i);
         }
     }
     //新增病人資料
@@ -78,8 +76,7 @@ class Patient_ctrl extends Patient_mod {
         $birth = $param['birth'];
         $blood_type = $param['blood_type'];
         $phone_num = $param['phone_num'];
-        $sql = $this->add_patient($id_num, $patient_name, $sex, $birth, $blood_type, $phone_num);
-        return $this->execute($sql);
+        return $this->add_patient($id_num, $patient_name, $sex, $birth, $blood_type, $phone_num);
     }
     //修改病人資料  
     // change place : 修改屬性, change text : 修改內容
@@ -90,7 +87,6 @@ class Patient_ctrl extends Patient_mod {
         if ($change_place == "case_id") { // case_id is PK 不能修改
             return "PK error";
         }
-        $sql = $this->update_patient($id_num, $change_place, $change_text);
-        return $this->execute($sql);
+        return $this->update_patient($id_num, $change_place, $change_text);
     }
 }
