@@ -1,0 +1,25 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #4C4A62;
+    color: #F7F7FC;
+}
+
+.top_topic {
+    margin-top: 35%;
+}
+
+.top_topic_span {
+    background-color: #EDEDF9;
+    color: #8c9eff;
+}
+
+.search {
+    margin-top: 10%;
+}
+
+.search_btn {
+    background-color: #EDEDF9;
+    color: #8c9eff;
+}
