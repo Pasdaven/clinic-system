@@ -3,9 +3,6 @@ function getDocList() {
     let data = {
         controller: 'doctor',
         method: 'getAllDocInfo',
-        parameter: {
-
-        }
     }
     fetch(url, {
         method: 'POST',
