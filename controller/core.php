@@ -13,8 +13,6 @@ if (array_key_exists('parameter', $decoded)) {
     $func = $decoded['method'];
     $data = $obj->$func();
 }
-
 $result = json_encode($data);
-
 header("Content-Type: application/json; charset=UTF-8");
 echo $result;
