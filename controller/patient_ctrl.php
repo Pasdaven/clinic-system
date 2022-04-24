@@ -50,6 +50,20 @@ class Patient_ctrl extends Patient_mod {
         $result = $this->getMultiple('allergy_list', $this->key_name, $case_id[0]['case_id']);
         return $result;
     }
+    //新增病人過敏藥物
+    public function addPatAllergy($param) {
+        $id_num = $param['id_num'];
+        $allergy_med_id = $param['allergy_med_id'];
+        $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
+        return $this->add_pat_allergy($case_id, $allergy_med_id);
+    }
+    //刪除病人過敏藥物
+    public function delPatAllergy($param) {
+        $id_num = $param['id_num'];
+        $allergy_med_id = $param['allergy_med_id'];
+        $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
+        return $this->del_pat_allergy($case_id, $allergy_med_id);
+    }
     //新增病人病歷資料
     public function addPatRec($param) {
         $id_num = $param['id_num'];
