@@ -23,4 +23,14 @@ class Patient_mod extends Model {
         $sql = "UPDATE $this->table SET $change_place = '$change_text' WHERE id_num = '$id_num'";
         return $this->execute($sql);
     }
+
+    public function add_pat_allergy($case_id, $allergy_med_id) {
+        $sql = "INSERT INTO allergy_list VALUES ('$case_id', '$allergy_med_id')";
+        return $this->execute($sql);
+    }
+
+    public function del_pat_allergy($case_id, $allergy_med_id) {
+        $sql = "DELETE FROM allergy_list WHERE allergy_med_id = '$allergy_med_id' AND case_id = '$case_id'";
+        return $this->execute($sql);
+    }
 }
