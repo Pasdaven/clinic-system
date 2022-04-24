@@ -2,7 +2,7 @@ function getDocData() {
     var id_num = document.getElementById("doc_id_num").value;
     var url = '../../controller/core.php';
     let data = {
-        controller: 'doctor',
+        controller: 'doctor_ctrl',
         method: 'showDocInfo',
         parameter: {
             id_num: id_num
