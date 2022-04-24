@@ -44,7 +44,8 @@ class Patient_ctrl extends Patient_mod {
         return $this->Exist('allergy_list', $this->key_name, $case_id[0]['case_id']);
     }
     //顯示病人過敏藥物
-    public function showPatAlleMed($id_num) {
+    public function showPatAlleMed($param) {
+        $is_num = $param['id_num'];
         $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
         $result = $this->getMultiple('allergy_list', $this->key_name, $case_id[0]['case_id']);
         return $result;
