@@ -1,5 +1,5 @@
 function updateMed() {
-    id_num = document.getElementById('id_num').value;
+    med_id = document.getElementById('med_id').value;
     change_place = document.getElementById('change_place').value;
     change_text = document.getElementById('change_text').value;
 
@@ -8,7 +8,7 @@ function updateMed() {
         controller: 'medicine_ctrl',
         method: 'updateMedInfo',
         parameter: {
-            id_num: id_num,
+            med_id: med_id,
             change_place : change_place,
             change_text : change_text
         }
