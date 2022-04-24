@@ -70,9 +70,6 @@ class Book_ctrl extends Book_mod {
 
         return $doctor_list;
     }
-<<<<<<< HEAD
-}
-=======
 
     // 查詢傳入URL對應的掛號資訊
     public function getBookInfo($param) {
@@ -83,4 +80,3 @@ class Book_ctrl extends Book_mod {
         return $row;
     }
 }
->>>>>>> 1bedd4bcf97a2214607a85e1c2fd60a4c019cc50
