@@ -28,13 +28,33 @@ function addPatRec() {
     })
 
 }
-// function med_list() {
-//     let array = []
-//     let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 
-//     for (let i = 0; i < checkboxes.length; i++) {
-//         array.push(checkboxes[i].value)
-//     }
+function addPatMed() {
+    let array = []
+    let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 
-//     console.log(array);
-// }
+    for (let i = 0; i < checkboxes.length; i++) {
+        array.push(checkboxes[i].value)
+    }
+    console.log(array);
+    var id_num = document.getElementById('id_num').value;
+
+    for (var j = 0; j < array.length; j++) {
+        var url = '../../controller/core.php';
+        let data = {
+            controller: 'patient_ctrl',
+            method: 'addPatMed',
+            parameter: {
+                id_num : id_num,
+                med_id : array[j]
+            }
+        }
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    }
+}
