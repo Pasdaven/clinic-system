@@ -1,9 +1,10 @@
 $(document).ready(() => {
+    book_url = getUrl();
     let data = {
         controller: 'book_ctrl',
         method: 'getBookInfo',
         parameter: {
-            book_url: 'aab3238922bcc25a6f606eb525ffdc56'
+            book_url: book_url
         }
     };
     let json = JSON.stringify(data);
@@ -14,3 +15,8 @@ $(document).ready(() => {
         success: res => console.log(res)
     });
 });
+
+let getUrl = () => {
+    let param = new URLSearchParams(window.location.search);
+    return param.get('url');
+}
