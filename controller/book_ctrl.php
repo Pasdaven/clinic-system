@@ -72,10 +72,11 @@ class Book_ctrl extends Book_mod {
 
     // 查詢傳入URL對應的掛號資訊
     public function getBookInfo($param) {
+        $Doctor = new Doctor_ctrl();
+
         $book_url = $param['book_url'];
-        $sql = $this->selectUrl($book_url);
-        $result = $this->execute($sql);
-        $row = mysqli_fetch_assoc($result);
-        return $row;
+        $result = $this->selectUrl($book_url);
+        $result['doc_name'] = $Doctor->showDocName($result['doc_id']);
+        return $result;
     }
 }
