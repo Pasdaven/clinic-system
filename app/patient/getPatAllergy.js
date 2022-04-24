@@ -1,5 +1,5 @@
-function getPatData() {
-    var id_num = document.getElementById("pat_id_num").value;
+function getPatAllergy() {
+    var id_num = document.getElementById("id_num").value;
     var url = '../../controller/core.php';
     let data = {
         controller: 'patient_ctrl',
