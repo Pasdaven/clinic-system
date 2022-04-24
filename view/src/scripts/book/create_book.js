@@ -5,7 +5,7 @@ $(document).ready(() => {
         let email_address = $('#email').val();
         let doc_id = $("input[type=radio]:checked").val();
         let data = {
-            controller: 'book',
+            controller: 'book_ctrl',
             method: 'createBook',
             parameter: {
                 patient_name: patient_name,
@@ -24,16 +24,8 @@ $(document).ready(() => {
     });
 });
 
-/*
- echo '<h3>即時資訊</h3>';
-            echo '病患名稱：' . $row['patient_name'] . '<br>';
-            echo '等候狀態：' . $row['book_state'] . '<br>';
-            echo '看診時間：' . $row['consulation_time'] . '<br>';
-            echo '醫生：' . $doc_name . '<br>';
-*/
-
 let showBookUrl = url => {
     let showUrl = document.getElementById('showUrl');
-    let data = `<h3>即時資訊</h3>`;
+    let data = '<a href="/clinic-system/view/book_history.html?url=' + url + '" target="_blank">Link</a>';
     showUrl.innerHTML = data;
 }
