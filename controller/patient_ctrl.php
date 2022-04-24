@@ -45,7 +45,7 @@ class Patient_ctrl extends Patient_mod {
     }
     //顯示病人過敏藥物
     public function showPatAlleMed($param) {
-        $is_num = $param['id_num'];
+        $id_num = $param['id_num'];
         $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
         $result = $this->getMultiple('allergy_list', $this->key_name, $case_id[0]['case_id']);
         return $result;
@@ -63,11 +63,10 @@ class Patient_ctrl extends Patient_mod {
     }
     //新增病人藥品資料
     public function addPatMed($param) {
-        $record_id = $param['record_id'];
+        $patient_show_rec = $this->showRecords($param);
+        $record_id = $patient_show_rec[count($patient_show_rec) - 1]['record_id'];
         $med_id = $param['med_id'];
-        foreach ($med_id as $i) {
-            return $this->add_med_list($record_id, $i);
-        }
+        return $this->add_med_list($record_id, $med_id);
     }
     //新增病人資料
     public function addPatInfo($param) {
