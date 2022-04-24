@@ -7,8 +7,7 @@ class Book_ctrl extends Book_mod {
 
     // 將該筆記錄使用book id屬性md5生成的隨機獨立URL
     private function generateUrl($id_num, $time) {
-        $sql = $this->select($id_num, $time);
-        $result = $this->execute($sql);
+        $result = $this->select($id_num, $time);
         $row = mysqli_fetch_assoc($result);
         $book_id = $row['book_id'];
         $book_url = md5($book_id);
