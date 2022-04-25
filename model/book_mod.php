@@ -13,7 +13,9 @@ class Book_mod extends Model {
     }
     public function select($id_num, $time) {
         $sql = "SELECT * FROM $this->table WHERE id_num = '$id_num' && consulation_time = '$time'";
-        return $this->execute($sql);
+        $result = $this->execute($sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
     }
     public function selectUrl($book_url) {
         return $this->getSingle($this->table, 'book_url', $book_url);
