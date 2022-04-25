@@ -7,12 +7,12 @@ class Book_mod extends Model {
     protected $table = 'book';
     protected $key_name = 'book_id';
 
-    public function insert($patient_name, $id_num, $email_address, $doc_id, $time) {
-        $sql = "INSERT INTO $this->table (patient_name, id_num, email_address, doc_id, consulation_time) VALUES ('$patient_name', '$id_num', '$email_address', '$doc_id', '$time')";
+    public function insert($patient_name, $id_num, $email_address, $schedule_id, $time) {
+        $sql = "INSERT INTO $this->table (patient_name, id_num, email_address, schedule_id, create_at) VALUES ('$patient_name', '$id_num', '$email_address', '$schedule_id', '$time')";
         return $this->execute($sql);
     }
     public function select($id_num, $time) {
-        $sql = "SELECT * FROM $this->table WHERE id_num = '$id_num' && consulation_time = '$time'";
+        $sql = "SELECT * FROM $this->table WHERE id_num = '$id_num' && create_at = '$time'";
         $result = $this->execute($sql);
         $row = mysqli_fetch_assoc($result);
         return $row;

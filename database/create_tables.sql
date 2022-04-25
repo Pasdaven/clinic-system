@@ -33,19 +33,6 @@ CREATE TABLE allergy_list (
   PRIMARY KEY(case_id,allergy_med_id)
 ) COMMENT '病人過敏藥物';
 
-CREATE TABLE book (
-  book_id INT UNSIGNED PRIMARY KEY auto_increment comment '掛號編號',
-  queue_num INT UNSIGNED comment '叫號號碼',
-  book_url VARCHAR(40) comment '掛號網址',
-  book_state ENUM('waiting', 'inProgress', 'finish', 'cancel') NOT NULL DEFAULT 'waiting' comment '等候狀態',
-  consulation_time DATETIME comment '掛號時間',
-  doc_id INT UNSIGNED NOT NULL comment '醫生編號',
-  patient_name VARCHAR(10) NOT NULL comment '病人姓名',
-  id_num VARCHAR(10) NOT NULL comment '病人身分證',
-  email_address VARCHAR(30) NOT NULL comment '病人信箱',
-  CONSTRAINT book_doc_id FOREIGN KEY(doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE
-) comment '掛號';
-
 CREATE TABLE patient_records (
   record_id INT UNSIGNED PRIMARY KEY auto_increment comment '看診紀錄編號',
   case_id INT UNSIGNED NOT NULL comment '病歷號碼',
@@ -67,10 +54,23 @@ CREATE TABLE med_list (
 ) COMMENT '用藥清單';
 
 CREATE TABLE schedule (
+  schedule_id INT UNSIGNED PRIMARY KEY auto_increment comment '班表編號',
   doc_id INT UNSIGNED comment '醫生編號',
   week_day ENUM ('1', '2', '3', '4', '5', '6', '7') comment '星期',
   time_period ENUM ('morning', 'noon', 'evening') comment '時段',
   room ENUM ('1', '2') comment '診間',
-  CONSTRAINT schedule_doc_id FOREIGN KEY (doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  PRIMARY KEY(week_day,time_period,room)
+  CONSTRAINT schedule_doc_id FOREIGN KEY (doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE
 ) comment '班表';
+
+CREATE TABLE book (
+  book_id INT UNSIGNED PRIMARY KEY auto_increment comment '掛號編號',
+  queue_num INT UNSIGNED comment '叫號號碼',
+  book_url VARCHAR(40) comment '掛號網址',
+  book_state ENUM('waiting', 'inProgress', 'finish', 'cancel') NOT NULL DEFAULT 'waiting' comment '等候狀態',
+  create_at DATETIME comment '掛號時間',
+  schedule_id INT UNSIGNED comment '醫生班表編號',
+  patient_name VARCHAR(10) NOT NULL comment '病人姓名',
+  id_num VARCHAR(10) NOT NULL comment '病人身分證',
+  email_address VARCHAR(30) NOT NULL comment '病人信箱',
+  CONSTRAINT book_schedule_id FOREIGN KEY(schedule_id) REFERENCES schedule (schedule_id) ON UPDATE CASCADE ON DELETE CASCADE
+) comment '掛號';
