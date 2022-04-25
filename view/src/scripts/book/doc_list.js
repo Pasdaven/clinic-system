@@ -21,7 +21,7 @@ let createDocList = data => {
         let td2 = document.createElement('td');
         let td3 = document.createElement('td');
         let td4 = document.createElement('td');
-        td1.innerHTML = '<input type="radio" name="doc_list" value="' + obj.doc_id + '" required>';
+        td1.innerHTML = '<input type="radio" name="doc_list" value="' + obj.schedule_id + '" required>';
         td2.innerHTML = obj.time_period;
         td3.innerHTML = obj.room;
         td4.innerHTML = obj.doc_name;

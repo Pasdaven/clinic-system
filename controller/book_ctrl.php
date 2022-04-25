@@ -7,7 +7,7 @@ class Book_ctrl extends Book_mod {
 
     // 將該筆記錄使用book id屬性md5生成的隨機獨立URL
     private function generateUrl($id_num, $time) {
-        $row = $this->select($id_num, $time);;
+        $row = $this->select($id_num, $time);
         $book_id = $row['book_id'];
         $book_url = md5($book_id);
         $this->update($book_url, $book_id);
@@ -19,9 +19,9 @@ class Book_ctrl extends Book_mod {
         $patient_name = $param['patient_name'];
         $id_num = $param['id_num'];
         $email_address = $param['email_address'];
-        $doc_id = $param['doc_id'];
+        $schedule_id = $param['schedule_id'];
         $time = date("Y-m-d H:i:s");
-        $this->insert($patient_name, $id_num, $email_address, $doc_id, $time);
+        $this->insert($patient_name, $id_num, $email_address, $schedule_id, $time);
         return $this->generateUrl($id_num, $time);
     }
 
@@ -75,7 +75,7 @@ class Book_ctrl extends Book_mod {
 
         $book_url = $param['book_url'];
         $result = $this->selectUrl($book_url);
-        $result['doc_name'] = $Doctor->showDocName($result['doc_id']);
+        // $result['doc_name'] = $Doctor->showDocName($result['doc_id']);
         return $result;
     }
 }

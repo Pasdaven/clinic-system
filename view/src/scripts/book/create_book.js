@@ -3,7 +3,7 @@ $(document).ready(() => {
         let patient_name = $('#name').val();
         let id_num = $('#id_num').val();
         let email_address = $('#email').val();
-        let doc_id = $("input[type=radio]:checked").val();
+        let schedule_id = $("input[type=radio]:checked").val();
         let data = {
             controller: 'book_ctrl',
             method: 'createBook',
@@ -11,7 +11,7 @@ $(document).ready(() => {
                 patient_name: patient_name,
                 id_num: id_num,
                 email_address: email_address,
-                doc_id: doc_id
+                schedule_id: schedule_id
             }
         };
         let json = JSON.stringify(data);
