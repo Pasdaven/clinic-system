@@ -17,6 +17,11 @@ class Doctor_mod extends Model {
     }
     protected function get_schedule($week_day, $time_period) {
         $sql = "SELECT * FROM schedule WHERE week_day = '$week_day' && time_period = '$time_period'";
-        return $this->execute($sql);
+        $result = $this->execute($sql);
+        $list = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $list[] = $row;
+        }
+        return $list;
     }
 }
