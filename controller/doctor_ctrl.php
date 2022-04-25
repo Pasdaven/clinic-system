@@ -51,8 +51,8 @@ class Doctor_ctrl extends Doctor_mod {
 
     // 取得傳入時間參數對應班表的醫生列表
     // 主要提供 book controller 使用
-    public function getAvailableDocList($week_day, $time_period) {
-        return $this->get_schedule($week_day, $time_period);
+    public function getAvailableDocList($week_day) {
+        return $this->get_schedule($week_day);
     }
 
     //取得所有醫生資料
