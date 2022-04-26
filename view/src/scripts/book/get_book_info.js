@@ -22,7 +22,10 @@ let getUrl = () => {
 }
 
 let displayInfo = data => {
+    let currentQueueNum = document.getElementById('currentQueueNum');
+    let html = 'Current queue number: ' + data.current_queue_num;
+    currentQueueNum.innerHTML = html;
     let info = document.getElementById('info');
-    let html = 'Name: ' + data.patient_name + '<br>' + 'state: ' + data.book_state + '<br>' + 'Queue Number: ' + data.queue_num + '<br>' + 'Doctor: ' + data.doc_name;
+    html = 'Name: ' + data.patient_name + '<br>' + 'state: ' + data.book_state + '<br>' + 'Queue Number: ' + data.queue_num + '<br>' + 'Doctor: ' + data.doc_name;
     info.innerHTML = html;
 }
