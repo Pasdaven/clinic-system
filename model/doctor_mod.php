@@ -15,13 +15,4 @@ class Doctor_mod extends Model {
         $sql = "UPDATE $this->table SET $change_place = '$change_text' WHERE doc_id = '$doc_id'";
         return $this->execute($sql);
     }
-    protected function get_schedule($week_day) {
-        $sql = "SELECT * FROM schedule WHERE week_day = '$week_day'";
-        $result = $this->execute($sql);
-        $list = array();
-        while ($row = mysqli_fetch_assoc($result)) {
-            $list[] = $row;
-        }
-        return $list;
-    }
 }

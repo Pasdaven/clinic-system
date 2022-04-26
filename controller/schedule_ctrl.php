@@ -12,4 +12,7 @@ class Schedule_ctrl extends Schedule_mod {
         return $Doctor->showDocName($schedule_info['doc_id']);
     }
 
+    public function getSchedule($week_day) {
+        return $this->selectWeekDay($week_day);
+    }
 }

@@ -10,5 +10,9 @@ class Schedule_mod extends Model {
     public function select($schedule_id) {
         return $this->getSingle($this->table, 'schedule_id', $schedule_id);
     }
+    
+    public function selectWeekDay($week_day) {
+        return $this->getMultiple($this->table, 'week_day', $week_day);
+    }
 
 }
