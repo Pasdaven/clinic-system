@@ -22,7 +22,7 @@ class Book_ctrl extends Book_mod {
     private function getLastQueueNum($date, $schedule_id) {
         $list = $this->selectSameTime($date, $schedule_id);
         $max = 0;
-        foreach($list as $value) {
+        foreach ($list as $value) {
             if ($value['queue_num'] > $max) {
                 $max = $value['queue_num'];
             }
@@ -47,22 +47,36 @@ class Book_ctrl extends Book_mod {
     // 查找當前時間看診的醫生
     public function getAvailableDoc() {
         $Doctor = new Doctor_ctrl();
+        $Schedule = new Schedule_ctrl();
         // 系統時間（時區預設為歐洲）
         $week_day = date("I");
-        $doctor_list = $Doctor->getAvailableDocList($week_day);
+        $date = date("Y-m-d");
+        $doctor_list = $Schedule->getSchedule($week_day);
         for ($i = 0; $i < count($doctor_list); $i++) {
             $doctor_list[$i]['doc_name'] = $Doctor->showDocName($doctor_list[$i]['doc_id']);
+            $doctor_list[$i]['last_queue_num'] = $this->getLastQueueNum($date, $doctor_list[$i]['schedule_id']);
         }
         return $doctor_list;
     }
 
+    private function showCurrentQueueNum($date, $schedule_id) {
+        $list = $this->selectSameTime($date, $schedule_id);
+        $current = 0;
+        foreach ($list as $value) {
+            if ($value['book_state'] == 'inProgress') {
+                $current = $value['queue_num'];
+            }
+        }
+        return $current;
+    }
+
     // 查詢傳入URL對應的掛號資訊
     public function getBookInfo($param) {
-        $Doctor = new Doctor_ctrl();
         $Schedule = new Schedule_ctrl();
         $book_url = $param['book_url'];
         $result = $this->selectUrl($book_url);
         $result['doc_name'] = $Schedule->getDocName($result['schedule_id']);
+        $result['current_queue_num'] = $this->showCurrentQueueNum($result['create_date'], $result['schedule_id']);
         return $result;
     }
 }
