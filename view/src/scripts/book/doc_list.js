@@ -21,14 +21,17 @@ let createDocList = data => {
         let td2 = document.createElement('td');
         let td3 = document.createElement('td');
         let td4 = document.createElement('td');
+        let td5 = document.createElement('td');
         td1.innerHTML = '<input type="radio" name="doc_list" value="' + obj.schedule_id + '" required>';
         td2.innerHTML = obj.time_period;
         td3.innerHTML = obj.room;
         td4.innerHTML = obj.doc_name;
+        td5.innerHTML = obj.last_queue_num;
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
         row.appendChild(td4);
+        row.appendChild(td5);
         doc_tab.appendChild(row);
     }
 }
