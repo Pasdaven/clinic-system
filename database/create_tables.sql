@@ -68,6 +68,7 @@ CREATE TABLE book (
   book_url VARCHAR(40) comment '掛號網址',
   book_state ENUM('waiting', 'inProgress', 'finish', 'cancel') NOT NULL DEFAULT 'waiting' comment '等候狀態',
   create_at DATETIME comment '掛號時間',
+  create_date DATE comment '掛號日期',
   schedule_id INT UNSIGNED comment '醫生班表編號',
   patient_name VARCHAR(10) NOT NULL comment '病人姓名',
   id_num VARCHAR(10) NOT NULL comment '病人身分證',
