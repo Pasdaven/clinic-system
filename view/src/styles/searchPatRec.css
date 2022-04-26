@@ -6,6 +6,14 @@ body {
     color: #F7F7FC;
 }
 
+nav {
+    background-color: #f7f7fc;
+}
+
+.navbar_text {
+    color: #8c9eff;
+}
+
 .top_topic {
     margin-top: 35%;
 }
