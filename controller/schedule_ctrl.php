@@ -15,4 +15,9 @@ class Schedule_ctrl extends Schedule_mod {
     public function getSchedule($week_day) {
         return $this->selectWeekDay($week_day);
     }
+
+    public function getScheduleId($week_day, $time_period) {
+        $list = $this->selectWeekAndTimePeriod($week_day, $time_period);
+        return $list;
+    }
 }
