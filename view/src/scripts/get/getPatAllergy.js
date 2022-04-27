@@ -18,17 +18,18 @@ function getPatAllergy() {
         .then(res => {
             const data = res;
             console.log(data);
-            if (data.length != 0) {
-                for (var i = 0; i < data.length; i++) {
-                    let text = `
+            if (document.getElementById("doctor_index") != null) {
+                if (data.length != 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        let text = `
                     ${data[i]['allergy_med_id']} 
                     `;
+                        document.querySelector('.scroll_left_inside').insertAdjacentHTML('beforeend', text);
+                    }
+                } else {
+                    let text = `NONE`;
                     document.querySelector('.scroll_left_inside').insertAdjacentHTML('beforeend', text);
                 }
-            } else {
-                let text = `NONE`;
-                    document.querySelector('.scroll_left_inside').insertAdjacentHTML('beforeend', text);
             }
-
         })
 }
