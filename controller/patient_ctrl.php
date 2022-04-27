@@ -26,7 +26,7 @@ class Patient_ctrl extends Patient_mod {
     //顯示病人病歷
     public function showRecords($param) {
         $id_num = $param['id_num'];
-        $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
+        $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
         $result = $this->getMultiple('patient_records', $this->key_name, $case_id[0]['case_id']);
         return $result;
     }
@@ -40,13 +40,13 @@ class Patient_ctrl extends Patient_mod {
     }
     //判斷病人是否有過敏藥物
     public function medicineExist($id_num) {
-        $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
+        $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
         return $this->Exist('allergy_list', $this->key_name, $case_id[0]['case_id']);
     }
     //顯示病人過敏藥物
     public function showPatAlleMed($param) {
         $id_num = $param['id_num'];
-        $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
+        $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
         $result = $this->getMultiple('allergy_list', $this->key_name, $case_id[0]['case_id']);
         return $result;
     }
@@ -54,14 +54,14 @@ class Patient_ctrl extends Patient_mod {
     public function addPatAllergy($param) {
         $id_num = $param['id_num'];
         $allergy_med_id = $param['allergy_med_id'];
-        $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
+        $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
         return $this->add_pat_allergy($case_id[0]['case_id'], $allergy_med_id);
     }
     //刪除病人過敏藥物
     public function delPatAllergy($param) {
         $id_num = $param['id_num'];
         $allergy_med_id = $param['allergy_med_id'];
-        $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
+        $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
         return $this->del_pat_allergy($case_id[0]['case_id'], $allergy_med_id);
     }
     //新增病人病歷資料
@@ -72,7 +72,7 @@ class Patient_ctrl extends Patient_mod {
         $disease_name = $param['disease_name'];
         $med_days = $param['med_days'];
         $comment = $param['comment'];
-        $case_id = $this->getOtherAttr('id_num', $id_num, 'case_id');
+        $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
         return $this->add_records($case_id[0]['case_id'], $doc_id, $consulation_date, $disease_name, $med_days, $comment);
     }
     //新增病人藥品資料
@@ -102,5 +102,15 @@ class Patient_ctrl extends Patient_mod {
             return "PK error";
         }
         return $this->update_patient($id_num, $change_place, $change_text);
+    }
+    //顯示病人藥物
+    public function showPatMed($param) {
+        $id_num = $param['id_num'];
+        $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
+        $record_id = $this->getOtherAttr('case_id', 'patient_records', $case_id[0]['case_id'], 'record_id');
+        foreach ($record_id as $id) {
+            $med_id[] = $this->getOtherAttr('record_id', 'med_list', $id, 'med_id');
+        }
+        return $med_id;
     }
 }
