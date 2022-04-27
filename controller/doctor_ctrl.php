@@ -1,6 +1,7 @@
 <?php
 
 require_once("../model/doctor_mod.php");
+require_once("schedule_ctrl.php");
 
 class Doctor_ctrl extends Doctor_mod {
 
@@ -47,12 +48,6 @@ class Doctor_ctrl extends Doctor_mod {
             return "PK error";
         }
         return $this->update($doc_id, $change_place, $change_text);
-    }
-
-    // 取得傳入時間參數對應班表的醫生列表
-    // 主要提供 book controller 使用
-    public function getAvailableDocList($week_day) {
-        return $this->get_schedule($week_day);
     }
 
     //取得所有醫生資料
