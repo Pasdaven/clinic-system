@@ -56,8 +56,8 @@ class Model {
         }
     }
     //從某屬性$attr1找另一屬性$attr2
-    public function getOtherAttr($attr1, $key, $attr2) {
-        $sql = "SELECT $attr2 FROM $this->table WHERE $attr1 = '$key'";
+    public function getOtherAttr($attr1, $table, $key, $attr2) {
+        $sql = "SELECT $attr2 FROM $table WHERE $attr1 = '$key'";
         $list = $this->execute($sql);
         while ($row = mysqli_fetch_assoc($list)) {
             $result[] = $row;
