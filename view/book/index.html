@@ -9,6 +9,19 @@
 </head>
 
 <body>
+    <h3>當前資訊</h3>
+    <table style="text-align: center;">
+        <thead>
+            <tr>
+                <th>Time Period</th>
+                <th>Room</th>
+                <th>Doctor</th>
+                <th>Last Queue Number</th>
+            </tr>
+        </thead>
+        <tbody id="current_info">
+        </tbody>
+    </table>
     <h3>掛號</h3>
     請輸入姓名：
     <input type="text" id="name" name="name" required><br>
@@ -24,7 +37,8 @@
                 <th>Time</th>
                 <th>Room</th>
                 <th>Doctor</th>
-                <th>Last Queue Number<th>
+                <th>Last Queue Number
+                <th>
             </tr>
         </thead>
         <tbody id="doc_tab">
@@ -37,6 +51,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/clinic-system/view/src/scripts/book/doc_list.js"></script>
     <script src="/clinic-system/view/src/scripts/book/create_book.js"></script>
+    <script src="/clinic-system/view/src/scripts/book/current_info.js"></script>
 </body>
 
 </html>

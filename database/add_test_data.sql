@@ -67,12 +67,12 @@ VALUES  (NULL, '1000', '1', 'morning', '1'),
         (NULL, '1016', '6', 'evening', '2'),
         (NULL, '1012', '6', 'noon', '1'),
         (NULL, '1008', '6', 'noon', '2'),
-        (NULL, '1012', '7', 'morning', '1'),
-        (NULL, '1004', '7', 'morning', '2'),
-        (NULL, '1008', '7', 'evening', '1'),
-        (NULL, '1000', '7', 'evening', '2'),
-        (NULL, '1000', '7', 'noon', '1'),
-        (NULL, '1004', '7', 'noon', '2');
+        (NULL, '1012', '0', 'morning', '1'),
+        (NULL, '1004', '0', 'morning', '2'),
+        (NULL, '1008', '0', 'evening', '1'),
+        (NULL, '1000', '0', 'evening', '2'),
+        (NULL, '1000', '0', 'noon', '1'),
+        (NULL, '1004', '0', 'noon', '2');
         
 --  allergr_med SQL insert example model
 INSERT INTO `allergy_list`

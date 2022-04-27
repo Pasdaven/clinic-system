@@ -26,6 +26,6 @@ $(document).ready(() => {
 
 let showBookUrl = url => {
     let showUrl = document.getElementById('showUrl');
-    let data = '<a href="/clinic-system/view/book_history.html?url=' + url + '" target="_blank">Link</a>';
+    let data = '<a href="/clinic-system/view/bookHistory/index.html?u=' + url + '" target="_blank">Link</a>';
     showUrl.innerHTML = data;
 }

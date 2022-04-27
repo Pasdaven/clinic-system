@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/clinic-system/view/src/styles/searchPatRec.css">
 </head>
 
-<body>
+<body id="doctor_index">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -52,44 +52,29 @@
                             class="top_topic_span rounded px-3 py-2">Search</span></h4>
                     <div class="input-group flex-nowrap search"><i
                             class="position-absolute top-50 start-0 translate-middle-y text-muted ms-3"></i>
-                        <input class="form-control rounded-start" type="text" name="id_num"
+                        <input class="form-control rounded-start" type="text" id="pat_id_num"
                             placeholder="Patient ID Number">
-                        <button class="btn search_btn btn-lg" type="submit" name="search">Search</button>
+                        <button class="btn search_btn btn-lg" type="submit" name="search" onclick="getPatRec(); getPatData(); getPatMed(); getPatAllergy();">Search</button>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-3">
-                    <div class="scroll_left p-2">
-                        <h4>Patient Information</h4>
-                    </div>
+                    <div class="scroll_left"></div>
                 </div>
                 <div class="col-6">
-                    <div class="scrollspy-example scroll p-5">
-                        <h4 id="list-item-1">Item 1</h4>
-                        <p>...</p>
-                        <h4 id="list-item-2">Item 2</h4>
-                        <p>...</p>
-                        <h4 id="list-item-3">Item 3</h4>
-                        <p>...</p>
-                        <h4 id="list-item-4">Item 4</h4>
-                        <p>...</p>
-                    </div>
+                    <div class="scroll p-5"></div>
                 </div>
                 <div class="col-2">
-                    <div class="scroll_list">
-                        <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
-                    </div>
+                    <div class="scroll_list"></div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
+<script src="/clinic-system/view/src/scripts/get/getPatData.js"></script>
+<script src="/clinic-system/view/src/scripts/get/getPatRec.js"></script>
+<script src="/clinic-system/view/src/scripts/get/getPatAllergy.js"></script>
+<script src="/clinic-system/view/src/scripts/get/getPatMed.js"></script>
 </body>
 
 </html>

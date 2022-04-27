@@ -18,7 +18,7 @@ $(document).ready(() => {
 
 let getUrl = () => {
     let param = new URLSearchParams(window.location.search);
-    return param.get('url');
+    return param.get('u');
 }
 
 let displayInfo = data => {
