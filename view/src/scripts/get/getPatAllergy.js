@@ -1,6 +1,6 @@
 function getPatAllergy() {
-    var id_num = document.getElementById("id_num").value;
-    var url = '../../controller/core.php';
+    var id_num = document.getElementById("pat_id_num").value;
+    var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'patient_ctrl',
         method: 'showPatAlleMed',
@@ -18,5 +18,17 @@ function getPatAllergy() {
         .then(res => {
             const data = res;
             console.log(data);
+            if (data.length != 0) {
+                for (var i = 0; i < data.length; i++) {
+                    let text = `
+                    ${data[i]['allergy_med_id']} 
+                    `;
+                    document.querySelector('.scroll_left_inside').insertAdjacentHTML('beforeend', text);
+                }
+            } else {
+                let text = `NONE`;
+                    document.querySelector('.scroll_left_inside').insertAdjacentHTML('beforeend', text);
+            }
+
         })
 }
