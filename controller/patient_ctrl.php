@@ -108,9 +108,15 @@ class Patient_ctrl extends Patient_mod {
         $id_num = $param['id_num'];
         $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
         $record_id = $this->getOtherAttr('case_id', 'patient_records', $case_id[0]['case_id'], 'record_id');
-        foreach ($record_id as $id) {
-            $med_id[] = $this->getOtherAttr('record_id', 'med_list', $id, 'med_id');
+        foreach ($record_id as $i => $id) {
+            if ($this->Exist('med_list', 'record_id', $id['record_id'])) {
+                foreach ($id as $j) {
+                    $record_id[$i]['medicine'] = $this->getOtherAttr('record_id', 'med_list', $j, 'med_id');
+                }
+            } else {
+                $record_id[$i]['medicine'] = NULL;
+            }
         }
-        return $med_id;
+        return $record_id;
     }
 }

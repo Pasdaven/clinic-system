@@ -1,6 +1,6 @@
 function getPatMed() {
     var id_num = document.getElementById("id_num").value;
-    var url = '../../controller/core.php';
+    var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'patient_ctrl',
         method: 'showPatMed',
