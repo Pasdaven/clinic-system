@@ -1,0 +1,53 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #4C4A62;
+    color: #F7F7FC;
+}
+
+nav {
+    background-color: #f7f7fc;
+}
+
+.navbar_text {
+    color: #8c9eff;
+
+}
+
+.navbar_text:hover {
+    color: #5954B0;
+}
+
+.top_topic {
+    margin-top: 5%;
+}
+
+.top_topic_span {
+    background-color: #EDEDF9;
+    color: #8c9eff;
+}
+
+.big_box {
+    border-radius: 10px;
+    background-color: white;
+}
+
+.left_box {
+    color: #8c9eff;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.right_box {
+    color: #8c9eff;
+    background-color: #EDEDF9;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.insert_btn {
+    background-color: #EDEDF9;
+    color: #8c9eff;
+}
