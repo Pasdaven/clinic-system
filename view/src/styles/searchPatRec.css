@@ -2,7 +2,7 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: #4C4A62;
+    background-color: #C5DDEB;
     color: #F7F7FC;
 }
 
@@ -15,7 +15,7 @@ nav {
 }
 
 .top_topic {
-    margin-top: 35%;
+    margin-top: 25%;
 }
 
 .top_topic_span {
@@ -30,4 +30,39 @@ nav {
 .search_btn {
     background-color: #EDEDF9;
     color: #8c9eff;
+}
+
+.row_two {
+    height: 100px;
+} 
+
+.scroll_left {
+    background-color: white;
+    border-radius: 20px;
+    color: #94abb9;
+}
+
+.scroll_left h4 {
+    text-align: center;
+}
+
+.scroll_list {
+    border-radius: 20px;
+    color: #94abb9;
+    text-align: center;
+    overflow-y: auto;
+    height: 500px;
+}
+
+.scroll_list a:hover {
+    background-color: #94abb9;
+}
+
+.scroll {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 30px 20px;
+    overflow-y: auto;
+    height: 500px;
+    color: #94abb9;
 }
