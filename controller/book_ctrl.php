@@ -48,8 +48,7 @@ class Book_ctrl extends Book_mod {
     public function getAvailableDoc() {
         $Doctor = new Doctor_ctrl();
         $Schedule = new Schedule_ctrl();
-        // 系統時間（時區預設為歐洲）
-        $week_day = date("I");
+        $week_day = date("w");
         $date = date("Y-m-d");
         $doctor_list = $Schedule->getSchedule($week_day);
         for ($i = 0; $i < count($doctor_list); $i++) {
@@ -59,7 +58,8 @@ class Book_ctrl extends Book_mod {
         return $doctor_list;
     }
 
-    private function showCurrentQueueNum($date, $schedule_id) {
+    // 尋找特定日期及特定班表醫生的當前叫號號碼
+    private function getSpecificCurrentQueueNum($date, $schedule_id) {
         $list = $this->selectSameTime($date, $schedule_id);
         $current = 0;
         foreach ($list as $value) {
@@ -76,7 +76,21 @@ class Book_ctrl extends Book_mod {
         $book_url = $param['book_url'];
         $result = $this->selectUrl($book_url);
         $result['doc_name'] = $Schedule->getDocName($result['schedule_id']);
-        $result['current_queue_num'] = $this->showCurrentQueueNum($result['create_date'], $result['schedule_id']);
+        $result['current_queue_num'] = $this->getSpecificCurrentQueueNum($result['create_date'], $result['schedule_id']);
         return $result;
+    }
+
+    // 尋找特定日期中某時段的當前叫號號碼
+    public function getCurrentQueueNum($param) {
+        $date = $param['date'];
+        $week_day = $param['week_day'];
+        $time_period = $param['time_period'];
+        $Schedule = new Schedule_ctrl();
+        $list = $Schedule->getScheduleId($week_day, $time_period);
+        for ($i = 0; $i < count($list); $i++) {
+            $list[$i]['doc_name'] = $Schedule->getDocName($list[$i]['schedule_id']);
+            $list[$i]['current_queue_num'] = $this->getSpecificCurrentQueueNum($date, $list[$i]['schedule_id']);
+        }
+        return $list;
     }
 }
