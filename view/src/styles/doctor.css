@@ -2,12 +2,12 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: #4C4A62;
+    background-color: #C5DDEB;
     color: #F7F7FC;
 }
 
 nav {
-    background-color: #f7f7fc;
+    background-color: #EDEDF9;
 }
 
 .navbar_text {
@@ -31,6 +31,8 @@ nav {
 .big_box {
     border-radius: 10px;
     background-color: white;
+    box-shadow: 0 0 30px rgba(33,33,33,.2);
+    /* box-shadow:0px 3px 5px 0px rgba(0,0,0,0.1); */
 }
 
 .left_box {
@@ -50,4 +52,30 @@ nav {
 .insert_btn {
     background-color: #EDEDF9;
     color: #8c9eff;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 22px;
+    text-decoration: none;
+    margin: 20px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.btn:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+}
+
+.green {
+    background-color: #2ecc71;
+    box-shadow: 0px 5px 0px 0px #15B358;
+}
+
+.green:hover {
+    background-color: #48E68B;
 }
