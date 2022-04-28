@@ -5,49 +5,112 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/clinic-system/view/src/styles/book.css">
+    <title>Book</title>
 </head>
 
 <body>
-    <h3>當前資訊</h3>
-    <table style="text-align: center;">
-        <thead>
-            <tr>
-                <th>Time Period</th>
-                <th>Room</th>
-                <th>Doctor</th>
-                <th>Current Queue Number</th>
-            </tr>
-        </thead>
-        <tbody id="current_info">
-        </tbody>
-    </table>
-    <h3>掛號</h3>
-    請輸入姓名：
-    <input type="text" id="name" name="name" required><br>
-    請輸入身分證號碼：
-    <input type="text" id="id_num" name="id_num" required><br>
-    請輸入電子信箱：
-    <input type="email" id="email" name="email" required><br>
-    請選擇醫生：
-    <table style="text-align: center;">
-        <thead>
-            <tr>
-                <th>Choose</th>
-                <th>Time</th>
-                <th>Room</th>
-                <th>Doctor</th>
-                <th>Last Queue Number
-                <th>
-            </tr>
-        </thead>
-        <tbody id="doc_tab">
-        </tbody>
-    </table>
-    <div id="doc_list"></div>
-    <input type="submit" value="預約" id="submitBtn" name="submitBtn">
-    <div id="showUrl"></div>
+    <!-- Modal -->
+    <div class="modal fade" id="model" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Book successfully</h5>
+                </div>
+                <div class="modal-body">
+                    We have sent a link to <strong id="modal_email"></strong>,
+                    the link can show the latest book status,
+                    Please check.
+                    <div id="link"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="location.reload();">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <section class="page">
+        <div class="container py-5">
+            <div class="row my-5">
+                <div class="col-lg-3">
+                    <div class="card info-card">
+                        <div class="card-boody p-3">
+                            <div class="row">
+                                <div class="col-lg-10 mx-auto">
+                                    <div class="head text-center text-white py-2">
+                                        <h3>Current Info</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-1 mt-4 text-center">
+                                <h5 id="time_period"></h5>
+                            </div>
+                            <div id="info_area"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card form-card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6 mx-auto">
+                                    <div class="head text-center text-white py-2">
+                                        <h3>Book</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form p-3">
+                                <div class="form-row p-3">
+                                    <div class="col-lg-12">
+                                        <input type="text" class="input-box" id="name" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-row p-3">
+                                    <div class="col-lg-12">
+                                        <input type="text" class="input-box" id="id_num" placeholder="ID number">
+                                    </div>
+                                </div>
+                                <div class="form-row p-3">
+                                    <div class="col-lg-12">
+                                        <input type="text" class="input-box" id="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-row p-3">
+                                    <div class="col-lg-12">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Choose</th>
+                                                    <th>Time</th>
+                                                    <th>Room</th>
+                                                    <th>Doctor</th>
+                                                    <th>Book count</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="doc_tab"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="form-row p-3 text-center">
+                                    <div class="col-lg-12">
+                                        <button class="submitBtn" id="submitBtn">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/clinic-system/view/src/scripts/book/doc_list.js"></script>
     <script src="/clinic-system/view/src/scripts/book/create_book.js"></script>
