@@ -1,5 +1,5 @@
 function getDocList() {
-    var url = '../../controller/core.php';
+    var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'doctor_ctrl',
         method: 'getAllDocInfo',
