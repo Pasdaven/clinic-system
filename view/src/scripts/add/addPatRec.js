@@ -6,7 +6,7 @@ function addPatRec() {
     var med_days = document.getElementById('med_days').value;
     var comment = document.getElementById('comment').value;
 
-    var url = '../../controller/core.php';
+    var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'patient_ctrl',
         method: 'addPatRec',
@@ -40,7 +40,7 @@ function addPatMed() {
     var id_num = document.getElementById('id_num').value;
 
     for (var j = 0; j < array.length; j++) {
-        var url = '../../controller/core.php';
+        var url = '/clinic-system/controller/core.php';
         let data = {
             controller: 'patient_ctrl',
             method: 'addPatMed',
