@@ -19,22 +19,24 @@ function getPatData() {
             const data = res;
             console.log(data);
             if (document.getElementById("searchPatRec") != null) {
+                let text1 = `<div class="clean1" id="clean1"></div>`
+                document.querySelector('.scroll_left').insertAdjacentHTML('beforeend', text1);
                     let text = `
-                    <div class="p-2">
-                        <h4>Patient Information</h4>
-                        <div class="px-2">
-                        Name: ${data['patient_name']}<br>
-                        ID : ${data['id_num']}<br>
-                        Case ID : ${data['case_id']}<br>
-                        Blood Type: ${data['blood_type']}<br>
-                        Sex : ${data['sex']}<br>
+                        <div class="p-2">
+                            <h4>Patient Information</h4>
+                            <div class="px-2">
+                            Name: ${data['patient_name']}<br>
+                            ID : ${data['id_num']}<br>
+                            Case ID : ${data['case_id']}<br>
+                            Blood Type: ${data['blood_type']}<br>
+                            Sex : ${data['sex']}<br>
+                            </div>
+                            <div class="px-2 scroll_left_inside">
+                            Allergy Medicine ID :
+                            </div>
                         </div>
-                        <div class="px-2 scroll_left_inside">
-                        Allergy Medicine ID :
-                        </div>
-                    </div>
                     `;
-                    document.querySelector('.scroll_left').insertAdjacentHTML('beforeend', text);
+                    document.querySelector('.clean1').insertAdjacentHTML('beforeend', text);
             }
         })
 }

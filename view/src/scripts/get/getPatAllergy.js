@@ -19,7 +19,7 @@ function getPatAllergy() {
             const data = res;
             console.log(data);
             if (document.getElementById("searchPatRec") != null) {
-                if (data.length != 0) {
+                if (data != null) {
                     for (var i = 0; i < data.length; i++) {
                         let text = `
                     ${data[i]['allergy_med_id']} 

@@ -54,27 +54,45 @@
                             class="position-absolute top-50 start-0 translate-middle-y text-muted ms-3"></i>
                         <input class="form-control rounded-start" type="text" id="pat_id_num"
                             placeholder="Patient ID Number">
-                        <button class="btn search_btn btn-lg" type="submit" name="search" onclick="getPatRec(); getPatData(); getPatMed(); getPatAllergy();">Search</button>
+                        <button class="btn search_btn btn-lg" type="submit" name="search"
+                            onclick="cleanPage(); getPatRec(); getPatData(); getPatMed(); getPatAllergy();">Search</button>
+                        <script>
+                            i = 0;
+                            function cleanPage() {
+                                if (i > 0) {
+                                    document.getElementById("clean1").remove();
+                                    document.getElementById("clean2").remove();
+                                    document.getElementById("clean3").remove();
+                                }
+                                i++;
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-3">
-                    <div class="scroll_left"></div>
+                    <div class="scroll_left" id="scroll_left">
+                        
+                    </div>
                 </div>
                 <div class="col-6">
-                    <div class="scroll p-5"></div>
+                    <div class="scroll p-5" id="scroll">
+                        
+                    </div>
                 </div>
                 <div class="col-2">
-                    <div class="scroll_list"></div>
+                    <div class="scroll_list" id="scroll_list">
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-<script src="/clinic-system/view/src/scripts/get/getPatData.js"></script>
-<script src="/clinic-system/view/src/scripts/get/getPatRec.js"></script>
-<script src="/clinic-system/view/src/scripts/get/getPatAllergy.js"></script>
-<script src="/clinic-system/view/src/scripts/get/getPatMed.js"></script>
+    <script src="/clinic-system/view/src/scripts/get/getPatData.js"></script>
+    <script src="/clinic-system/view/src/scripts/get/getPatRec.js"></script>
+    <script src="/clinic-system/view/src/scripts/get/getPatAllergy.js"></script>
+    <script src="/clinic-system/view/src/scripts/get/getPatMed.js"></script>
 </body>
 
 </html>
