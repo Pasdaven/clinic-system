@@ -21,7 +21,7 @@ function getPatData() {
             if (document.getElementById("searchPatRec") != null) {
                 let text1 = `<div class="clean1" id="clean1"></div>`
                 document.querySelector('.scroll_left').insertAdjacentHTML('beforeend', text1);
-                    let text = `
+                let text = `
                         <div class="p-2">
                             <h4>Patient Information</h4>
                             <div class="px-2">
@@ -36,7 +36,25 @@ function getPatData() {
                             </div>
                         </div>
                     `;
-                    document.querySelector('.clean1').insertAdjacentHTML('beforeend', text);
+                document.querySelector('.clean1').insertAdjacentHTML('beforeend', text);
+            } else if (document.getElementById("searchPatInfo") != null) {
+                let text1 = `<div class="clean1" id="clean1"></div>`
+                document.querySelector('.box').insertAdjacentHTML('beforeend', text1);
+                let text = `
+                        <div class="p-5">
+                            <h4>Patient Information</h4>
+                            <div class="px-2">
+                            Name: ${data['patient_name']}<br>
+                            ID : ${data['id_num']}<br>
+                            Case ID : ${data['case_id']}<br>
+                            Blood Type: ${data['blood_type']}<br>
+                            Sex : ${data['sex']}<br>
+                            Birthday : ${data['birth']}<br>
+                            Phone Number : ${data['phone_num']}<br>
+                            </div>
+                        </div>
+                    `;
+                document.querySelector('.clean1').insertAdjacentHTML('beforeend', text);
             }
         })
 }
