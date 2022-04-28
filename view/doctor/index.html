@@ -58,26 +58,26 @@
     </div>
 
     <div class="container">
-        <div class="row m-5">
+        <div class="row m-3">
             <div class="col-1"></div>
             <div class="col-10">
                 <div class="row big_box">
                     <div class="col p-5 left_box">
                         <h1 class="m-3">Patient Record</h1>
-                        <input class="form-control rounded-start m-3" type="text" name="id_num"
+                        <input class="form-control rounded-start m-3" type="text" id="id_num"
                             placeholder="Patient ID Number">
-                        <input class="form-control rounded-start m-3" type="text" name="doc_id"
-                            placeholder="Choose Doctor ID">
-                        <input class="form-control rounded-start m-3" type="date" name="date" placeholder="">
-                        <input class="form-control rounded-start m-3" type="text" name="disease_name"
+                        <input class="form-control rounded-start m-3" list="doc_list" placeholder="Choose Doctor ID" id="doc_id">
+                        <datalist id="doc_list"></datalist>
+                        <input class="form-control rounded-start m-3" type="date" id="date" placeholder="">
+                        <input class="form-control rounded-start m-3" type="text" id="disease_name"
                             placeholder="Disease Name">
-                        <input class="form-control rounded-start m-3" type="text" name="med_days"
+                        <input class="form-control rounded-start m-3" type="text" id="med_days"
                             placeholder="Medicine Days">
-                        <input class="form-control rounded-start m-3" type="text" name="comment" placeholder="Comment">
+                        <input class="form-control rounded-start m-3" type="text" id="comment" placeholder="Comment">
                     </div>
                     <div class="col p-5 right_box">
                         <h1 class="m-3">Cure Medicine</h1>
-                        <div id="med"></div>
+                        <div id="med" class="med_list px-4"></div>
                     </div>
                 </div>
             </div>
@@ -87,12 +87,19 @@
             <div class="col"></div>
             <div class="col">
                 <div class="d-flex justify-content-center">
-                    <button class="btn green btn-lg" type="submit" onclick="">Add Record</button>
+                    <button class="btn green btn-lg" type="submit" onclick="addPatRec(); addPatMed();">Add Record</button>
                 </div>
             </div>
             <div class="col"></div>
         </div>
     </div>
+    <script src="/clinic-system/view/src/scripts/get/getDocList.js"></script>
+    <script src="/clinic-system/view/src/scripts/get/getMedList.js"></script>
+    <script src="/clinic-system/view/src/scripts/add/addPatRec.js"></script>
+    <script>
+        getDocList();
+        getMedList();
+    </script>
 </body>
 
 </html>

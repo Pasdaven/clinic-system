@@ -49,6 +49,11 @@ nav {
     border-bottom-right-radius: 10px;
 }
 
+.med_list {
+    overflow-y: auto;
+    height: 310px;
+}
+
 .insert_btn {
     background-color: #EDEDF9;
     color: #8c9eff;
