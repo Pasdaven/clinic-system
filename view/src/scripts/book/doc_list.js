@@ -13,7 +13,6 @@ $(document).ready(() => {
 });
 
 let createDocList = data => {
-    let doc_tab = document.getElementById('doc_tab');
     for (i = 0; i < data.length; i++) {
         let obj = data[i];
         let row = document.createElement('tr');
@@ -32,6 +31,6 @@ let createDocList = data => {
         row.appendChild(td3);
         row.appendChild(td4);
         row.appendChild(td5);
-        doc_tab.appendChild(row);
+        $('#doc_tab').append(row);
     }
 }

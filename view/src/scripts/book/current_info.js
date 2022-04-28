@@ -18,6 +18,7 @@ $(document).ready(() => {
 
     // 測試用，將時段預設為早上
     time_period = 'morning';
+
     let data = {
         controller: 'book_ctrl',
         method: 'getCurrentQueueNum',
@@ -41,27 +42,28 @@ $(document).ready(() => {
 });
 
 let displayCurrentInfo = data => {
-    let current_info = document.getElementById('current_info');
+    $('#time_period').html('Time: ' + data[0].time_period);
     for (i = 0; i < data.length; i++) {
         let obj = data[i];
-        let row = document.createElement('tr');
-        let td1 = document.createElement('td');
-        let td2 = document.createElement('td');
-        let td3 = document.createElement('td');
-        let td4 = document.createElement('td');
-        td1.innerHTML = obj.time_period;
-        td2.innerHTML = obj.room;
-        td3.innerHTML = obj.doc_name;
-        td4.innerHTML = obj.current_queue_num;
-        row.appendChild(td1);
-        row.appendChild(td2);
-        row.appendChild(td3);
-        row.appendChild(td4);
-        current_info.appendChild(row);
+        let html = `
+            <div class="info-row p-3">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Current Queue Num: ${obj.current_queue_num}
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Doctor: ${obj.doc_name}</li>
+                            <li class="list-group-item">Room: ${obj.room}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `
+        $('#info_area').append(html);
     }
 }
 
 let displayError = () => {
-    let current_info = document.getElementById('current_info');
-    current_info.innerHTML = 'The time now is not available.';
+    $('#time_period').html('There is no available doctor now');
 }

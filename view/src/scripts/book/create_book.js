@@ -3,6 +3,7 @@ $(document).ready(() => {
         let patient_name = $('#name').val();
         let id_num = $('#id_num').val();
         let email_address = $('#email').val();
+        $('#modal_email').html(email_address);
         let schedule_id = $("input[type=radio]:checked").val();
         let data = {
             controller: 'book_ctrl',
@@ -19,13 +20,13 @@ $(document).ready(() => {
             url: '/clinic-system/controller/core.php',
             method: 'POST',
             data: json,
-            success: res => showBookUrl(res)
+            success: res => showModal(res)
         });
     });
 });
 
-let showBookUrl = url => {
-    let showUrl = document.getElementById('showUrl');
+let showModal = url => {
     let data = '<a href="/clinic-system/view/bookHistory/index.html?u=' + url + '" target="_blank">Link</a>';
-    showUrl.innerHTML = data;
+    $('#link').html(data);
+    $('#model').modal('show');
 }
