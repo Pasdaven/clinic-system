@@ -18,7 +18,7 @@ function getPatRec() {
         .then(res => {
             const data = res;
             console.log(data);
-            if (document.getElementById("doctor_index") != null) {
+            if (document.getElementById("searchPatRec") != null) {
                 for (var i = 0; i < data.length; i++) {
                     let text = `
                     <h4 id="${data[i]['record_id']}">Record Number : ${data[i]['record_id']}</h4>
@@ -28,7 +28,7 @@ function getPatRec() {
                         Disease Name : ${data[i]['disease_name']}<br>
                         Medicine Days : ${data[i]['med_days']}<br>
                     </div>
-                    <div id="${data[i]['record_id']}_med">
+                    <div class="record_${data[i]['record_id']}">
                         Cure Medicine : 
                     </div>
                     `;

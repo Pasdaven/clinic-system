@@ -18,7 +18,7 @@ function getPatData() {
         .then(res => {
             const data = res;
             console.log(data);
-            if (document.getElementById("doctor_index") != null) {
+            if (document.getElementById("searchPatRec") != null) {
                     let text = `
                     <div class="p-2">
                         <h4>Patient Information</h4>

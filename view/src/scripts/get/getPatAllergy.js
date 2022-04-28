@@ -18,7 +18,7 @@ function getPatAllergy() {
         .then(res => {
             const data = res;
             console.log(data);
-            if (document.getElementById("doctor_index") != null) {
+            if (document.getElementById("searchPatRec") != null) {
                 if (data.length != 0) {
                     for (var i = 0; i < data.length; i++) {
                         let text = `
