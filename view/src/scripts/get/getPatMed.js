@@ -1,5 +1,5 @@
 function getPatMed() {
-    var id_num = document.getElementById("id_num").value;
+    var id_num = document.getElementById("pat_id_num").value;
     var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'patient_ctrl',
@@ -18,5 +18,19 @@ function getPatMed() {
         .then(res => {
             const data = res;
             console.log(data);
+            if (document.getElementById("searchPatRec") != null) {
+                for (var i = 0; i < data.length; i++) {
+                    console.log(data[i]['medicine']);
+                    if (data[i]['medicine'] == null) {
+                        let text1 = `NONE`;
+                        document.querySelector(`.record_${data[i]['record_id']}`).insertAdjacentHTML('beforeend', text1);
+                    } else {
+                        for (var j = 0; j < data[i]['medicine'].length; j++) {
+                            let text = `${data[i]['medicine'][j]['med_id']} `;
+                            document.querySelector(`.record_${data[i]['record_id']}`).insertAdjacentHTML('beforeend', text);
+                        }
+                    }
+                }
+            }
         })
 }
