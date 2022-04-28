@@ -1,22 +1,22 @@
 <?php
 
-require_once("../model/book_mod.php");
+require_once("../model/appointment_mod.php");
 require_once("doctor_ctrl.php");
 require_once("schedule_ctrl.php");
 
-class Book_ctrl extends Book_mod {
+class Appointment_ctrl extends Appointment_mod {
 
-    // 將該筆記錄使用book id屬性md5生成的隨機獨立URL
-    private function generateUrl($book_id) {
-        $book_url = md5($book_id);
-        $this->updateUrl($book_url, $book_id);
-        return $book_url;
+    // 將該筆記錄使用appointment id屬性md5生成的隨機獨立URL
+    private function generateUrl($appointment_id) {
+        $appointment_url = md5($appointment_id);
+        $this->updateUrl($appointment_url, $appointment_id);
+        return $appointment_url;
     }
 
     // 建立一筆掛號記錄，並回傳創建掛號產生的URL
-    private function generateQueueNum($book_id, $date, $schedule_id) {
+    private function generateQueueNum($appointment_id, $date, $schedule_id) {
         $maxQueueNum = $this->getLastQueueNum($date, $schedule_id);
-        $this->updateQueueNum($maxQueueNum + 1, $book_id);
+        $this->updateQueueNum($maxQueueNum + 1, $appointment_id);
     }
 
     private function getLastQueueNum($date, $schedule_id) {
@@ -30,7 +30,7 @@ class Book_ctrl extends Book_mod {
         return $max;
     }
 
-    public function createBook($param) {
+    public function createAppointment($param) {
         $patient_name = $param['patient_name'];
         $id_num = $param['id_num'];
         $email_address = $param['email_address'];
@@ -39,9 +39,9 @@ class Book_ctrl extends Book_mod {
         $date = date("Y-m-d");
         $this->insert($patient_name, $id_num, $email_address, $schedule_id, $time, $date);
         $row = $this->select($id_num, $time);
-        $book_id = $row['book_id'];
-        $this->generateQueueNum($book_id, $date, $schedule_id);
-        return $this->generateUrl($book_id);
+        $appointment_id = $row['appointment_id'];
+        $this->generateQueueNum($appointment_id, $date, $schedule_id);
+        return $this->generateUrl($appointment_id);
     }
 
     // 查找當前時間看診的醫生
@@ -63,7 +63,7 @@ class Book_ctrl extends Book_mod {
         $list = $this->selectSameTime($date, $schedule_id);
         $current = 0;
         foreach ($list as $value) {
-            if ($value['book_state'] == 'inProgress') {
+            if ($value['appointment_state'] == 'inProgress') {
                 $current = $value['queue_num'];
             }
         }
@@ -71,10 +71,10 @@ class Book_ctrl extends Book_mod {
     }
 
     // 查詢傳入URL對應的掛號資訊
-    public function getBookInfo($param) {
+    public function getAppointmentInfo($param) {
         $Schedule = new Schedule_ctrl();
-        $book_url = $param['book_url'];
-        $result = $this->selectUrl($book_url);
+        $appointment_url = $param['appointment_url'];
+        $result = $this->selectUrl($appointment_url);
         $result['doc_name'] = $Schedule->getDocName($result['schedule_id']);
         $result['current_queue_num'] = $this->getSpecificCurrentQueueNum($result['create_date'], $result['schedule_id']);
         return $result;

@@ -6,8 +6,8 @@ $(document).ready(() => {
         $('#modal_email').html(email_address);
         let schedule_id = $("input[type=radio]:checked").val();
         let data = {
-            controller: 'book_ctrl',
-            method: 'createBook',
+            controller: 'appointment_ctrl',
+            method: 'createAppointment',
             parameter: {
                 patient_name: patient_name,
                 id_num: id_num,
@@ -26,7 +26,7 @@ $(document).ready(() => {
 });
 
 let showModal = url => {
-    let data = '<a href="/clinic-system/view/bookHistory/index.html?u=' + url + '" target="_blank">Link</a>';
+    let data = '<a href="/clinic-system/view/appointmentHistory/index.html?u=' + url + '" target="_blank">Link</a>';
     $('#link').html(data);
     $('#model').modal('show');
 }
