@@ -18,7 +18,7 @@ $(document).ready(() => {
 
     // 測試用，將時段預設為早上
     time_period = 'morning';
-    
+
     let data = {
         controller: 'book_ctrl',
         method: 'getCurrentQueueNum',
