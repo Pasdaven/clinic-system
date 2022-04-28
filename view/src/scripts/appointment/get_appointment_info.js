@@ -1,10 +1,10 @@
 $(document).ready(() => {
-    book_url = getUrl();
+    appointment_url = getUrl();
     let data = {
-        controller: 'book_ctrl',
-        method: 'getBookInfo',
+        controller: 'appointment_ctrl',
+        method: 'getAppointmentInfo',
         parameter: {
-            book_url: book_url
+            appointment_url: appointment_url
         }
     };
     let json = JSON.stringify(data);
@@ -24,6 +24,6 @@ let getUrl = () => {
 let displayInfo = data => {
     let html = 'Current queue number: ' + data.current_queue_num;
     $('#currentQueueNum').html(html);
-    html = 'Name: ' + data.patient_name + '<br>' + 'state: ' + data.book_state + '<br>' + 'Queue Number: ' + data.queue_num + '<br>' + 'Doctor: ' + data.doc_name;
+    html = 'Name: ' + data.patient_name + '<br>' + 'state: ' + data.appointment_state + '<br>' + 'Queue Number: ' + data.queue_num + '<br>' + 'Doctor: ' + data.doc_name;
     $('#info').html(html);
 }

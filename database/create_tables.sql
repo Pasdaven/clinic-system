@@ -62,16 +62,16 @@ CREATE TABLE schedule (
   CONSTRAINT schedule_doc_id FOREIGN KEY (doc_id) REFERENCES doctor (doc_id) ON UPDATE CASCADE ON DELETE CASCADE
 ) comment '班表';
 
-CREATE TABLE book (
-  book_id INT UNSIGNED PRIMARY KEY auto_increment comment '掛號編號',
+CREATE TABLE appointment (
+  appointment_id INT UNSIGNED PRIMARY KEY auto_increment comment '掛號編號',
   queue_num INT UNSIGNED comment '叫號號碼',
-  book_url VARCHAR(40) comment '掛號網址',
-  book_state ENUM('waiting', 'inProgress', 'finish', 'cancel') NOT NULL DEFAULT 'waiting' comment '等候狀態',
+  appointment_url VARCHAR(40) comment '掛號網址',
+  appointment_state ENUM('waiting', 'inProgress', 'finish', 'cancel') NOT NULL DEFAULT 'waiting' comment '等候狀態',
   create_at DATETIME comment '掛號時間',
   create_date DATE comment '掛號日期',
   schedule_id INT UNSIGNED comment '醫生班表編號',
   patient_name VARCHAR(10) NOT NULL comment '病人姓名',
   id_num VARCHAR(10) NOT NULL comment '病人身分證',
   email_address VARCHAR(30) NOT NULL comment '病人信箱',
-  CONSTRAINT book_schedule_id FOREIGN KEY(schedule_id) REFERENCES schedule (schedule_id) ON UPDATE CASCADE ON DELETE CASCADE
+  CONSTRAINT appointment_schedule_id FOREIGN KEY(schedule_id) REFERENCES schedule (schedule_id) ON UPDATE CASCADE ON DELETE CASCADE
 ) comment '掛號';

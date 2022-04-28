@@ -8,8 +8,8 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/clinic-system/view/src/styles/book.css">
-    <title>Book</title>
+    <link rel="stylesheet" href="/clinic-system/view/src/styles/appointment.css">
+    <title>Appointment</title>
 </head>
 
 <body>
@@ -19,11 +19,11 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalLabel">Book successfully</h5>
+                    <h5 class="modal-title" id="modalLabel">Appointment successfully</h5>
                 </div>
                 <div class="modal-body">
                     We have sent a link to <strong id="modal_email"></strong>,
-                    the link can show the latest book status,
+                    the link can show the latest appointment status,
                     Please check.
                     <div id="link"></div>
                 </div>
@@ -61,7 +61,7 @@
                             <div class="row">
                                 <div class="col-lg-6 mx-auto">
                                     <div class="head text-center text-white py-2">
-                                        <h3>Book</h3>
+                                        <h3>Appointment</h3>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                                     <th>Time</th>
                                                     <th>Room</th>
                                                     <th>Doctor</th>
-                                                    <th>Book count</th>
+                                                    <th>Appointment count</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="doc_tab"></tbody>
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="form-row p-3 text-center">
                                     <div class="col-lg-12">
-                                        <button class="submitBtn" id="submitBtn">Book</button>
+                                        <button class="submitBtn" id="submitBtn">Appointment</button>
                                     </div>
                                 </div>
                             </div>
@@ -114,9 +114,9 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/clinic-system/view/src/scripts/book/doc_list.js"></script>
-    <script src="/clinic-system/view/src/scripts/book/create_book.js"></script>
-    <script src="/clinic-system/view/src/scripts/book/current_info.js"></script>
+    <script src="/clinic-system/view/src/scripts/appointment/doc_list.js"></script>
+    <script src="/clinic-system/view/src/scripts/appointment/create_appointment.js"></script>
+    <script src="/clinic-system/view/src/scripts/appointment/current_info.js"></script>
 </body>
 
 </html>

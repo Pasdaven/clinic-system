@@ -20,7 +20,7 @@ $(document).ready(() => {
     time_period = 'morning';
 
     let data = {
-        controller: 'book_ctrl',
+        controller: 'appointment_ctrl',
         method: 'getCurrentQueueNum',
         parameter: {
             date: date,

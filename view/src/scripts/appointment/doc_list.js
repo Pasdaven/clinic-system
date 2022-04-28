@@ -1,6 +1,6 @@
 $(document).ready(() => {
     let data = {
-        controller: 'book_ctrl',
+        controller: 'appointment_ctrl',
         method: 'getAvailableDoc'
     };
     let json = JSON.stringify(data);
