@@ -33,7 +33,7 @@ function addPatRec() {
             'Content-Type': 'application/json'
         }
     })
-
+    window.location.reload();
 }
 
 function addPatMed() {
