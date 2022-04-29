@@ -1,6 +1,6 @@
 $(document).ready(() => {
     let time = new Date();
-    let date = time.toISOString().split('T')[0];
+    let date = formatDate(time);
     let hour = time.getHours();
     let week_day = time.getDay();
     let time_period;
@@ -50,10 +50,13 @@ let displayCurrentInfo = data => {
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            Current Queue Num: ${obj.current_queue_num}
+                            Current Queue Number
+                            <h2 class="queue-num">${obj.current_queue_num}</h2>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Doctor: ${obj.doc_name}</li>
+                            <li class="list-group-item">Doctor
+                                <h3>${obj.doc_name}</h3>
+                            </li>
                             <li class="list-group-item">Room: ${obj.room}</li>
                         </ul>
                     </div>
@@ -66,4 +69,9 @@ let displayCurrentInfo = data => {
 
 let displayError = () => {
     $('#time_period').html('There is no available doctor now');
+}
+
+let formatDate = (date) => {
+    let formatted_date = date.getFullYear() + "-"  + (date.getMonth() + 1) + "-" + date.getDate();
+    return formatted_date;
 }
