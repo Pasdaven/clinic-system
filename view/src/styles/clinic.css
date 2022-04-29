@@ -112,6 +112,15 @@ body {
     color: white;
     font-size: 18px;
     line-height: 1.8rem;
+}
+
+.details_topic {
+    margin-top: -40px;
+    text-align: center;
+}
+
+.details_list {
+    height: 240px;
     overflow-y: auto;
 }
 
