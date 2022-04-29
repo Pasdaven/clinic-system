@@ -3,7 +3,7 @@ function addMed() {
     var med_name = document.getElementById("med_name").value;
     var med_academic_name = document.getElementById("med_academic_name").value;
     var med_effect = document.getElementById("med_effect").value;
-    var url = '../../controller/core.php';
+    var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'medicine_ctrl',
         method: 'insertMedInfo',
@@ -20,9 +20,6 @@ function addMed() {
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(res => res.json())
-        .then(res => {
-            const data = res;
-            console.log(data);
-        })
+    })
+    window.location.reload();
 }
