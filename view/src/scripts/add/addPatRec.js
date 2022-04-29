@@ -6,6 +6,12 @@ function addPatRec() {
     var med_days = document.getElementById('med_days').value;
     var comment = document.getElementById('comment').value;
 
+    let array = []
+    let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+    for (let i = 0; i < checkboxes.length; i++) {
+        array.push(checkboxes[i].value)
+    }
+    
     var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'patient_ctrl',
@@ -16,7 +22,8 @@ function addPatRec() {
             consulation_date: date,
             disease_name: disease_name,
             med_days: med_days,
-            comment: comment
+            comment: comment,
+            med_id : array
         }
     }
     fetch(url, {

@@ -73,7 +73,16 @@ class Patient_ctrl extends Patient_mod {
         $med_days = $param['med_days'];
         $comment = $param['comment'];
         $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
-        return $this->add_records($case_id[0]['case_id'], $doc_id, $consulation_date, $disease_name, $med_days, $comment);
+        $this->add_records($case_id[0]['case_id'], $doc_id, $consulation_date, $disease_name, $med_days, $comment);
+
+        $patient_show_rec = $this->showRecords($param);
+        $record_id = $patient_show_rec[count($patient_show_rec) - 1]['record_id'];
+        $med_id = $param['med_id'];
+        for ($i = 0; $i < count($med_id); $i++) {
+            $this->add_med_list($record_id, $med_id[$i]);
+        }
+
+        return $this->showRecords($param);
     }
     //新增病人藥品資料
     public function addPatMed($param) {
