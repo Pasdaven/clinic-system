@@ -15,7 +15,7 @@ nav {
 }
 
 .top_topic {
-    margin-top: 35%;
+    margin-top: 20%;
 }
 
 .top_topic_span {
@@ -30,4 +30,16 @@ nav {
 .search_btn {
     background-color: #EDEDF9;
     color: #8c9eff;
+}
+
+.box {
+    /* background-color: white; */
+    height: 380px;
+    color: #F7F7FC;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    /* box-shadow : 0 15px 20px 0 rgba(0,0,0,0.5); */
+    box-shadow: 15px 15px 5px white;
+    margin-top: 5%;
 }

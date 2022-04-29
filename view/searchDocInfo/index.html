@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/clinic-system/view/src/styles/searchDocInfo.css">
 </head>
 
-<body>
+<body id="searchDocInfo">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -52,14 +52,30 @@
                             class="top_topic_span rounded px-3 py-2">Search</span></h4>
                     <div class="input-group flex-nowrap search"><i
                             class="position-absolute top-50 start-0 translate-middle-y text-muted ms-3"></i>
-                        <input class="form-control rounded-start" type="text" name="id_num"
+                        <input class="form-control rounded-start" type="text" id="doc_id_num"
                             placeholder="Doctor ID Number">
-                        <button class="btn search_btn btn-lg" type="submit" name="search">Search</button>
+                        <button class="btn search_btn btn-lg" type="submit" name="search" onclick="cleanPage(); getDocData();">Search</button>
+                        <script>
+                            i = 0;
+                            function cleanPage() {
+                                if (i > 0) {
+                                    document.getElementById("clean1").remove();
+                                }
+                                i++;
+                            }
+                        </script>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="box"></div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="/clinic-system/view/src/scripts/get/getDocData.js"></script>
 </body>
 
 </html>
