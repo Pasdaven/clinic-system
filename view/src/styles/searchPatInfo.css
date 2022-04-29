@@ -16,7 +16,7 @@ nav {
 
 
 .top_topic {
-    margin-top: 18%;
+    margin-top: 10%;
 }
 
 .top_topic_span {
@@ -43,4 +43,39 @@ nav {
     /* box-shadow : 0 15px 20px 0 rgba(0,0,0,0.5); */
     box-shadow: 15px 15px 5px white;
     margin-top: 5%;
+}
+
+.button {
+    width: 50px;
+    position: relative;
+    width: auto;
+    display: inline-block;
+    color: #ecf0f1;
+    text-decoration: none;
+    border-radius: 5px;
+    border: solid 1px #3498db;
+    background: #3498db;
+    text-align: center;
+    padding: 16px 18px 14px;
+    margin: 12px;
+
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+
+    -webkit-box-shadow: 0px 6px 0px #2980b9;
+    -moz-box-shadow: 0px 6px 0px #2980b9;
+    box-shadow: 0px 6px 0px #2980b9;
+}
+
+.button:active {
+    -webkit-box-shadow: 0px 2px 0px #3498db;
+    -moz-box-shadow: 0px 2px 0px #3498db;
+    box-shadow: 0px 2px 0px #3498db;
+    position: relative;
+    top: 4px;
+}
+
+.button:hover {
+    color: white;
 }
