@@ -1,4 +1,4 @@
-a{
+a {
     text-decoration: none;
 }
 
@@ -24,8 +24,8 @@ body {
 
 .card {
     margin: 20px;
-    width: 250px;
-    height: 300px;
+    width: 350px;
+    height: 400px;
     padding: 10px;
     position: relative;
     border-radius: 15px;
@@ -107,8 +107,45 @@ body {
     height: calc(100% - 120px);
     text-align: center;
     padding: 20px;
+    margin-left:38px ;
     top: 120px;
     color: white;
     font-size: 18px;
     line-height: 1.8rem;
+    overflow-y: auto;
+}
+
+.button {
+    width: 50px;
+    position: relative;
+    width: auto;
+    display: inline-block;
+    color: #ecf0f1;
+    text-decoration: none;
+    border-radius: 5px;
+    border: solid 1px #f1c40f;
+    background: #f1c40f;
+    text-align: center;
+    padding: 16px 18px 14px;
+    margin: 12px;
+
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+
+    -webkit-box-shadow: 0px 6px 0px #f39c12;
+    -moz-box-shadow: 0px 6px 0px #f39c12;
+    box-shadow: 0px 6px 0px #f39c12;
+}
+
+.button:active {
+    -webkit-box-shadow: 0px 2px 0px #f1c40f;
+    -moz-box-shadow: 0px 2px 0px #f1c40f;
+    box-shadow: 0px 2px 0px #f1c40f;
+    position: relative;
+    top: 4px;
+}
+
+.button:hover {
+    color: white;
 }
