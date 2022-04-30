@@ -93,4 +93,22 @@ class Appointment_ctrl extends Appointment_mod {
         }
         return $list;
     }
+
+    public function updateAppointmentState($param) {
+        $appointment_id = $param['appointment_id'];
+        $appointment_state = $param['appointment_state'];
+
+        return $this->updateState($appointment_id, $appointment_state);
+        // return "$appointment_id + '->' + $appointment_state";
+    }
+
+    public function getTodayAppointmentInfo() {
+        $date = date("Y-m-d");
+        $list = array();
+        $list['waiting'] = $this->selectDateState($date, 'waiting');
+        $list['inProgress'] = $this->selectDateState($date, 'inProgress');
+        $list['finish'] = $this->selectDateState($date, 'finish');
+
+        return $list;
+    }
 }
