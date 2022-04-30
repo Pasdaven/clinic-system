@@ -3,7 +3,7 @@ function updatePatInfo() {
     change_place = document.getElementById('change_place').value;
     change_text = document.getElementById('change_text').value;
 
-    var url = '../../controller/core.php';
+    var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'patient_ctrl',
         method: 'updatePatInfo',
@@ -20,4 +20,5 @@ function updatePatInfo() {
             'Content-Type': 'application/json'
         }
     })
+    window.location.reload();
 }
