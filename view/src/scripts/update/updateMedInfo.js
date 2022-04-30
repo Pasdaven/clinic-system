@@ -3,7 +3,7 @@ function updateMed() {
     change_place = document.getElementById('change_place').value;
     change_text = document.getElementById('change_text').value;
 
-    var url = '../../controller/core.php';
+    var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'medicine_ctrl',
         method: 'updateMedInfo',
@@ -24,4 +24,5 @@ function updateMed() {
             const data = res;
             console.log(data);
         })
+    window.location.reload();
 }
