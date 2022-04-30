@@ -1,7 +1,7 @@
 function addPatAllergy() {
     id_num = document.getElementById("id_num").value;
     allergy_med_id = document.getElementById("allergy_med_id").value;
-    var url = '../../controller/core.php';
+    var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'patient_ctrl',
         method: 'addPatAllergy',
@@ -17,4 +17,5 @@ function addPatAllergy() {
             'Content-Type': 'application/json'
         }
     })
+    window.location.reload();
 }
