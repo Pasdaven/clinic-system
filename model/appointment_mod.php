@@ -32,4 +32,18 @@ class Appointment_mod extends Model {
         $sql = "SELECT * FROM $this->table WHERE create_date = '$date' AND schedule_id = '$schedule_id'";
         return $this->execute($sql);
     }
+    public function updateState($appointment_id, $appointment_state) {
+        $sql = "UPDATE $this->table SET appointment_state = '$appointment_state' WHERE appointment_id = $appointment_id";
+        $this->execute($sql);
+        return $sql;
+    }
+    public function selectDateState($date, $state) {
+        $sql = "SELECT * FROM $this->table WHERE create_date = '$date' && appointment_state = '$state'";
+        $list = $this->execute($sql);
+        $result = array();
+        while ($row = mysqli_fetch_assoc($list)) {
+            $result[] = $row;
+        }
+        return $result;
+    }
 }
