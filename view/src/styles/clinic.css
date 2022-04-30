@@ -104,13 +104,12 @@ body {
 
 .card .details {
     position: absolute;
-    height: calc(100% - 120px);
+    height: 350px;
     text-align: center;
     padding: 20px;
-    margin-left:38px ;
     top: 120px;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.8rem;
 }
 
@@ -120,8 +119,9 @@ body {
 }
 
 .details_list {
-    height: 240px;
+    height: 250px;
     overflow-y: auto;
+    margin-left:10px ;
 }
 
 .button {
