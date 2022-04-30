@@ -20,7 +20,7 @@ class Doctor_ctrl extends Doctor_mod {
     }
     public function showDocInfo($param) {
         $id_num = $param['id_num'];
-        return $this->getSingle($this->table, 'id_num', $id_num);
+        return $this->getSingle($this->table, 'doc_id', $id_num);
     }
     public function doctorExist($id_num) {
         return $this->Exist($this->table, 'id_num', $id_num);
