@@ -1,0 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.page {
+  background-color: #f7f7fc;
+  width: 100%;
+  height: 100vh;
+}
+.card-frame {
+  width: 100%;
+  height: 80vh;
+}
