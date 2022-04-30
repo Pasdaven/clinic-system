@@ -6,7 +6,7 @@ function addPatInfo() {
     blood_type = document.getElementById('blood_type').value;
     phone_num = document.getElementById('phone_num').value;
 
-    var url = '../../controller/core.php';
+    var url = '/clinic-system/controller/core.php';
     let data = {
         controller: 'patient_ctrl',
         method: 'addPatInfo',
@@ -26,4 +26,5 @@ function addPatInfo() {
             'Content-Type': 'application/json'
         }
     })
+    window.location.reload();
 }
