@@ -94,12 +94,17 @@ class Appointment_ctrl extends Appointment_mod {
         return $list;
     }
 
+    private function getAppointmentPatientName($appointment_id) {
+        $result = $this->getSingle($this->table, $this->key_name, $appointment_id);
+        return $result['patient_name'];
+    }
+
     public function updateAppointmentState($param) {
         $appointment_id = $param['appointment_id'];
         $appointment_state = $param['appointment_state'];
 
-        return $this->updateState($appointment_id, $appointment_state);
-        // return "$appointment_id + '->' + $appointment_state";
+        $this->updateState($appointment_id, $appointment_state);
+        return array("name" => $this->getAppointmentPatientName($appointment_id), "state" => $appointment_state);
     }
 
     public function getTodayAppointmentInfo() {
