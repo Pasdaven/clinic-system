@@ -3,9 +3,9 @@ $(document).ready(() => {
     $(".sortable").sortable({
         revert: true,
         connectWith: ".sortable",
-        receive: (e) => {
-            let appointment_id = e.originalEvent.target['id'];
-            let appointment_state = e.target['id'];
+        receive: (event, ui) => {
+            let appointment_id = ui.item.attr('id');
+            let appointment_state = event.target['id'];
 
             let data = {
                 controller: 'appointment_ctrl',
