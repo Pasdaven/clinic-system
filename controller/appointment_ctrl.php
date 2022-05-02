@@ -125,6 +125,25 @@ class Appointment_ctrl extends Appointment_mod {
         $list['inProgress'] = $this->selectDateState($date, 'inProgress');
         $list['finish'] = $this->selectDateState($date, 'finish');
 
+        for ($i = 0; $i < count($list['waiting']); $i++) {
+            $appointment_id = $list['waiting'][$i]['appointment_id'];
+            $schedule_id = $list['waiting'][$i]['schedule_id'];
+            $list['waiting'][$i]['time_period'] = $this->getAppointmentTimePeriod($appointment_id);
+            $list['waiting'][$i]['doc_name'] = $this->getAppointmentDocName($schedule_id);
+        }
+        for ($i = 0; $i < count($list['inProgress']); $i++) {
+            $appointment_id = $list['inProgress'][$i]['appointment_id'];
+            $schedule_id = $list['inProgress'][$i]['schedule_id'];
+            $list['inProgress'][$i]['time_period'] = $this->getAppointmentTimePeriod($appointment_id);
+            $list['inProgress'][$i]['doc_name'] = $this->getAppointmentDocName($schedule_id);
+        }
+        for ($i = 0; $i < count($list['finish']); $i++) {
+            $appointment_id = $list['finish'][$i]['appointment_id'];
+            $schedule_id = $list['finish'][$i]['schedule_id'];
+            $list['finish'][$i]['time_period'] = $this->getAppointmentTimePeriod($appointment_id);
+            $list['finish'][$i]['doc_name'] = $this->getAppointmentDocName($schedule_id);
+        }
+
         return $list;
     }
 }
