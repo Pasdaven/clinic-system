@@ -103,6 +103,11 @@ class Appointment_ctrl extends Appointment_mod {
         $data = $this->selectTimePeriod($appointment_id);
         return $data['time_period'];
     }
+    
+    private function getAppointmentRoom($appointment_id) {
+        $data = $this->selectTimePeriod($appointment_id);
+        return $data['room'];
+    }
 
     private function getAppointmentDocName($schedule_id) {
         $Schedule = new Schedule_ctrl();
@@ -129,18 +134,21 @@ class Appointment_ctrl extends Appointment_mod {
             $appointment_id = $list['waiting'][$i]['appointment_id'];
             $schedule_id = $list['waiting'][$i]['schedule_id'];
             $list['waiting'][$i]['time_period'] = $this->getAppointmentTimePeriod($appointment_id);
+            $list['waiting'][$i]['room'] = $this->getAppointmentRoom($appointment_id);
             $list['waiting'][$i]['doc_name'] = $this->getAppointmentDocName($schedule_id);
         }
         for ($i = 0; $i < count($list['inProgress']); $i++) {
             $appointment_id = $list['inProgress'][$i]['appointment_id'];
             $schedule_id = $list['inProgress'][$i]['schedule_id'];
             $list['inProgress'][$i]['time_period'] = $this->getAppointmentTimePeriod($appointment_id);
+            $list['inProgress'][$i]['room'] = $this->getAppointmentRoom($appointment_id);
             $list['inProgress'][$i]['doc_name'] = $this->getAppointmentDocName($schedule_id);
         }
         for ($i = 0; $i < count($list['finish']); $i++) {
             $appointment_id = $list['finish'][$i]['appointment_id'];
             $schedule_id = $list['finish'][$i]['schedule_id'];
             $list['finish'][$i]['time_period'] = $this->getAppointmentTimePeriod($appointment_id);
+            $list['finish'][$i]['room'] = $this->getAppointmentRoom($appointment_id);
             $list['finish'][$i]['doc_name'] = $this->getAppointmentDocName($schedule_id);
         }
 
