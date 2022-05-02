@@ -99,6 +99,17 @@ class Appointment_ctrl extends Appointment_mod {
         return $result['patient_name'];
     }
 
+    private function getAppointmentTimePeriod($appointment_id) {
+        $data = $this->selectTimePeriod($appointment_id);
+        return $data['time_period'];
+    }
+
+    private function getAppointmentDocName($schedule_id) {
+        $Schedule = new Schedule_ctrl();
+
+        return $Schedule->getDocName($schedule_id);
+    }
+
     public function updateAppointmentState($param) {
         $appointment_id = $param['appointment_id'];
         $appointment_state = $param['appointment_state'];
