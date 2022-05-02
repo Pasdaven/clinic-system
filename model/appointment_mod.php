@@ -48,7 +48,7 @@ class Appointment_mod extends Model {
     }
 
     public function selectTimePeriod($appointment_id) {
-        $sql = "SELECT time_period FROM appointment as A join schedule as S WHERE A.schedule_id = S.schedule_id AND appointment_id = '$appointment_id'";
+        $sql = "SELECT * FROM appointment as A join schedule as S WHERE A.schedule_id = S.schedule_id AND appointment_id = '$appointment_id'";
         $result = $this->execute($sql);
         $data = mysqli_fetch_assoc($result);
         return $data;
