@@ -36,7 +36,7 @@ let displayToast = res => {
     } else {
         state_color = "text-success";
     }
-    let html = `You have change patient <strong>${res.name}</strong>'s state to <a class="${state_color}" style="text-decoration:none;">${res.state}</a>.`;
+    let html = `You have change patient <strong>${res.name}</strong>'s state to <strong class="${state_color}" style="text-decoration:none;">${res.state}</strong>.`;
     $("#toast-message").html(html);
     let toastLive = $("#liveToast");
     let toast = new bootstrap.Toast(toastLive);
