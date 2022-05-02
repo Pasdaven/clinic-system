@@ -36,18 +36,19 @@ let displayCurrentInfo = (data, time_period) => {
             let obj = data['waiting'][i];
             if (obj.time_period == 'morning') {
                 let html = `
-                <div class="card my-2 p-3" id="${obj.appointment_id}">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            Name: <h3>${obj.patient_name}</h3>
-                        </div>
-                        <div class="col-lg-6 appointment-info">
-                            ID: ${obj.id_num}<br>
-                            Doctor: ${obj.doc_name}<br>
-                            Queue: ${obj.queue_num}<br>
+                    <div class="card my-2 p-3" id="${obj.appointment_id}">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                Name: <h3>${obj.patient_name}</h3>
+                            </div>
+                            <div class="col-lg-6 appointment-info">
+                                ID: ${obj.id_num}<br>
+                                Room: ${obj.room}<br>
+                                Doctor: ${obj.doc_name}<br>
+                                Queue: ${obj.queue_num}<br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `
                 $('#waiting').append(html);
             }
@@ -56,18 +57,19 @@ let displayCurrentInfo = (data, time_period) => {
             let obj = data['inProgress'][i];
             if (obj.time_period == 'morning') {
                 let html = `
-                <div class="card my-2 p-3" id="${obj.appointment_id}">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            Name: <h3>${obj.patient_name}</h3>
-                        </div>
-                        <div class="col-lg-6 appointment-info">
-                            ID: ${obj.id_num}<br>
-                            Doctor: ${obj.doc_name}<br>
-                            Queue: ${obj.queue_num}<br>
+                    <div class="card my-2 p-3" id="${obj.appointment_id}">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                Name: <h3>${obj.patient_name}</h3>
+                            </div>
+                            <div class="col-lg-6 appointment-info">
+                                ID: ${obj.id_num}<br>
+                                Room: ${obj.room}<br>
+                                Doctor: ${obj.doc_name}<br>
+                                Queue: ${obj.queue_num}<br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `
                 $('#inProgress').append(html);
             }
@@ -76,18 +78,19 @@ let displayCurrentInfo = (data, time_period) => {
             let obj = data['finish'][i];
             if (obj.time_period == 'morning') {
                 let html = `
-                <div class="card my-2 p-3" id="${obj.appointment_id}">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            Name: <h3>${obj.patient_name}</h3>
-                        </div>
-                        <div class="col-lg-6 appointment-info">
-                            ID: ${obj.id_num}<br>
-                            Doctor: ${obj.doc_name}<br>
-                            Queue: ${obj.queue_num}<br>
+                    <div class="card my-2 p-3" id="${obj.appointment_id}">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                Name: <h3>${obj.patient_name}</h3>
+                            </div>
+                            <div class="col-lg-6 appointment-info">
+                                ID: ${obj.id_num}<br>
+                                Room: ${obj.room}<br>
+                                Doctor: ${obj.doc_name}<br>
+                                Queue: ${obj.queue_num}<br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `
                 $('#finish').append(html);
             }
@@ -100,18 +103,19 @@ let displayCurrentInfo = (data, time_period) => {
             let obj = data['waiting'][i];
             if (obj.time_period == 'evening') {
                 let html = `
-                <div class="card my-2 p-3" id="${obj.appointment_id}">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            Name: <h3>${obj.patient_name}</h3>
-                        </div>
-                        <div class="col-lg-6 appointment-info">
-                            ID: ${obj.id_num}<br>
-                            Doctor: ${obj.doc_name}<br>
-                            Queue: ${obj.queue_num}<br>
+                    <div class="card my-2 p-3" id="${obj.appointment_id}">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                Name: <h3>${obj.patient_name}</h3>
+                            </div>
+                            <div class="col-lg-6 appointment-info">
+                                ID: ${obj.id_num}<br>
+                                Room: ${obj.room}<br>
+                                Doctor: ${obj.doc_name}<br>
+                                Queue: ${obj.queue_num}<br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `
                 $('#waiting').append(html);
             }
@@ -120,18 +124,19 @@ let displayCurrentInfo = (data, time_period) => {
             let obj = data['inProgress'][i];
             if (obj.time_period == 'evening') {
                 let html = `
-                <div class="card my-2 p-3" id="${obj.appointment_id}">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            Name: <h3>${obj.patient_name}</h3>
-                        </div>
-                        <div class="col-lg-6 appointment-info">
-                            ID: ${obj.id_num}<br>
-                            Doctor: ${obj.doc_name}<br>
-                            Queue: ${obj.queue_num}<br>
+                    <div class="card my-2 p-3" id="${obj.appointment_id}">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                Name: <h3>${obj.patient_name}</h3>
+                            </div>
+                            <div class="col-lg-6 appointment-info">
+                                ID: ${obj.id_num}<br>
+                                Room: ${obj.room}<br>
+                                Doctor: ${obj.doc_name}<br>
+                                Queue: ${obj.queue_num}<br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `
                 $('#inProgress').append(html);
             }
@@ -140,18 +145,19 @@ let displayCurrentInfo = (data, time_period) => {
             let obj = data['finish'][i];
             if (obj.time_period == 'evening') {
                 let html = `
-                <div class="card my-2 p-3" id="${obj.appointment_id}">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            Name: <h3>${obj.patient_name}</h3>
-                        </div>
-                        <div class="col-lg-6 appointment-info">
-                            ID: ${obj.id_num}<br>
-                            Doctor: ${obj.doc_name}<br>
-                            Queue: ${obj.queue_num}<br>
+                    <div class="card my-2 p-3" id="${obj.appointment_id}">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                Name: <h3>${obj.patient_name}</h3>
+                            </div>
+                            <div class="col-lg-6 appointment-info">
+                                ID: ${obj.id_num}<br>
+                                Room: ${obj.room}<br>
+                                Doctor: ${obj.doc_name}<br>
+                                Queue: ${obj.queue_num}<br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `
                 $('#finish').append(html);
             }
@@ -164,18 +170,19 @@ let displayCurrentInfo = (data, time_period) => {
             let obj = data['waiting'][i];
             if (obj.time_period == 'noon') {
                 let html = `
-                <div class="card my-2 p-3" id="${obj.appointment_id}">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            Name: <h3>${obj.patient_name}</h3>
-                        </div>
-                        <div class="col-lg-6 appointment-info">
-                            ID: ${obj.id_num}<br>
-                            Doctor: ${obj.doc_name}<br>
-                            Queue: ${obj.queue_num}<br>
+                    <div class="card my-2 p-3" id="${obj.appointment_id}">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                Name: <h3>${obj.patient_name}</h3>
+                            </div>
+                            <div class="col-lg-6 appointment-info">
+                                ID: ${obj.id_num}<br>
+                                Room: ${obj.room}<br>
+                                Doctor: ${obj.doc_name}<br>
+                                Queue: ${obj.queue_num}<br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `
                 $('#waiting').append(html);
             }
@@ -184,18 +191,19 @@ let displayCurrentInfo = (data, time_period) => {
             let obj = data['inProgress'][i];
             if (obj.time_period == 'noon') {
                 let html = `
-                <div class="card my-2 p-3" id="${obj.appointment_id}">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            Name: <h3>${obj.patient_name}</h3>
-                        </div>
-                        <div class="col-lg-6 appointment-info">
-                            ID: ${obj.id_num}<br>
-                            Doctor: ${obj.doc_name}<br>
-                            Queue: ${obj.queue_num}<br>
+                    <div class="card my-2 p-3" id="${obj.appointment_id}">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                Name: <h3>${obj.patient_name}</h3>
+                            </div>
+                            <div class="col-lg-6 appointment-info">
+                                ID: ${obj.id_num}<br>
+                                Room: ${obj.room}<br>
+                                Doctor: ${obj.doc_name}<br>
+                                Queue: ${obj.queue_num}<br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `
                 $('#inProgress').append(html);
             }
@@ -204,18 +212,19 @@ let displayCurrentInfo = (data, time_period) => {
             let obj = data['finish'][i];
             if (obj.time_period == 'noon') {
                 let html = `
-                <div class="card my-2 p-3" id="${obj.appointment_id}">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            Name: <h3>${obj.patient_name}</h3>
-                        </div>
-                        <div class="col-lg-6 appointment-info">
-                            ID: ${obj.id_num}<br>
-                            Doctor: ${obj.doc_name}<br>
-                            Queue: ${obj.queue_num}<br>
+                    <div class="card my-2 p-3" id="${obj.appointment_id}">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                Name: <h3>${obj.patient_name}</h3>
+                            </div>
+                            <div class="col-lg-6 appointment-info">
+                                ID: ${obj.id_num}<br>
+                                Room: ${obj.room}<br>
+                                Doctor: ${obj.doc_name}<br>
+                                Queue: ${obj.queue_num}<br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 `
                 $('#finish').append(html);
             }
