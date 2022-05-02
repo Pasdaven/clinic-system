@@ -46,7 +46,6 @@ class Appointment_mod extends Model {
         }
         return $result;
     }
-
     public function selectTimePeriod($appointment_id) {
         $sql = "SELECT * FROM appointment as A join schedule as S WHERE A.schedule_id = S.schedule_id AND appointment_id = '$appointment_id'";
         $result = $this->execute($sql);
