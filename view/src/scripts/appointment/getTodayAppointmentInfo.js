@@ -32,202 +32,211 @@ let displayCurrentInfo = (data, time_period) => {
     if (time_period == 'morning') {
         $('#morning-btn').removeClass('btn-outline-dark');
         $('#morning-btn').addClass('btn-primary');
+// display the appointment card to the page
+const displayCurrentInfo = (data) => {
+
+    resetBtn();
+
+    // if morning button clicked
+    if (time_period == 'morning') {
+
+        // waiting area
         for (i = 0; i < data['waiting'].length; i++) {
             let obj = data['waiting'][i];
             if (obj.time_period == 'morning') {
-                let html = `
-                    <div class="card my-2 p-3" id="${obj.appointment_id}">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                Name: <h3>${obj.patient_name}</h3>
-                            </div>
-                            <div class="col-lg-6 appointment-info">
-                                ID: ${obj.id_num}<br>
-                                Room: ${obj.room}<br>
-                                Doctor: ${obj.doc_name}<br>
-                                Queue: ${obj.queue_num}<br>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#waiting').append(html);
+
+                // if room 1 button clicked
+                if (room == '1') {
+                    if (obj.room == '1') {
+                        $('#waiting').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
+
+                // if room 2 button clicked
+                if (room == '2') {
+                    if (obj.room == '2') {
+                        $('#waiting').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
             }
         }
+
+        // inProgress area
         for (i = 0; i < data['inProgress'].length; i++) {
             let obj = data['inProgress'][i];
             if (obj.time_period == 'morning') {
-                let html = `
-                    <div class="card my-2 p-3" id="${obj.appointment_id}">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                Name: <h3>${obj.patient_name}</h3>
-                            </div>
-                            <div class="col-lg-6 appointment-info">
-                                ID: ${obj.id_num}<br>
-                                Room: ${obj.room}<br>
-                                Doctor: ${obj.doc_name}<br>
-                                Queue: ${obj.queue_num}<br>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#inProgress').append(html);
+
+                // if room 1 button clicked
+                if (room == '1') {
+                    if (obj.room == '1') {
+                        $('#inProgress').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
+
+                // if room 2 button clicked
+                if (room == '2') {
+                    if (obj.room == '2') {
+                        $('#inProgress').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
             }
         }
+
+        // finish area
         for (i = 0; i < data['finish'].length; i++) {
             let obj = data['finish'][i];
             if (obj.time_period == 'morning') {
-                let html = `
-                    <div class="card my-2 p-3" id="${obj.appointment_id}">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                Name: <h3>${obj.patient_name}</h3>
-                            </div>
-                            <div class="col-lg-6 appointment-info">
-                                ID: ${obj.id_num}<br>
-                                Room: ${obj.room}<br>
-                                Doctor: ${obj.doc_name}<br>
-                                Queue: ${obj.queue_num}<br>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#finish').append(html);
+
+                // if room 1 button clicked
+                if (room == '1') {
+                    if (obj.room == '1') {
+                        $('#finish').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
+
+                // if room 2 button clicked
+                if (room == '2') {
+                    if (obj.room == '2') {
+                        $('#finish').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
             }
         }
     }
+
+    // if evening button clicked
     if (time_period == 'evening') {
-        $('#evening-btn').removeClass('btn-outline-dark');
-        $('#evening-btn').addClass('btn-primary');
+
+        // waiting area
         for (i = 0; i < data['waiting'].length; i++) {
             let obj = data['waiting'][i];
             if (obj.time_period == 'evening') {
-                let html = `
-                    <div class="card my-2 p-3" id="${obj.appointment_id}">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                Name: <h3>${obj.patient_name}</h3>
-                            </div>
-                            <div class="col-lg-6 appointment-info">
-                                ID: ${obj.id_num}<br>
-                                Room: ${obj.room}<br>
-                                Doctor: ${obj.doc_name}<br>
-                                Queue: ${obj.queue_num}<br>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#waiting').append(html);
+
+                // if room 1 button clicked
+                if (room == '1') {
+                    if (obj.room == '1') {
+                        $('#waiting').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
+
+                // if room 2 button clicked
+                if (room == '2') {
+                    if (obj.room == '2') {
+                        $('#waiting').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
             }
         }
+
+        // inProgress area
         for (i = 0; i < data['inProgress'].length; i++) {
             let obj = data['inProgress'][i];
             if (obj.time_period == 'evening') {
-                let html = `
-                    <div class="card my-2 p-3" id="${obj.appointment_id}">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                Name: <h3>${obj.patient_name}</h3>
-                            </div>
-                            <div class="col-lg-6 appointment-info">
-                                ID: ${obj.id_num}<br>
-                                Room: ${obj.room}<br>
-                                Doctor: ${obj.doc_name}<br>
-                                Queue: ${obj.queue_num}<br>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#inProgress').append(html);
+
+                // if room 1 button clicked
+                if (room == '1') {
+                    if (obj.room == '1') {
+                        $('#inProgress').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
+
+                // if room 2 button clicked
+                if (room == '2') {
+                    if (obj.room == '2') {
+                        $('#inProgress').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
             }
         }
+
+        // finish area
         for (i = 0; i < data['finish'].length; i++) {
             let obj = data['finish'][i];
             if (obj.time_period == 'evening') {
-                let html = `
-                    <div class="card my-2 p-3" id="${obj.appointment_id}">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                Name: <h3>${obj.patient_name}</h3>
-                            </div>
-                            <div class="col-lg-6 appointment-info">
-                                ID: ${obj.id_num}<br>
-                                Room: ${obj.room}<br>
-                                Doctor: ${obj.doc_name}<br>
-                                Queue: ${obj.queue_num}<br>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#finish').append(html);
+
+                // if room 1 button clicked
+                if (room == '1') {
+                    if (obj.room == '1') {
+                        $('#finish').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
+
+                // if room 2 button clicked
+                if (room == '2') {
+                    if (obj.room == '2') {
+                        $('#finish').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
             }
         }
     }
+
+    // if noon button clicked
     if (time_period == 'noon') {
-        $('#noon-btn').removeClass('btn-outline-dark');
-        $('#noon-btn').addClass('btn-primary');
+
+        // waiting area
         for (i = 0; i < data['waiting'].length; i++) {
             let obj = data['waiting'][i];
             if (obj.time_period == 'noon') {
-                let html = `
-                    <div class="card my-2 p-3" id="${obj.appointment_id}">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                Name: <h3>${obj.patient_name}</h3>
-                            </div>
-                            <div class="col-lg-6 appointment-info">
-                                ID: ${obj.id_num}<br>
-                                Room: ${obj.room}<br>
-                                Doctor: ${obj.doc_name}<br>
-                                Queue: ${obj.queue_num}<br>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#waiting').append(html);
+
+                // if room 1 button clicked
+                if (room == '1') {
+                    if (obj.room == '1') {
+                        $('#waiting').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
+
+                // if room 2 button clicked
+                if (room == '2') {
+                    if (obj.room == '2') {
+                        $('#waiting').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
             }
         }
+
+        // inProgress area
         for (i = 0; i < data['inProgress'].length; i++) {
             let obj = data['inProgress'][i];
             if (obj.time_period == 'noon') {
-                let html = `
-                    <div class="card my-2 p-3" id="${obj.appointment_id}">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                Name: <h3>${obj.patient_name}</h3>
-                            </div>
-                            <div class="col-lg-6 appointment-info">
-                                ID: ${obj.id_num}<br>
-                                Room: ${obj.room}<br>
-                                Doctor: ${obj.doc_name}<br>
-                                Queue: ${obj.queue_num}<br>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#inProgress').append(html);
+
+                // if room 1 button clicked
+                if (room == '1') {
+                    if (obj.room == '1') {
+                        $('#inProgress').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
+
+                // if room 2 button clicked
+                if (room == '2') {
+                    if (obj.room == '2') {
+                        $('#inProgress').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
             }
         }
+
+        // finish area
         for (i = 0; i < data['finish'].length; i++) {
             let obj = data['finish'][i];
             if (obj.time_period == 'noon') {
-                let html = `
-                    <div class="card my-2 p-3" id="${obj.appointment_id}">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                Name: <h3>${obj.patient_name}</h3>
-                            </div>
-                            <div class="col-lg-6 appointment-info">
-                                ID: ${obj.id_num}<br>
-                                Room: ${obj.room}<br>
-                                Doctor: ${obj.doc_name}<br>
-                                Queue: ${obj.queue_num}<br>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#finish').append(html);
+
+                // if room 1 button clicked
+                if (room == '1') {
+                    if (obj.room == '1') {
+                        $('#finish').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
+
+                // if room 2 button clicked
+                if (room == '2') {
+                    if (obj.room == '2') {
+                        $('#finish').append(cardComponent(obj.appointment_id, obj.patient_name, obj.id_num, obj.room, obj.doc_name, obj.queue_num));
+                    }
+                }
             }
         }
     }
+}
+
 }
