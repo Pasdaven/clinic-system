@@ -30,10 +30,14 @@
         </div>
         <div class="container py-5">
             <div class="row text-center justify-content-center">
-                <div class="col-lg-4">
-                    <button class="btn btn-outline-dark px-3 py-2 mx-2" id="morning-btn" onclick="getTodayAppointmentInfo('morning')">Morning</button>
-                    <button class="btn btn-outline-dark px-3 py-2 mx-2" id="evening-btn" onclick="getTodayAppointmentInfo('evening')">Evening</button>
-                    <button class="btn btn-outline-dark px-3 py-2 mx-2" id="noon-btn" onclick="getTodayAppointmentInfo('noon')">Noon</button>
+                <div class="col-lg-4 d-flex justify-content-end">
+                    <button class="btn btn-outline-dark px-3 py-2 mx-2" id="morning-btn" onclick="setTimePeriod('morning')">Morning</button>
+                    <button class="btn btn-outline-dark px-3 py-2 mx-2" id="evening-btn" onclick="setTimePeriod('evening')">Evening</button>
+                    <button class="btn btn-outline-dark px-3 py-2 mx-2" id="noon-btn" onclick="setTimePeriod('noon')">Noon</button>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-start btn-border">
+                    <button class="btn btn-outline-dark px-3 py-2 mx-2" id="room-1-btn" onclick="setRoom('1')">Room 1</button>
+                    <button class="btn btn-outline-dark px-3 py-2 mx-2" id="room-2-btn" onclick="setRoom('2')">Room 2</button>
                 </div>
             </div>
             <div class="row my-5">
