@@ -20,6 +20,23 @@ const getTodayAppointmentInfo = () => {
 let time_period = "morning";
 let room = "1";
 
+const cardComponent = (appointment_id, patient_name, id_num, room, doc_name, queue_num) => {
+    return `
+        <div class="card my-2 p-3" id="${appointment_id}">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    Name: <h3>${patient_name}</h3>
+                </div>
+                <div class="col-lg-6 appointment-info">
+                    ID: ${id_num}<br>
+                    Room: ${room}<br>
+                    Doctor: ${doc_name}<br>
+                    Queue: ${queue_num}<br>
+                </div>
+            </div>
+        </div>
+    `;
+}
 
 const resetBtn = () => {
     $('#morning-btn').removeClass('btn-primary');
