@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(() => {
     appointment_url = getUrl();
     let data = {
         controller: 'appointment_ctrl',
@@ -16,12 +16,12 @@ $(document).ready(() => {
     });
 });
 
-let getUrl = () => {
+const getUrl = () => {
     let param = new URLSearchParams(window.location.search);
     return param.get('u');
 }
 
-let displayInfo = data => {
+const displayInfo = data => {
     let html = 'Current queue number: ' + data.current_queue_num;
     $('#currentQueueNum').html(html);
     html = 'Name: ' + data.patient_name + '<br>' + 'state: ' + data.appointment_state + '<br>' + 'Queue Number: ' + data.queue_num + '<br>' + 'Doctor: ' + data.doc_name;

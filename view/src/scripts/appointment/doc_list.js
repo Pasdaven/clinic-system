@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(() => {
     let data = {
         controller: 'appointment_ctrl',
         method: 'getAvailableDoc'
@@ -12,7 +12,7 @@ $(document).ready(() => {
     });
 });
 
-let createDocList = data => {
+const createDocList = data => {
     for (i = 0; i < data.length; i++) {
         let obj = data[i];
         let row = document.createElement('tr');

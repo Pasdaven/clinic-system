@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(() => {
     $('#submitBtn').click(() => {
         let patient_name = $('#name').val();
         let id_num = $('#id_num').val();
@@ -25,7 +25,7 @@ $(document).ready(() => {
     });
 });
 
-let showModal = url => {
+const showModal = url => {
     let data = '<a href="/clinic-system/view/appointmentHistory/index.html?u=' + url + '" target="_blank">Link</a>';
     $('#link').html(data);
     $('#model').modal('show');

@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(() => {
     $(".sortable").disableSelection();
     $(".sortable").sortable({
         revert: true,
@@ -27,7 +27,7 @@ $(document).ready(() => {
     });
 });
 
-let displayToast = res => {
+const displayToast = res => {
     let state_color;
     if (res.state == "waiting") {
         state_color = "text-primary";

@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(() => {
     let time = new Date();
     let date = formatDate(time);
     let hour = time.getHours();
@@ -41,7 +41,7 @@ $(document).ready(() => {
     }
 });
 
-let displayCurrentInfo = data => {
+const displayCurrentInfo = data => {
     $('#time_period').html('Time: ' + data[0].time_period);
     for (i = 0; i < data.length; i++) {
         let obj = data[i];
@@ -67,11 +67,11 @@ let displayCurrentInfo = data => {
     }
 }
 
-let displayError = () => {
+const displayError = () => {
     $('#time_period').html('There is no available doctor now');
 }
 
-let formatDate = (date) => {
+const formatDate = (date) => {
     let formatted_date = date.getFullYear() + "-"  + (date.getMonth() + 1) + "-" + date.getDate();
     return formatted_date;
 }
