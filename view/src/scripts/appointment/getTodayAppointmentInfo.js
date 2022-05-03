@@ -239,4 +239,12 @@ const displayCurrentInfo = (data) => {
     }
 }
 
+const setTimePeriod = new_time_period => {
+    time_period = new_time_period;
+    getTodayAppointmentInfo();
+}
+
+const setRoom = new_room => {
+    room = new_room;
+    getTodayAppointmentInfo();
 }
