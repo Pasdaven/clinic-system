@@ -1,5 +1,5 @@
-$(document).ready(() => {
-    getTodayAppointmentInfo('morning');
+$(() => {
+    getTodayAppointmentInfo();
 });
 
 let getTodayAppointmentInfo = (time_period) => {
