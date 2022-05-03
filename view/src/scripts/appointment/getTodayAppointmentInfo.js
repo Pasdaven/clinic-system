@@ -2,7 +2,7 @@ $(() => {
     getTodayAppointmentInfo();
 });
 
-let getTodayAppointmentInfo = (time_period) => {
+const getTodayAppointmentInfo = () => {
     let data = {
         controller: 'appointment_ctrl',
         method: 'getTodayAppointmentInfo',
@@ -12,11 +12,14 @@ let getTodayAppointmentInfo = (time_period) => {
         url: '/clinic-system/controller/core.php',
         method: 'POST',
         data: json,
-        success: res => displayCurrentInfo(res, time_period)
+        success: res => displayCurrentInfo(res)
     });
 }
 
-let displayCurrentInfo = (data, time_period) => {
+// Preset the time_period button to "morning" and room button to "room 1"
+let time_period = "morning";
+let room = "1";
+
 
 const resetBtn = () => {
     $('#morning-btn').removeClass('btn-primary');
