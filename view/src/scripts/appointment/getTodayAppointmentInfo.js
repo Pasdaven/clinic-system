@@ -18,13 +18,17 @@ let getTodayAppointmentInfo = (time_period) => {
 
 let displayCurrentInfo = (data, time_period) => {
 
+const resetBtn = () => {
     $('#morning-btn').removeClass('btn-primary');
     $('#evening-btn').removeClass('btn-primary');
     $('#noon-btn').removeClass('btn-primary');
+    $('#room-1-btn').removeClass('btn-secondary');
+    $('#room-2-btn').removeClass('btn-secondary');
     $('#morning-btn').addClass('btn-outline-dark');
     $('#evening-btn').addClass('btn-outline-dark');
     $('#noon-btn').addClass('btn-outline-dark');
-
+    $('#room-1-btn').addClass('btn-outline-dark');
+    $('#room-2-btn').addClass('btn-outline-dark');
     $('#waiting').html('');
     $('#inProgress').html('');
     $('#finish').html('');
@@ -32,6 +36,25 @@ let displayCurrentInfo = (data, time_period) => {
     if (time_period == 'morning') {
         $('#morning-btn').removeClass('btn-outline-dark');
         $('#morning-btn').addClass('btn-primary');
+    }
+    if (time_period == 'evening') {
+        $('#evening-btn').removeClass('btn-outline-dark');
+        $('#evening-btn').addClass('btn-primary');
+    }
+    if (time_period == 'noon') {
+        $('#noon-btn').removeClass('btn-outline-dark');
+        $('#noon-btn').addClass('btn-primary');
+    }
+    if (room == '1') {
+        $('#room-1-btn').removeClass('btn-outline-dark');
+        $('#room-1-btn').addClass('btn-secondary');
+    }
+    if (room == '2') {
+        $('#room-2-btn').removeClass('btn-outline-dark');
+        $('#room-2-btn').addClass('btn-secondary');
+    }
+}
+
 // display the appointment card to the page
 const displayCurrentInfo = (data) => {
 
