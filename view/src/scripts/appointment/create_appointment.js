@@ -28,5 +28,5 @@ $(() => {
 const showModal = url => {
     let data = '<a href="/clinic-system/view/appointmentHistory/index.html?u=' + url + '" target="_blank">Link</a>';
     $('#link').html(data);
-    $('#model').modal('show');
+    $('#modal').modal('show');
 }
