@@ -241,4 +241,9 @@ class Appointment_ctrl extends Appointment_mod {
 
         return $list;
     }
+
+    public function setAppointmentCancel($param) {
+        $data = $this->getAppointmentInfo($param);
+        $this->updateState($data['appointment_id'], "cancel");
+    }
 }
