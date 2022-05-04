@@ -190,7 +190,7 @@ class Appointment_ctrl extends Appointment_mod {
         $data = $this->selectTimePeriod($appointment_id);
         return $data['time_period'];
     }
-    
+
     private function getAppointmentRoom($appointment_id) {
         $data = $this->selectTimePeriod($appointment_id);
         return $data['room'];
