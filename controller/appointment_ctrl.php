@@ -70,6 +70,89 @@ class Appointment_ctrl extends Appointment_mod {
         return $current;
     }
 
+    // 計算預估的看診時間
+    private function calcEstimatedTime($appointment_id, $queue_num, $time_period) {
+        $list = $this->selectSameDateSameSchId($appointment_id);
+        $count = 0;
+        for ($i = 0; $i < count($list); $i++) {
+            if ($list[$i]['queue_num'] < $queue_num && $list[$i]['appointment_state'] != "cancel" && $list[$i]['appointment_state'] != "finish") {
+                $count++;
+            }
+        }
+        $hour = date("H");
+        // $hour = 8;
+        if ($hour < 10) {
+            if ($time_period == "morning") {
+                $minutes_to_add = $count * 3;
+                $time = new DateTime('10:00');
+                $time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+                $stamp = $time->format('H:i');
+            }
+            if ($time_period == "evening") {
+                $minutes_to_add = $count * 3;
+                $time = new DateTime('14:00');
+                $time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+                $stamp = $time->format('H:i');
+            }
+            if ($time_period == "noon") {
+                $minutes_to_add = $count * 3;
+                $time = new DateTime('18:00');
+                $time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+                $stamp = $time->format('H:i');
+                return $stamp;
+            }
+        } else if ($hour < 14) {
+            if ($time_period == "morning") {
+                $duration = "+" . ($count * 3) . " minutes";
+                $stamp = date("H:i", strtotime($duration));
+            }
+            if ($time_period == "evening") {
+                $minutes_to_add = $count * 3;
+                $time = new DateTime('14:00');
+                $time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+                $stamp = $time->format('H:i');
+                return $stamp;
+            }
+            if ($time_period == "noon") {
+                $minutes_to_add = $count * 3;
+                $time = new DateTime('18:00');
+                $time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+                $stamp = $time->format('H:i');
+                return $stamp;
+            }
+        } else if ($hour < 18) {
+            if ($time_period == "morning") {
+                $duration = "+" . ($count * 3) . " minutes";
+                $stamp = date("H:i", strtotime($duration));
+            }
+            if ($time_period == "evening") {
+                $duration = "+" . ($count * 3) . " minutes";
+                $stamp = date("H:i", strtotime($duration));
+            }
+            if ($time_period == "noon") {
+                $minutes_to_add = $count * 3;
+                $time = new DateTime('18:00');
+                $time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+                $stamp = $time->format('H:i');
+            }
+        } else {
+            if ($time_period == "morning") {
+                $duration = "+" . ($count * 3) . " minutes";
+                $stamp = date("H:i", strtotime($duration));
+            }
+            if ($time_period == "evening") {
+                $duration = "+" . ($count * 3) . " minutes";
+                $stamp = date("H:i", strtotime($duration));
+            }
+            if ($time_period == "noon") {
+                $duration = "+" . ($count * 3) . " minutes";
+                $stamp = date("H:i", strtotime($duration));
+            }
+        }
+
+        return $stamp;
+    }
+
     // 查詢傳入URL對應的掛號資訊
     public function getAppointmentInfo($param) {
         $Schedule = new Schedule_ctrl();
