@@ -158,8 +158,12 @@ class Appointment_ctrl extends Appointment_mod {
         $Schedule = new Schedule_ctrl();
         $appointment_url = $param['appointment_url'];
         $result = $this->selectUrl($appointment_url);
+        if ($result == '') return 'error';
         $result['doc_name'] = $Schedule->getDocName($result['schedule_id']);
         $result['current_queue_num'] = $this->getSpecificCurrentQueueNum($result['create_date'], $result['schedule_id']);
+        $result['time_period'] = $this->getAppointmentTimePeriod($result['appointment_id']);
+        $result['room'] = $this->getAppointmentRoom($result['appointment_id']);
+        $result['estimated_time'] = $this->calcEstimatedTime($result['appointment_id'], $result['queue_num'], $result['time_period']);
         return $result;
     }
 
