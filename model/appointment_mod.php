@@ -52,4 +52,13 @@ class Appointment_mod extends Model {
         $data = mysqli_fetch_assoc($result);
         return $data;
     }
+    public function selectSameDateSameSchId($appointment_id) {
+        $sql = "SELECT * FROM appointment WHERE create_date = (SELECT create_date FROM appointment WHERE appointment_id = '$appointment_id') AND schedule_id = (SELECT schedule_id FROM appointment WHERE appointment_id = '$appointment_id');";
+        $list = $this->execute($sql);
+        $result = array();
+        while ($row = mysqli_fetch_assoc($list)) {
+            $result[] = $row;
+        }
+        return $result;
+    }
 }
