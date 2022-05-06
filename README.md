@@ -6,7 +6,7 @@ The project of Database Systems course, provide clinic management doctors and pa
 
 ## Screenshots
 
-![App Screenshot](https://raw.githubusercontent.com/davidho0403/clinic-system/main/view/src/image/screenshot.png)
+![App Screenshot](/view/src/image/screenshot.png)
 
 
 ## Features
@@ -48,7 +48,7 @@ The project of Database Systems course, provide clinic management doctors and pa
   git clone https://github.com/davidho0403/clinic-system.git
 ```
 
-3. Setup db connection info **db_con.php**
+1. Setup db connection info [**db_con.php**](/database/db_con.php)
 
 ```bash
   cd /database/
@@ -56,7 +56,7 @@ The project of Database Systems course, provide clinic management doctors and pa
 
 4. Run XAMPP Apache Server and Database Server
 
-5. Execute [create_tables.sql](https://github.com/davidho0403/clinic-system/blob/main/database/create_tables.sql) and [add_test_data.sql](https://github.com/davidho0403/clinic-system/blob/main/database/add_test_data.sql) in the DBMS
+5. Execute [**create_tables.sql**](/database/create_tables.sql) and [**add_test_data.sql**](/database/add_test_data.sql) in the DBMS
 
 6. Open homepage [localhost/clinic-system/view/clinic/](http://localhost/clinic-system/view/clinic/)
 
