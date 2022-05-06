@@ -16,8 +16,8 @@ The project of Database Systems course, provide clinic management doctors and pa
 - Edit Appointment
 - Search Patient Records
 - Search / Update / Add Patient Information
-- Search / Update /Add Doctor Information
-- Search / Update /Add Medicine Information
+- Search / Update / Add Doctor Information
+- Search / Update / Add Medicine Information
 - Doctor Schedule
 - Update Doctor Schedule
 
