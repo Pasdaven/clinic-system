@@ -59,3 +59,11 @@ The project of Database Systems course, provide clinic management doctors and pa
 5. Execute [create_tables.sql](https://github.com/davidho0403/clinic-system/blob/main/database/create_tables.sql) and [add_test_data.sql](https://github.com/davidho0403/clinic-system/blob/main/database/add_test_data.sql) in the DBMS
 
 6. Open homepage [localhost/clinic-system/view/clinic/](http://localhost/clinic-system/view/clinic/)
+
+## Authors
+
+- [@davidho0403](https://github.com/davidho0403)
+
+- [@ridemountainpig](https://www.github.com/ridemountainpig)
+
+- [@pascal910107](https://www.github.com/pascal910107)
