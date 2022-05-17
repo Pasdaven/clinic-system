@@ -48,7 +48,7 @@ The project of Database Systems course, provide clinic management doctors and pa
   git clone https://github.com/davidho0403/clinic-system.git
 ```
 
-1. Setup db connection info [**db_con.php**](/database/db_con.php)
+3. Setup db connection info [**db_con.php**](/database/db_con.php)
 
 ```bash
   cd /database/
