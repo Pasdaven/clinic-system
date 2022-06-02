@@ -7,8 +7,8 @@ class Patient_mod extends Model {
     protected $table = 'patient';
     protected $key_name = 'case_id';
 
-    public function add_records($case_id, $doc_id, $consulation_date, $disease_name, $med_days, $comment) {
-        $sql = "INSERT INTO patient_records VALUES (NULL, '$case_id', '$doc_id', '$consulation_date', '$disease_name', '$med_days', '$comment')";
+    public function add_records($case_id, $doc_id, $consultation_date, $disease_name, $med_days, $comment) {
+        $sql = "INSERT INTO patient_records VALUES (NULL, '$case_id', '$doc_id', '$consultation_date', '$disease_name', '$med_days', '$comment')";
         return $this->execute($sql);
     }
     public function add_med_list($record_id, $i) {

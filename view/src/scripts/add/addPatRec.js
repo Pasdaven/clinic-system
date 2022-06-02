@@ -19,7 +19,7 @@ function addPatRec() {
         parameter: {
             id_num: id_num,
             doc_id: doc_id,
-            consulation_date: date,
+            consultation_date: date,
             disease_name: disease_name,
             med_days: med_days,
             comment: comment,

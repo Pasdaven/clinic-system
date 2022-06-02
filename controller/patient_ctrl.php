@@ -68,12 +68,12 @@ class Patient_ctrl extends Patient_mod {
     public function addPatRec($param) {
         $id_num = $param['id_num'];
         $doc_id = $param['doc_id'];
-        $consulation_date = $param['consulation_date'];
+        $consultation_date = $param['consultation_date'];
         $disease_name = $param['disease_name'];
         $med_days = $param['med_days'];
         $comment = $param['comment'];
         $case_id = $this->getOtherAttr('id_num', $this->table, $id_num, 'case_id');
-        $this->add_records($case_id[0]['case_id'], $doc_id, $consulation_date, $disease_name, $med_days, $comment);
+        $this->add_records($case_id[0]['case_id'], $doc_id, $consultation_date, $disease_name, $med_days, $comment);
 
         $patient_show_rec = $this->showRecords($param);
         $record_id = $patient_show_rec[count($patient_show_rec) - 1]['record_id'];

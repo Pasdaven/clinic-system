@@ -37,7 +37,7 @@ CREATE TABLE patient_records (
   record_id INT UNSIGNED PRIMARY KEY auto_increment comment '看診紀錄編號',
   case_id INT UNSIGNED NOT NULL comment '病歷號碼',
   doc_id INT UNSIGNED NOT NULL comment '醫生編號',
-  consulation_date DATE comment '看診日期',
+  consultation_date DATE comment '看診日期',
   disease_name VARCHAR(20) comment '疾病名稱',
   med_days INT UNSIGNED comment '用藥天數',
   comment VARCHAR(100) NULL comment '備註',

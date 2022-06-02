@@ -29,7 +29,7 @@ function getPatRec() {
                     let text1 = `
                         <h4 id="${data[i]['record_id']}">Record Number : ${data[i]['record_id']}</h4>
                         <div>
-                            Consulation Data : ${data[i]['consulation_date']}<br>
+                            Consultation Data : ${data[i]['consultation_date']}<br>
                             Doctor ID : ${data[i]['doc_id']}<br>
                             Disease Name : ${data[i]['disease_name']}<br>
                             Medicine Days : ${data[i]['med_days']}<br>
