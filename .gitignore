@@ -8,3 +8,6 @@
 
 # dotenv
 .env
+
+# VSCodeCounter
+.VSCodeCounter
