@@ -6,14 +6,24 @@ $(() => {
     let time_period;
 
     switch (hour) {
-        case 10, 11, 12:
-            time_period = 'morning';
-        case 14, 15, 16:
-            time_period = 'evening';
-        case 18, 19, 20:
-            time_period = 'noon';
+        case 10:
+        case 11:
+        case 12:
+            time_period = "morning";
+            break;
+        case 14:
+        case 15:
+        case 16:
+            time_period = "evening";
+            break;
+        case 18:
+        case 19:
+        case 20:
+            time_period = "noon";
+            break;
         default:
-            time_period = 'NULL';
+            time_period = "NULL";
+            break;
     }
 
     // 測試用，將時段預設為早上
