@@ -17,7 +17,7 @@ $(() => {
     }
 
     // 測試用，將時段預設為早上
-    time_period = 'morning';
+    // time_period = 'morning';
 
     let data = {
         controller: "appointment_ctrl",
