@@ -20,29 +20,29 @@ $(() => {
     time_period = 'morning';
 
     let data = {
-        controller: 'appointment_ctrl',
-        method: 'getCurrentQueueNum',
+        controller: "appointment_ctrl",
+        method: "getCurrentQueueNum",
         parameter: {
             date: date,
             week_day: week_day,
-            time_period: time_period
-        }
-    }
+            time_period: time_period,
+        },
+    };
     let json = JSON.stringify(data);
-    if (time_period != 'NULL') {
+    if (time_period != "NULL") {
         $.ajax({
-            url: '/clinic-system/controller/core.php',
-            method: 'POST',
+            url: "/clinic-system/controller/core.php",
+            method: "POST",
             data: json,
-            success: res => displayCurrentInfo(res)
+            success: (res) => displayCurrentInfo(res),
         });
     } else {
         displayError();
     }
 });
 
-const displayCurrentInfo = data => {
-    $('#time_period').html('Time: ' + data[0].time_period);
+const displayCurrentInfo = (data) => {
+    $("#time_period").html("Time: " + data[0].time_period);
     for (i = 0; i < data.length; i++) {
         let obj = data[i];
         let html = `
@@ -62,16 +62,16 @@ const displayCurrentInfo = data => {
                     </div>
                 </div>
             </div>
-        `
-        $('#info_area').append(html);
+        `;
+        $("#info_area").append(html);
     }
-}
+};
 
 const displayError = () => {
-    $('#time_period').html('There is no available doctor now');
-}
+    $("#time_period").html("There is no available doctor now");
+};
 
 const formatDate = (date) => {
-    let formatted_date = date.getFullYear() + "-"  + (date.getMonth() + 1) + "-" + date.getDate();
+    let formatted_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
     return formatted_date;
-}
+};
