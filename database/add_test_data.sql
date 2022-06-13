@@ -27,6 +27,10 @@ INSERT INTO `patient_records`
 VALUES  (NULL, '1', '1000', '2022-03-20', 'AIDS', '30', NULL),
         (NULL, '3', '1012', '2022-03-10', 'COVID-19', '12', NULL),
         (NULL, '2', '1016', '2022-04-10', 'COVID-20', '3', NULL),
+        (NULL, '4', '1012', '2022-03-10', 'COVID-190', '12', NULL),
+        (NULL, '2', '1016', '2022-04-10', 'COVID-20', '3', NULL),
+        (NULL, '5', '1012', '2022-02-10', 'COVID-119', '2', NULL),
+        (NULL, '2', '1016', '2022-04-10', 'COVID-120', '3', NULL),
         (NULL, '3', '1012', '2022-03-15', 'COVID-16', '5', NULL);
 
 -- Schedule SQL insert example model
@@ -76,8 +80,14 @@ VALUES  (NULL, '1000', '1', 'morning', '1'),
         
 --  allergr_med SQL insert example model
 INSERT INTO `allergy_list`
-VALUES ('1', '10'), 
-       ('1', '3');
+VALUES ('1', '10'),
+       ('3', '3'), 
+       ('5', '10'), 
+       ('1', '1'), 
+       ('3', '6'), 
+       ('4', '12'), 
+       ('2', '10'), 
+       ('2', '3');
 
 --  med_list SQL insert example model
 
